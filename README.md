@@ -4,10 +4,18 @@
 Repozitorij vsebuje kodo za izdelavo spletne trogovine pri predmetu elektronsko poslovanje v študijskem letu 2020/21.
 Uporabljene tehnologije: PHP, HTML, CSS, JavaScript, SQL, Android 
 
+## Certifikati 
+
+**Ime certifikatne agencije:** Spletna Trgovina CA
+**Email CA:** ca@ep.si
+**Uporabnisko ime** ep
+**Geslo:** ep 
+**Admin:** admin@ep.si
+
 ## TODO:
 
 - [x] bazo (sql script)
-- [ ] certifikatna agencija (1 admin, 2 prodajalca)
+- [x] certifikatna agencija (1 admin, 2 prodajalca)
 - [ ] zaslon za registracijo + spremenit za posamezni tip uporabnika, detajli artikla
 
 - [ ] posodibtev lastnih atributov za vse uporabnike
