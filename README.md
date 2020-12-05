@@ -1,4 +1,10 @@
-todo:
+# Seminarska naloga
+## Elektronsko poslovanje, FRI 2020/21
+
+Repozitorij vsebuje kodo za izdelavo spletne trogovine pri predmetu elektronsko poslovanje v študijskem letu 2020/21.
+Uporabljene tehnologije: PHP, HTML, CSS, JavaScript, SQL, Android 
+
+## TODO:
 
 -bazo
 -certifikatna agencija (1 admin, 2 prodajalca)
