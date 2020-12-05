@@ -16,7 +16,7 @@ Uporabljene tehnologije: PHP, HTML, CSS, JavaScript, SQL, Android
 
 - [x] bazo (sql script)
 - [x] certifikatna agencija (1 admin, 2 prodajalca)
-- [ ] zaslon za registracijo + spremenit za posamezni tip uporabnika, detajli artikla
+- [X] zaslon za registracijo + spremenit za posamezni tip uporabnika, detajli artikla
 
 - [ ] posodibtev lastnih atributov za vse uporabnike
 - [ ] hierarhično posodabljanje in kreacija tipov uporabnikov (spet svoja stran))
