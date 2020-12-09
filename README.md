@@ -37,7 +37,16 @@ Uporabljene tehnologije: PHP, HTML, CSS, JavaScript, SQL, Android
 - [ ] registracija novega uporabnika (se ga doda kot tip stranka)
 - [ ] uporabnik vpiše email in izpolni captcho
 - [ ] na email dobi geslo za prvo prijavo (itak geslo lahko pole spremeni)
+----------------------------------------------------------------------------
 
+### Naloge (napiši se zravn takoj ko začneš delat)
+
+-izpis artiklov
+-ustvaritev stranke
+-ustvartiev artikla 
+-x-artikel - izpiše detajle klik na izbran artikel povede na stran x-artikel
+-sprememba svojih atribtuov (sepravi x-nastative)
+-spremmeba atributov ostalih 
 
 ----------------------------------------------------------------------------
 
