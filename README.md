@@ -42,7 +42,7 @@ Uporabljene tehnologije: PHP, HTML, CSS, JavaScript, SQL, Android
 ### Naloge (napiši se zravn takoj ko začneš delat)
 
 -izpis artiklov
--ustvaritev stranke
+-ustvaritev stranke 
 -ustvartiev artikla 
 -x-artikel - izpiše detajle klik na izbran artikel povede na stran x-artikel
 -sprememba svojih atribtuov (sepravi x-nastative)
