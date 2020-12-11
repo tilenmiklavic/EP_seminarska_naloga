@@ -31,27 +31,33 @@ class ArtikliDB {
         return $statement->fetch();
     }
 
-    public static function insert($opis, $status, $slike, $podrobnosti_narocila_id) {                
+    public static function insert($ime, $avtor, $zalozba, $cena, $slike, $naslov_slike) {                
         $db = DBInit::getInstance();
         
-        $statement = $db->prepare("INSERT into artikli (opis, status, slike, podrobnosti_narocila_id) values (?, ?, ?, ?);");
-        $statement->bindParam(1, $opis);
-        $statement->bindParam(2, $status);
-        $statement->bindParam(3, $slike);
-        $statement->bindParam(4, $podrobnosti_narocila_id);
+        $statement = $db->prepare("INSERT into artikli (ime, avtor, zalozba, cena, slike, naslov_slike) values (?, ?, ?, ?, ?, ?);");
+        $statement->bindParam(1, $ime);
+        $statement->bindParam(2, $avtor);
+        $statement->bindParam(3, $zalozba);
+        $statement->bindParam(4, $cena);
+        $statement->bindParam(5, $slike);
+        $statement->bindParam(6, $naslov_slike);
+
 
         $statement->execute();
     }
     
-    public static function edit($id, $opis, $status, $slike, $podrobnosti_narocila_id) {
+    public static function edit($id, $ime, $avtor, $zalozba, $cena, $slike, $naslov_slike) {
         
         $db = DBInit::getInstance();
         
-        $statement = $db->prepare("update artikli set opis=?, status=?, slike=?, podrobnosti_narocila_id=? where id=$id");
-        $statement->bindParam(1, $opis);
-        $statement->bindParam(2, $status);
-        $statement->bindParam(3, $slike);
-        $statement->bindParam(4, $podrobnosti_narocila_id);
+        $statement = $db->prepare("update artikli set ime=?, avtor=?, zalozba=?, cena=?, slike=?, naslov_slike=? where id=$id");
+        $statement->bindParam(1, $ime);
+        $statement->bindParam(2, $avtor);
+        $statement->bindParam(3, $zalozba);
+        $statement->bindParam(4, $cena);
+        $statement->bindParam(5, $slike);
+        $statement->bindParam(6, $naslov_slike);
+
 
         $statement->execute();
 
