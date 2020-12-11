@@ -70,3 +70,7 @@ ENGINE = InnoDB;
 SET SQL_MODE=@OLD_SQL_MODE;
 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
+
+INSERT INTO artikli (ime, avtor, zalozba, cena, slike, naslov_slike) VALUES ("Harry Potter", "J.K. Rowling", "Mladinska Knjiga", 50, NULL, "https://images-na.ssl-images-amazon.com/images/I/81iqZ2HHD-L.jpg");
+INSERT INTO artikli (ime, avtor, zalozba, cena, slike, naslov_slike) VALUES ("Gospodar Prstanov", "J.R.R. Tolkien", "Mladinska Knjiga", 50, NULL, "https://images-na.ssl-images-amazon.com/images/I/8134AkhQJgL.jpg");
+INSERT INTO artikli (ime, avtor, zalozba, cena, slike, naslov_slike) VALUES ("Stoparski vodic po galaksiji", "Douglas Adams", "Mladinska Knjiga", 50, NULL, "https://images.penguinrandomhouse.com/cover/9781400052929");
