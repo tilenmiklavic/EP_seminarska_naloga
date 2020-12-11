@@ -39,7 +39,6 @@ ENGINE = InnoDB;
 CREATE TABLE IF NOT EXISTS `trgovina`.`narocila` (
   `id` INT NOT NULL AUTO_INCREMENT,
   `uporabniki_id` INT NOT NULL,
-  `status` VARCHAR(45) NOT NULL,
   PRIMARY KEY (`id`, `uporabniki_id`),
   UNIQUE INDEX `id_UNIQUE` (`id` ASC) VISIBLE,
   INDEX `fk_narocila_uporabniki_idx` (`uporabniki_id` ASC) VISIBLE,
@@ -73,11 +72,13 @@ ENGINE = InnoDB;
 -- Table `trgovina`.`artikli`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `trgovina`.`artikli` (
-  `id` INT NOT NULL AUTO_INCREMENT,
-  `opis` VARCHAR(45) NULL DEFAULT NULL,
-  `status` VARCHAR(45) NULL DEFAULT NULL,
-  `slike` LONGBLOB NULL DEFAULT NULL,
-  `podrobnosti_narocila_id` INT NOT NULL,
+  `id` INT UNSIGNED NOT NULL AUTO_INCREMENT,
+  `ime` VARCHAR(45) NOT NULL,
+  `avtor` VARCHAR(45) NOT NULL,
+  `slike` LONGBLOB NULL,
+  `podrobnosti_narocila_id` INT NULL,
+  `cena` INT NOT NULL,
+  `zalozba` VARCHAR(45) NULL,
   PRIMARY KEY (`id`, `podrobnosti_narocila_id`),
   UNIQUE INDEX `id_UNIQUE` (`id` ASC) VISIBLE,
   INDEX `fk_artikli_podrobnosti_narocila1_idx` (`podrobnosti_narocila_id` ASC) VISIBLE,
@@ -92,6 +93,3 @@ ENGINE = InnoDB;
 SET SQL_MODE=@OLD_SQL_MODE;
 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
-
-
-INSERT INTO `uporabniki` (id, tip, certifikat, uporabnisko_ime, geslo, ime, priimek, status) VALUES (1, "admin", null, "admin", "admin", "Janez", "Novak", "aktiviran");
