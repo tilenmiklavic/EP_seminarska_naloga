@@ -60,8 +60,8 @@
 				<a class="dropdown-item disabled" href="#">Stran uporabljate kot gost</a>
 				<div class="dropdown-divider"></div>
 				<a class="dropdown-item" href="#"><i class="fas fa-box-open"></i></i> Seznam artiklov</a>
-				<a class="dropdown-item" href="prijava"><i class="fas fa-sign-in-alt"></i> Prijava</a>
-				<a class="dropdown-item" href="registracija"><i class="fas fa-user-plus"></i> Registracija</a>
+				<a class="dropdown-item" href="#"><i class="fas fa-sign-in-alt"></i> Prijava</a>
+				<a class="dropdown-item" href="#"><i class="fas fa-user-plus"></i> Registracija</a>
 				
 			</div>
 			</li>
@@ -83,27 +83,61 @@
   ========================================
   -->
   <div class="card border-dark" style="height:100%" >
-		<div class="card-header bg-dark text-white" >Seznam artiklov</div>
-			<div class="card-body px-1 py-1" style="height:100%">
+		<div class="card-header bg-dark text-white" >Artikel</div>
+			<div class="card-body px-3 py-3" style="height:100%">
 			
-				<!-- zavijem da je kartica skrollable in se ne preliva cez -->
-			<div class="scrollable" style="height:100%; overflow-y: auto;">
+			<div class="row" style="height:100%" >
 			
-			<!-- seznam vseh iger za test samo 9 x iger dodanih -->
-			<ul class="list-group" style="width:100%; height:100%;">
-            
-            <?php foreach($artikli as $artikel): ?>
-                <li class="list-group-item d-flex align-items-center ">
-                <a  href=<?= $artikel["id"]?> > <img src=<?= $artikel["naslov_slike"]?> style="height:15vh;"> </a>
-                <p class="text-dark ml-2"> <b><?= $artikel["ime"]?></b><br>Avtor: <?= $artikel["avtor"]?><br>Založba: <?= $artikel["zalozba"]?><br>Cena: <?= $artikel["cena"]?>€</p>
-                <button type="button" class="btn btn-primary ml-auto"><i class="fas fa-plus"></i> Dodaj v košarico</button>
-                </li>
-            <?php endforeach; ?>
+			<div class="col-sm-4" style="height:100%">
 
-			</ul>
+			<h3 class="text-dark"> <b class=""><?= $artikel["ime"]?></b></h3><br>
+			<p>Založba: <?= $artikel["zalozba"]?></p>
+			<p>Avtor: <?= $artikel["avtor"]?></p>
+			<p>Cena: <?= $artikel["cena"]?>€</p>
+			<br>
+			<button type="button" class="btn btn-primary"><i class="fas fa-plus"></i> Dodaj v košarico</button>
+
+			</div>
 			
-            </div>
-            	
+			
+			<div class="col-sm-8" style="height:100%" >
+				<div class="carousel-item active" style="height:100%">
+					<img class="d-block " src=<?= $artikel["naslov_slike"]?> style="height:100%;width:100%; object-fit: contain;" alt="First slide">
+				</div>
+				<!--
+				<div id="carouselExampleIndicators" class="carousel slide" style="height:100%;" data-ride="carousel">
+				  <ol class="carousel-indicators">
+					<li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+					<li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+					<li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+				  </ol>
+				  <div class="carousel-inner" style="height:100%;">
+					<div class="carousel-item active" style="height:100%">
+					  <img class="d-block " src="./slike/slikaprimer.jpg" style="height:100%;width:100%; object-fit: contain;" alt="First slide">
+					</div>
+					<div class="carousel-item" style="height:100%;">
+					  <img class="d-block " src="./slike/slikaprimer2.jpg" style="height:100%;width:100%; object-fit: contain;" alt="Second slide">
+					</div>
+					<div class="carousel-item" style="height:100%;">
+					  <img class="d-block " src="./slike/slikaprimer3.png" style="height:100%;width:100%; object-fit: contain;" alt="Third slide">
+					</div>
+				  </div>
+				  <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+					<span class="carousel-control-prev-icon" aria-hidden="true"></span>
+					<span class="sr-only">Previous</span>
+				  </a>
+				  <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+					<span class="carousel-control-next-icon" aria-hidden="true"></span>
+					<span class="sr-only">Next</span>
+				  </a>
+				</div>
+				-->
+				
+			</div>
+			
+			</div>
+	
+	
 			</div>
     </div>
   

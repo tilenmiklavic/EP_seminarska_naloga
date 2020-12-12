@@ -24,8 +24,8 @@ class ArtikliDB {
     public static function get($id) {     
         $db = DBInit::getInstance();
         
-        $statement = $db->prepare("SELECT * FROM artikli WHERE id = :id");
-        $statement->bindParam(":id", $id, PDO::PARAM_INT);
+        $statement = $db->prepare("SELECT * FROM artikli WHERE id = $id");
+        //$statement->bindParam(":id", $id, PDO::PARAM_INT);
         $statement->execute();
         
         return $statement->fetch();

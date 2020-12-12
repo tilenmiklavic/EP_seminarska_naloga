@@ -10,7 +10,9 @@ require_once("ViewHelper.php");
 class TrgovinaController {
 
     public static function get($id) {
-        //echo ViewHelper::render("view/book-detail.php", BookDB::get(["id" => $id]));
+        echo ViewHelper::render("view/anonimni_artikel.php", [ 
+            "artikel" => ArtikliDB::get($id)
+        ]);
     }
 
     public static function index() {

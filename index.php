@@ -17,11 +17,9 @@ error_log("Zacetek indexa");
 
 $urls = [
     "/^artikli$/" => function ($method) {
-        error_log("Tole so pa artikli");
         TrgovinaController::index();
     },
     "/^artikli\/(\d+)$/" => function ($method, $id) {
-        echo("Artikli get");
         TrgovinaController::get($id);
     },
     "/^artikli\/add$/" => function ($method) {
@@ -67,7 +65,7 @@ $urls = [
     "/^$/" => function () {
         // univerzalna funckcija 
         // ce noven URL ne prime 
-        ViewHelper::redirect(BASE_URL . "artikli");
+        ViewHelper::redirect(BASE_URL . "artikli/");
     },
 
     # REST API
