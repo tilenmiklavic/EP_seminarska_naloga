@@ -47,7 +47,8 @@ Uporabljene tehnologije: PHP, HTML, CSS, JavaScript, SQL, Android
 - [x] x-artikel - izpiše detajle klik na izbran artikel povede na stran x-artikel
 - [ ] sprememba svojih atribtuov (sepravi x-nastative)
 - [ ] spremmeba atributov ostalih
-- [ ] implementiranje seje (uporabnik ostane prijavljen) **Tilen**
+- [x] implementiranje seje (uporabnik ostane prijavljen)
+- [x] prijava/odjava/registracija
 
 ----------------------------------------------------------------------------
 
