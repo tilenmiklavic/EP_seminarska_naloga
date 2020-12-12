@@ -34,7 +34,7 @@ Uporabljene tehnologije: PHP, HTML, CSS, JavaScript, SQL, Android
 - [ ] izpis pretklih nakupov (status naročil vsa razen neoodano(neoodano predstavlja košarico))
 
 - [x] anonimni uproabnik ima samo možnost izpisa vseh artiklov (isti izpis kot stranka) in ogled detajlov artiklov)
-- [ ] registracija novega uporabnika (se ga doda kot tip stranka) - **Tilen**
+- [x] registracija novega uporabnika (se ga doda kot tip stranka) 
 - [ ] uporabnik vpiše email in izpolni captcho
 - [ ] na email dobi geslo za prvo prijavo (itak geslo lahko pole spremeni)
 ----------------------------------------------------------------------------
