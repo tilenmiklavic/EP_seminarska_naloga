@@ -6,18 +6,8 @@ require_once("model/database_podrobnosti_narocila.php");
 require_once("model/database_uporabniki.php");
 require_once("ViewHelper.php");
 
+
 class UporabnikiController {
-
-    public static function get($id) {
-        //echo ViewHelper::render("view/book-detail.php", BookDB::get(["id" => $id]));
-    }
-
-    public static function index() {
-        error_log("Kontroller trgovina");
-        echo ViewHelper::render("view/anonimni_seznam_artiklov.php", [
-            "artikli" => ArtikliDB::getAll()
-        ]);
-    }
 
     public static function prijava() {
         echo ViewHelper::render("view/prijava.php");
@@ -25,6 +15,22 @@ class UporabnikiController {
 
     public static function registracija() {
         echo ViewHelper::render("view/registracija.php");
+    }
+
+    public static function prijaviUporabnika() {
+
+    }
+
+    public static function kreirajUporabnika() {
+        $ime = $_POST["ime"];
+        $priimek = $_POST["priimek"];
+        $email = $_POST["email"];
+        $geslo = $_POST["geslo"];
+        $tip = "stranka";
+        $status = "active";
+        UporabnikiDB::insert($ime, $priimek, $email, $geslo, $tip, $status);
+
+        echo ViewHelper::redirect(BASE_URL);
     }
 
 

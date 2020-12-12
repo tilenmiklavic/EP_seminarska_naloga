@@ -46,22 +46,22 @@
 			
 			<h3 class="text-dark"> <b class="">Registracija</b></h3><br>
 			
-			<form>
+			<form method="POST">
 			  <div class="form-group">
 				<label for="exampleInputEmail1">E-pošta:</label>
-				<input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+				<input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="email">
 			  </div>
 			  <div class="form-group">
 				<label for="exampleInputPassword1">Geslo:</label>
-				<input type="password" class="form-control" id="exampleInputPassword1">
+				<input type="password" class="form-control" id="exampleInputPassword1" name="geslo">
 			  </div>
 			  <div class="form-group">
 				<label for="exampleInputPassword1">Ime:</label>
-				<input type="text" class="form-control" id="exampleInputPassword1">
+				<input type="text" class="form-control" id="exampleInputPassword1" name="ime">
 			  </div>
 			  <div class="form-group">
 				<label for="exampleInputPassword1">Priimek:</label>
-				<input type="text" class="form-control" id="exampleInputPassword1">
+				<input type="text" class="form-control" id="exampleInputPassword1" name="priimek">
 			  </div>
 
 			  <button type="submit" class="btn btn-primary"><i class="fas fa-user-plus"></i> Ustvari račun</button>

@@ -24,7 +24,7 @@ CREATE TABLE IF NOT EXISTS `trgovina`.`artikli` (
   `zalozba` VARCHAR(45) NOT NULL,
   `cena` INT NOT NULL,
   `slike` LONGBLOB NULL DEFAULT NULL,
-  `naslov_slike` VARCHAR(45) NULL,
+  `naslov_slike` VARCHAR(100) NULL DEFAULT NULL,
   PRIMARY KEY (`id`))
 ENGINE = InnoDB;
 
@@ -36,8 +36,10 @@ CREATE TABLE IF NOT EXISTS `trgovina`.`uporabniki` (
   `id` INT NOT NULL AUTO_INCREMENT,
   `ime` VARCHAR(45) NOT NULL,
   `priimek` VARCHAR(45) NOT NULL,
-  `vloga` VARCHAR(45) NOT NULL,
-  `stanje` VARCHAR(45) NOT NULL,
+  `email` VARCHAR(45) NOT NULL,
+  `geslo` VARCHAR(45) NOT NULL,
+  `tip` VARCHAR(45) NOT NULL,
+  `status` VARCHAR(45) NOT NULL,
   PRIMARY KEY (`id`))
 ENGINE = InnoDB;
 
@@ -70,7 +72,3 @@ ENGINE = InnoDB;
 SET SQL_MODE=@OLD_SQL_MODE;
 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
-
-INSERT INTO artikli (ime, avtor, zalozba, cena, slike, naslov_slike) VALUES ("Harry Potter", "J.K. Rowling", "Mladinska Knjiga", 50, NULL, "https://images-na.ssl-images-amazon.com/images/I/81iqZ2HHD-L.jpg");
-INSERT INTO artikli (ime, avtor, zalozba, cena, slike, naslov_slike) VALUES ("Gospodar Prstanov", "J.R.R. Tolkien", "Mladinska Knjiga", 50, NULL, "https://images-na.ssl-images-amazon.com/images/I/8134AkhQJgL.jpg");
-INSERT INTO artikli (ime, avtor, zalozba, cena, slike, naslov_slike) VALUES ("Stoparski vodic po galaksiji", "Douglas Adams", "Mladinska Knjiga", 50, NULL, "https://images.penguinrandomhouse.com/cover/9781400052929");

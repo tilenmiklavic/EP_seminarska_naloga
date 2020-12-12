@@ -31,33 +31,31 @@ class UporabnikiDB {
         return $statement->fetch();
     }
 
-    public static function insert($tip, $certifikat, $uporabnisko_ime, $geslo, $ime, $priimek, $status) {                
+    public static function insert($ime, $priimek, $email, $geslo, $tip, $status) {                
         $db = DBInit::getInstance();
         
-        $statement = $db->prepare("INSERT into uporabniki (tip, certifikat, uporabnisko_ime, geslo, ime, priimek, status) values (?, ?, ?, ?, ?, ?, ?);");
-        $statement->bindParam(1, $tip);
-        $statement->bindParam(2, $certifikat);
-        $statement->bindParam(3, $uporabnisko_ime);
+        $statement = $db->prepare("INSERT into uporabniki (ime, priimek, email, geslo, tip, status) values (?, ?, ?, ?, ?, ?);");
+        $statement->bindParam(1, $ime);
+        $statement->bindParam(2, $priimek);
+        $statement->bindParam(3, $email);
         $statement->bindParam(4, $geslo);
-        $statement->bindParam(5, $ime);
-        $statement->bindParam(6, $priimek);
-        $statement->bindParam(7, $status);
+        $statement->bindParam(5, $tip);
+        $statement->bindParam(6, $status);
 
         $statement->execute();
     }
     
-    public static function edit($id, $tip, $certifikat, $uporabnisko_ime, $geslo, $ime, $priimek, $status) {
+    public static function edit($id, $ime, $priimek, $email, $geslo, $tip, $status) {
         
         $db = DBInit::getInstance();
         
-        $statement = $db->prepare("update uporabniki set tip=?, certifikat=?, uporabnisko_ime=?, geslo=?, ime=?, priimek=?, status=? where id=$id");
-        $statement->bindParam(1, $tip);
-        $statement->bindParam(2, $certifikat);
-        $statement->bindParam(3, $uporabnisko_ime);
+        $statement = $db->prepare("update uporabniki set ime=?, priimek=?, email=?, geslo=?, tip=?, status=? where id=$id");
+        $statement->bindParam(1, $ime);
+        $statement->bindParam(2, $priimek);
+        $statement->bindParam(3, $email);
         $statement->bindParam(4, $geslo);
-        $statement->bindParam(5, $ime);
-        $statement->bindParam(6, $priimek);
-        $statement->bindParam(7, $status);
+        $statement->bindParam(5, $tip);
+        $statement->bindParam(6, $status);
 
         $statement->execute();
 

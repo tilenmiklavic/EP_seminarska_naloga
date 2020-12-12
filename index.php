@@ -50,10 +50,18 @@ $urls = [
     ========================================
     */
     "/^prijava$/" => function ($method) {
-        UporabnikiController::prijava();
-    },
+        if ($method == "POST") {
+            UporabnikiController::prijaviUporabnika();
+        } else {
+            UporabnikiController::prijava();
+        }
+    }, 
     "/^registracija$/" => function ($method) {
-        UporabnikiController::registracija();
+        if ($method == "POST") {
+            UporabnikiController::kreirajUporabnika();
+        } else {
+            UporabnikiController::registracija();
+        }
     },
 
     "/^$/" => function () {

@@ -6,6 +6,7 @@ require_once("model/database_podrobnosti_narocila.php");
 require_once("model/database_uporabniki.php");
 require_once("ViewHelper.php");
 
+
 class TrgovinaController {
 
     public static function get($id) {
