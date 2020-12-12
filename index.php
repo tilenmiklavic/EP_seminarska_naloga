@@ -4,6 +4,7 @@
 session_start();
 
 require_once("controller/TrgovinaController.php");
+require_once("controller/UporabnikiController.php");
 require_once("controller/TrgovinaRESTController.php");
 
 define("BASE_URL", rtrim($_SERVER["SCRIPT_NAME"], "index.php"));
@@ -43,15 +44,21 @@ $urls = [
         }
     },
 
-    // se verjetno ne rabi...
-    // mogoce pride prav v prihodnosti 
-    "/^artikli\/(\d+)\/(foo|bar|baz)\/(\d+)$/" => function ($method, $id, $val, $num) {
-        // primer kako definirati funkcijo, ki vzame dodatne parametre
-        // http://localhost/netbeans/mvc-rest/books/1/foo/10
-        echo "$id, $val, $num";
+    /*
+    ========================================
+    URL-ji za uporabnika
+    ========================================
+    */
+    "/^prijava$/" => function ($method) {
+        UporabnikiController::prijava();
     },
+    "/^registracija$/" => function ($method) {
+        UporabnikiController::registracija();
+    },
+
     "/^$/" => function () {
-        error_log("Univerzalna funkcija");
+        // univerzalna funckcija 
+        // ce noven URL ne prime 
         ViewHelper::redirect(BASE_URL . "artikli");
     },
 
