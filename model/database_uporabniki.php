@@ -31,6 +31,17 @@ class UporabnikiDB {
         return $statement->fetch();
     }
 
+    public static function prijava($email, $geslo) {
+        $db = DBInit::getInstance();
+
+        $statement = $db->prepare("SELECT * FROM uporabniki WHERE email=? AND geslo=?");
+        $statement->bindParam(1, $email);
+        $statement->bindParam(2, $geslo);
+        $statement->execute();
+
+        return $statement->fetch();
+    }
+
     public static function insert($ime, $priimek, $email, $geslo, $tip, $status) {                
         $db = DBInit::getInstance();
         
@@ -43,6 +54,8 @@ class UporabnikiDB {
         $statement->bindParam(6, $status);
 
         $statement->execute();
+
+        return $db->lastInsertId();
     }
     
     public static function edit($id, $ime, $priimek, $email, $geslo, $tip, $status) {

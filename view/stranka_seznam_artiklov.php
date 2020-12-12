@@ -57,12 +57,13 @@
 				    <i class="fas fa-user-circle"></i>
 				</a>
 			<div id="testMenuRazlika2" class="dropdown-menu dropdown-menu-right"  id="dropdownMeni" aria-labelledby="navbarDropdown">
-				<a class="dropdown-item disabled" href="#">Stran uporabljate kot gost</a>
+				<a class="dropdown-item disabled" href="#">Matej Kovač</a>
 				<div class="dropdown-divider"></div>
 				<a class="dropdown-item" href="#"><i class="fas fa-box-open"></i></i> Seznam artiklov</a>
-				<a class="dropdown-item" href="prijava"><i class="fas fa-sign-in-alt"></i> Prijava</a>
-				<a class="dropdown-item" href="registracija"><i class="fas fa-user-plus"></i> Registracija</a>
-				
+				<a class="dropdown-item" href="#"><i class="fas fa-shopping-basket"></i> Košarica</a>
+				<a class="dropdown-item" href="#"><i class="fas fa-history"></i> Zgodovina nakupov</a>
+				<a class="dropdown-item" href="#"><i class="fas fa-cog"></i> Nastavitve</a>
+				<a class="dropdown-item" href="odjava"><i class="fas fa-sign-out-alt"></i> Odjava</a>
 			</div>
 			</li>
 		</ul>
@@ -92,18 +93,21 @@
 			<!-- seznam vseh iger za test samo 9 x iger dodanih -->
 			<ul class="list-group" style="width:100%; height:100%;">
             
-            <?php foreach($artikli as $artikel): ?>
-                <li class="list-group-item d-flex align-items-center ">
-                <a  href="artikli/<?= $artikel["id"]?>" > <img src=<?= $artikel["naslov_slike"]?> style="height:15vh;"> </a>
-                <p class="text-dark ml-2"> <b><?= $artikel["ime"]?></b><br>Avtor: <?= $artikel["avtor"]?><br>Založba: <?= $artikel["zalozba"]?><br>Cena: <?= $artikel["cena"]?>€</p>
-                <button type="button" class="btn btn-primary ml-auto"><i class="fas fa-plus"></i> Dodaj v košarico</button>
-                </li>
+            <?php foreach ($artikli as $artikel): ?>
+			<li class="list-group-item d-flex align-items-center ">
+			<a  href="artikli/<?= $artikel["id"]?>"> <img src=<?= $artikel["naslov_slike"]?> style="height:15vh;"> </a>
+			<p class="text-dark ml-2"> <b><?= $artikel["ime"]?></b><br>Avtor: <?= $artikel["avtor"]?><br>Založba: <?= $artikel["zalozba"]?><br>Cena: <?= $artikel["cena"]?>€</p>
+			<button type="button" class="btn btn-primary ml-auto"><i class="fas fa-plus"></i> Dodaj v košarico</button>
+            </li>
             <?php endforeach; ?>
+		
 
 			</ul>
 			
-            </div>
-            	
+			</div>
+			
+			
+	
 			</div>
     </div>
   

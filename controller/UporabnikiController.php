@@ -18,7 +18,23 @@ class UporabnikiController {
     }
 
     public static function prijaviUporabnika() {
+        $email = $_POST["email"];
+        $geslo = $_POST["password"];
 
+        $uporabnik = UporabnikiDB::prijava($email, $geslo);
+
+        if ($uporabnik) {
+            // uporabnik se je uspesno prijavil 
+            // shranimo njegov id v session 
+
+            $_SESSION["uporabnik_id"] = $uporabnik["id"];
+            echo ViewHelper::redirect(BASE_URL);
+
+        } else {
+
+            ViewHelper::redirect(BASE_URL . "prijava");
+        
+        }
     }
 
     public static function kreirajUporabnika() {
@@ -28,9 +44,25 @@ class UporabnikiController {
         $geslo = $_POST["geslo"];
         $tip = "stranka";
         $status = "active";
-        UporabnikiDB::insert($ime, $priimek, $email, $geslo, $tip, $status);
 
-        echo ViewHelper::redirect(BASE_URL);
+        $id = UporabnikiDB::insert($ime, $priimek, $email, $geslo, $tip, $status);
+
+        if ($id) {
+
+            $_SESSION["uporabnik_id"] = $id;
+            echo ViewHelper::redirect(BASE_URL);
+
+        } else {
+
+            ViewHelper::redirect(VASE_URL . "registracija");
+
+        }
+    }
+
+    public static function odjava() {
+        $_SESSION["uporabnik_id"] = null;
+
+        ViewHelper::redirect(BASE_URL);
     }
 
 

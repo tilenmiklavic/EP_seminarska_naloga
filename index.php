@@ -61,11 +61,13 @@ $urls = [
             UporabnikiController::registracija();
         }
     },
-
+    "/^odjava$/" => function ($method) {
+        UporabnikiController::odjava();
+    },
     "/^$/" => function () {
         // univerzalna funckcija 
         // ce noven URL ne prime 
-        ViewHelper::redirect(BASE_URL . "artikli/");
+        ViewHelper::redirect(BASE_URL . "artikli");
     },
 
     # REST API

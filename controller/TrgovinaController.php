@@ -16,10 +16,20 @@ class TrgovinaController {
     }
 
     public static function index() {
-        error_log("Kontroller trgovina");
-        echo ViewHelper::render("view/anonimni_seznam_artiklov.php", [
-            "artikli" => ArtikliDB::getAll()
-        ]);
+
+        $id = $_SESSION["uporabnik_id"];
+        
+        $uporabnik = UporabnikiDB::get($id);
+
+        if ($uporabnik && $uporabnik["tip"] == "stranka") {
+            echo ViewHelper::render("view/stranka_seznam_artiklov.php", [
+                "artikli" => ArtikliDB::getAll()
+            ]);
+        } else {
+            echo ViewHelper::render("view/anonimni_seznam_artiklov.php", [
+                "artikli" => ArtikliDB::getAll()
+            ]);
+        }
     }
 
     /*
