@@ -57,11 +57,12 @@
 				    <i class="fas fa-user-circle"></i>
 				</a>
 			<div id="testMenuRazlika2" class="dropdown-menu dropdown-menu-right"  id="dropdownMeni" aria-labelledby="navbarDropdown">
-				<a class="dropdown-item disabled" href="#">Matej Kovač</a>
+				<a class="dropdown-item disabled" href="#"><?= $uporabnik["ime"] . " " . $uporabnik["priimek"]?></a>
 				<div class="dropdown-divider"></div>
 				<a class="dropdown-item" href="#"><i class="fas fa-box-open"></i></i> Seznam artiklov</a>
-				<a class="dropdown-item" href="#"><i class="fas fa-shopping-basket"></i> Košarica</a>
-				<a class="dropdown-item" href="#"><i class="fas fa-history"></i> Zgodovina nakupov</a>
+				<a class="dropdown-item" href="#"><i class="fas fa-clipboard-check"></i> Trenutna naročila</a>
+				<a class="dropdown-item" href="#"><i class="fas fa-history"></i> Zgodovina naročil</a>
+				<a class="dropdown-item" href="#"><i class="fas fa-users-cog"></i> Stranke</a>
 				<a class="dropdown-item" href="nastavitve"><i class="fas fa-cog"></i> Nastavitve</a>
 				<a class="dropdown-item" href="odjava"><i class="fas fa-sign-out-alt"></i> Odjava</a>
 			</div>
@@ -83,33 +84,83 @@
   tle notr gre vsebina celotne strani
   ========================================
   -->
-  <div class="card border-dark" style="height:100%" >
+  <div class="row" style="height:100%;">
+	
+	<div class="col-sm-8" style="height:100%">
+  
+  
+	<div class="card border-dark" style="height:100%" >
 		<div class="card-header bg-dark text-white" >Seznam artiklov</div>
 			<div class="card-body px-1 py-1" style="height:100%">
 			
 				<!-- zavijem da je kartica skrollable in se ne preliva cez -->
 			<div class="scrollable" style="height:100%; overflow-y: auto;">
 			
-			<!-- seznam vseh iger za test samo 9 x iger dodanih -->
+			
 			<ul class="list-group" style="width:100%; height:100%;">
             
-            <?php foreach ($artikli as $artikel): ?>
+            <?php foreach($artikli as $artikel): ?>
 			<li class="list-group-item d-flex align-items-center ">
-			<a  href="artikli/<?= $artikel["id"]?>"> <img src=<?= $artikel["naslov_slike"]?> style="height:15vh;"> </a>
+			<a  href="#"> <img src=<?= $artikel["naslov_slike"]?> style="height:15vh;"> </a>
 			<p class="text-dark ml-2"> <b><?= $artikel["ime"]?></b><br>Avtor: <?= $artikel["avtor"]?><br>Založba: <?= $artikel["zalozba"]?><br>Cena: <?= $artikel["cena"]?>€</p>
-			<button type="button" class="btn btn-primary ml-auto"><i class="fas fa-plus"></i> Dodaj v košarico</button>
-            </li>
+			</li>
             <?php endforeach; ?>
-		
 
 			</ul>
 			
 			</div>
-			
-			
-	
+
 			</div>
     </div>
+  
+
+	</div>
+	
+	
+	<div class="col-sm-4 " style="height:100%;">
+  
+	<div class="card border-dark" style="height:100%" >
+		<div class="card-header bg-dark text-white" >Ustvari artikel</div>
+			<div class="card-body px-3 py-3" style="height:100%">
+			
+				<form>
+					<div class="form-group">
+					<label for="formGroupExampleInput">Naslov knjige:</label>
+					<input type="text" class="form-control" id="formGroupExampleInput" placeholder="naslov knjige" name="naslov">
+					</div>
+					
+					<div class="form-group">
+					<label for="formGroupExampleInput2">Založba:</label>
+					<input type="text" class="form-control" id="formGroupExampleInput2" placeholder="založba knjige" name="zalozba">
+					</div>
+					
+					<div class="form-group">
+					<label for="formGroupExampleInput2">Avtor:</label>
+					<input type="text" class="form-control" id="formGroupExampleInput2" placeholder="avtor knjige" name="avtor">
+					</div>
+					
+					<div class="form-group">
+					<label for="formGroupExampleInput2">Cena:</label>
+					<input type="text" class="form-control" id="formGroupExampleInput2" placeholder="cena knjige" name="cena">
+					</div>
+					
+					<div class="form-group text-center">
+					<button type="submit" class="btn btn-primary"><i class="fas fa-plus"></i> Ustvari artikel</button>
+					</div>
+				</form>
+				
+	
+			</div>
+	
+		</div>
+	</div>
+	
+	
+	
+	
+	
+	
+	</div>
   
  
   </div>

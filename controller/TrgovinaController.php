@@ -17,18 +17,32 @@ class TrgovinaController {
 
     public static function index() {
 
-        $id = $_SESSION["uporabnik_id"];
+        $uporabnik = null;
         
-        $uporabnik = UporabnikiDB::get($id);
+        if (isset($_SESSION["uporabnik_id"])) {
+            $uporabnik = UporabnikiDB::get($_SESSION["uporabnik_id"]);
+        }
 
         if ($uporabnik && $uporabnik["tip"] == "stranka") {
+
             echo ViewHelper::render("view/stranka_seznam_artiklov.php", [
-                "artikli" => ArtikliDB::getAll()
+                "artikli" => ArtikliDB::getAll(),
+                "uporabnik" => $uporabnik
             ]);
-        } else {
+
+        } else if ($uporabnik && $uporabnik["tip"] == "prodajalec") {
+
+            echo ViewHelper::render("view/prodajalec_seznam_artiklov.php", [
+                "artikli" => ArtikliDB::getAll(),
+                "uporabnik" => $uporabnik
+            ]);
+
+        }  else {
+            
             echo ViewHelper::render("view/anonimni_seznam_artiklov.php", [
                 "artikli" => ArtikliDB::getAll()
             ]);
+
         }
     }
 
