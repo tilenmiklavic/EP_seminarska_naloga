@@ -62,13 +62,29 @@ class UporabnikiController {
                 echo ViewHelper::redirect(BASE_URL . "stranke");
             }
             
-            
-
         }  else {
 
-            echo ViewHelper::redirect(VASE_URL . "registracija");
+            ViewHelper::redirect(BASE_URL . "registracija");
 
         }
+    }
+
+    public static function posodobiUporabnika() {
+        $id = $_POST["id"];
+        $uporabnik = UporabnikiDB::get($id);
+
+        
+        $ime = $_POST["ime"];
+        $priimek = $_POST["priimek"];
+        $email = $_POST["email"];
+        $geslo = $_POST["geslo"];
+        $tip = $uporabnik["tip"];
+        $status = $uporabnik["status"];
+
+        $id = UporabnikiDB::edit($id, $ime, $priimek, $email, $geslo, $tip, $status);
+
+        ViewHelper::redirect(BASE_URL . "stranke");
+        
     }
 
     public static function nastavitve() {

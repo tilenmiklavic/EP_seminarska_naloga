@@ -57,9 +57,12 @@
 				    <i class="fas fa-user-circle"></i>
 				</a>
 			<div id="testMenuRazlika2" class="dropdown-menu dropdown-menu-right"  id="dropdownMeni" aria-labelledby="navbarDropdown">
-				<a class="dropdown-item disabled" href="#">Administrator</a>
+				<a class="dropdown-item disabled" href="#">Janez Novak</a>
 				<div class="dropdown-divider"></div>
-				<a class="dropdown-item" href="index"><i class="fas fa-users-cog"></i> Prodajalci</a>
+				<a class="dropdown-item" href=<?= BASE_URL . "index"?>><i class="fas fa-box-open"></i></i> Seznam artiklov</a>
+				<a class="dropdown-item" href="narocila"><i class="fas fa-clipboard-check"></i> Trenutna naročila</a>
+				<a class="dropdown-item" href="#"><i class="fas fa-history"></i> Zgodovina naročil</a>
+				<a class="dropdown-item" href="stranke"><i class="fas fa-users-cog"></i> Stranke</a>
 				<a class="dropdown-item" href="nastavitve"><i class="fas fa-cog"></i> Nastavitve</a>
 				<a class="dropdown-item" href="odjava"><i class="fas fa-sign-out-alt"></i> Odjava</a>
 			</div>
@@ -81,41 +84,57 @@
   tle notr gre vsebina celotne strani
   ========================================
   -->
-	<div class="card border-dark" style="height:100%" >
-		<div class="card-header bg-dark text-white" >Nastavitve</div>
-			<div class="card-body px-1 py-1" style="height:100%">
+	
+  
+   <div class="card border-dark" style="height:100%" >
+		<div class="card-header bg-dark text-white" >Artikel</div>
+			<div class="card-body px-3 py-3" style="height:100%">
 			
-			<div class="col-sm-4">
-				<form method="POST">	
-					<div class="form-group">
-					<label for="formGroupExampleInput2">Geslo:</label>
-					<input type="password" class="form-control" id="formGroupExampleInput2" value=<?= $uporabnik["geslo"]?> name="geslo">
-					</div>
-					
-					
-					<div class="form-group">
-					<button type="submit" class="btn btn-primary"><i class="fas fa-key"></i> Spremeni geslo</button>
-					</div>
+			<div class="col-sm-8">
+
+			<h3 class="text-dark"> <b class="">Knjiga blabla</b></h3><br>
+				<form>
+				
+				<div class="form-group ">
+				<label for="inputEmail3" >Naslov knjige:</label>
+				<input type="text" class="form-control form-control-sm" id="inputEmail3" value=<?= $artikel["ime"]?>>
+				</div>
+				
+				<div class="form-group ">
+				<label for="inputPassword3" >Založba:</label>
+				<input type="text" class="form-control form-control-sm" id="inputPassword3" value=<?= $artikel["zalozba"]?>>
+				</div>
+				
+				<div class="form-group ">
+				<label for="inputPassword3" >Cena:</label>
+				<input type="text" class="form-control form-control-sm" id="inputPassword3" value="<?= $artikel["cena"]?>€">
+				</div>
+				
+				<div class="form-check mb-2 mr-sm-2">
+				<input class="form-check-input" type="checkbox" id="inlineFormCheck">
+				<label class="form-check-label" for="inlineFormCheck">
+				Artikel aktiven
+				</label>
+				</div>
+				
+				<br>
+				<div class="form-group ">
+				<button type="submit" class="btn btn-primary"><i class="fas fa-edit"></i> Shrani spremembe</button>
+				</div>
+				
 				</form>
+
 			</div>
-			
-			
+	
+	
 			</div>
     </div>
   
-  
-  
-  
-  
-  
-  
-  
-  </div>
-  
-  
+
+
+</div> 
   <!-- ------------------------------------------- -->
-  
-</div>
+ 
 
 </body>
 

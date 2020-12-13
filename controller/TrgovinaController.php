@@ -10,9 +10,31 @@ require_once("ViewHelper.php");
 class TrgovinaController {
 
     public static function get($id) {
-        echo ViewHelper::render("view/anonimni_artikel.php", [ 
-            "artikel" => ArtikliDB::get($id)
-        ]);
+
+        $uporabnik = null;
+        
+        if (isset($_SESSION["uporabnik_id"])) {
+
+            $uporabnik = UporabnikiDB::get($_SESSION["uporabnik_id"]);
+        }
+
+        if ($uporabnik && $uporabnik["tip"] == "prodajalec") {
+
+            echo ViewHelper::render("view/prodajalec_artikel.php", [ 
+                "artikel" => ArtikliDB::get($id)
+            ]);
+
+        } else if ($uporabnik && $uporabnik["tip"] == "stranka") {
+            
+            echo ViewHelper::render("view/stranka_artikel.php", [ 
+                "artikel" => ArtikliDB::get($id)
+            ]);
+
+        } else {
+            echo ViewHelper::render("view/anonimni_artikel.php", [ 
+                "artikel" => ArtikliDB::get($id)
+            ]);
+        }        
     }
 
     public static function index() {

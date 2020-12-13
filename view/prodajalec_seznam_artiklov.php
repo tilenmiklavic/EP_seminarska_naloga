@@ -101,7 +101,7 @@
             
             <?php foreach($artikli as $artikel): ?>
 			<li class="list-group-item d-flex align-items-center ">
-			<a  href="#"> <img src=<?= $artikel["naslov_slike"]?> style="height:15vh;"> </a>
+			<a  href="artikli/<?= $artikel["id"]?>"> <img src=<?= $artikel["naslov_slike"]?> style="height:15vh;"> </a>
 			<p class="text-dark ml-2"> <b><?= $artikel["ime"]?></b><br>Avtor: <?= $artikel["avtor"]?><br>Založba: <?= $artikel["zalozba"]?><br>Cena: <?= $artikel["cena"]?>€</p>
 			</li>
             <?php endforeach; ?>

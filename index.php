@@ -16,7 +16,7 @@ $path = isset($_SERVER["PATH_INFO"]) ? trim($_SERVER["PATH_INFO"], "/") : "";
 error_log("Zacetek indexa");
 
 $urls = [
-    "/^artikli$/" => function ($method) {
+    "/^index$/" => function ($method) {
         if ($method == "POST") {
             TrgovinaController::kreirajArtikel();
         } else {
@@ -82,16 +82,23 @@ $urls = [
     ========================================
     */
     "/^stranke$/" => function ($method) {
+        
         if ($method == "POST") {
-            UporabnikiController::kreirajUporabnika();
+
+            if (isset($_POST["id"])) {
+                UporabnikiController::posodobiUporabnika();
+            } else {
+                UporabnikiController::kreirajUporabnika();
+            }
         } else {
             UporabnikiController::stranke();
         }
+        
     },
     "/^$/" => function () {
         // univerzalna funckcija 
         // ce noven URL ne prime 
-        ViewHelper::redirect(BASE_URL . "artikli");
+        ViewHelper::redirect(BASE_URL . "index");
     },
 
     # REST API

@@ -103,33 +103,35 @@
             <?php foreach($stranke as $stranka): ?>
 			<li class="list-group-item">
 			<p class="text-dark"> <b>Stranka (id:<?= $stranka["id"]?>)</b></p>
-				<form>
-				
+				<form method="POST">
+				<input type="hidden" value=<?= $stranka["id"]?> name="id">
+
+
 				<div class="form-group row">
 				<label for="inputEmail3" class="col-sm-2 col-form-label  col-form-label-sm ">E-pošta:</label>
 				<div class="col-sm-10">
-				<input type="email" class="form-control form-control-sm" id="inputEmail3" value=<?= $stranka["email"]?>>
+				<input type="email" class="form-control form-control-sm" id="inputEmail3" value=<?= $stranka["email"]?> name="email">
 				</div>
 				</div>
 				
 				<div class="form-group row">
 				<label for="inputPassword3" class="col-sm-2 col-form-label col-form-label-sm">Geslo:</label>
 				<div class="col-sm-10">
-				<input type="password" class="form-control form-control-sm" id="inputPassword3" value=<?= $stranka["geslo"]?>>
+				<input type="password" class="form-control form-control-sm" id="inputPassword3" value=<?= $stranka["geslo"]?> name="geslo">
 				</div>
 				</div>
 				
 				<div class="form-group row">
 				<label for="inputPassword3" class="col-sm-2 col-form-label col-form-label-sm">Ime:</label>
 				<div class="col-sm-10">
-				<input type="text" class="form-control form-control-sm" id="inputPassword3" value=<?= $stranka["ime"]?>>
+				<input type="text" class="form-control form-control-sm" id="inputPassword3" value=<?= $stranka["ime"]?> name="ime">
 				</div>
 				</div>
 				
 				<div class="form-group row">
 				<label for="inputPassword3" class="col-sm-2 col-form-label col-form-label-sm">Priimek:</label>
 				<div class="col-sm-10">
-				<input type="text" class="form-control form-control-sm" id="inputPassword3" value=<?= $stranka["priimek"]?>>
+				<input type="text" class="form-control form-control-sm" id="inputPassword3" value=<?= $stranka["priimek"]?> name="priimek">
 				</div>
 				</div>
 				
