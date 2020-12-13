@@ -13,6 +13,16 @@ class UporabnikiDB {
         return $statement->fetchAll();
     }
 
+    public static function getAllTip($tip) {
+        $db = DBInit::getInstance();
+
+        $statement = $db->prepare("SELECT * FROM uporabniki WHERE tip=?");
+        $statement->bindParam(1, $tip);
+        $statement->execute();
+
+        return $statement->fetchAll();
+    }
+
     public static function delete($id) {
         $db = DBInit::getInstance();
 

@@ -57,14 +57,14 @@
 				    <i class="fas fa-user-circle"></i>
 				</a>
 			<div id="testMenuRazlika2" class="dropdown-menu dropdown-menu-right"  id="dropdownMeni" aria-labelledby="navbarDropdown">
-				<a class="dropdown-item disabled" href="#"><?= $uporabnik["ime"] . " " . $uporabnik["priimek"]?></a>
+				<a class="dropdown-item disabled" href="#">Janez Novak</a>
 				<div class="dropdown-divider"></div>
 				<a class="dropdown-item" href="#"><i class="fas fa-box-open"></i></i> Seznam artiklov</a>
 				<a class="dropdown-item" href="#"><i class="fas fa-clipboard-check"></i> Trenutna naročila</a>
 				<a class="dropdown-item" href="#"><i class="fas fa-history"></i> Zgodovina naročil</a>
-				<a class="dropdown-item" href="stranke"><i class="fas fa-users-cog"></i> Stranke</a>
-				<a class="dropdown-item" href="nastavitve"><i class="fas fa-cog"></i> Nastavitve</a>
-				<a class="dropdown-item" href="odjava"><i class="fas fa-sign-out-alt"></i> Odjava</a>
+				<a class="dropdown-item" href="#"><i class="fas fa-users-cog"></i> Stranke</a>
+				<a class="dropdown-item" href="#"><i class="fas fa-cog"></i> Nastavitve</a>
+				<a class="dropdown-item" href="#"><i class="fas fa-sign-out-alt"></i> Odjava</a>
 			</div>
 			</li>
 		</ul>
@@ -84,13 +84,14 @@
   tle notr gre vsebina celotne strani
   ========================================
   -->
-  <div class="row" style="height:100%;">
+	<div class="row" style="height:100%;">
 	
 	<div class="col-sm-8" style="height:100%">
   
   
-	<div class="card border-dark" style="height:100%" >
-		<div class="card-header bg-dark text-white" >Seznam artiklov</div>
+  
+   <div class="card border-dark" style="height:100%" >
+		<div class="card-header bg-dark text-white" >Vse stranke</div>
 			<div class="card-body px-1 py-1" style="height:100%">
 			
 				<!-- zavijem da je kartica skrollable in se ne preliva cez -->
@@ -99,58 +100,102 @@
 			
 			<ul class="list-group" style="width:100%; height:100%;">
             
-            <?php foreach($artikli as $artikel): ?>
-			<li class="list-group-item d-flex align-items-center ">
-			<a  href="#"> <img src=<?= $artikel["naslov_slike"]?> style="height:15vh;"> </a>
-			<p class="text-dark ml-2"> <b><?= $artikel["ime"]?></b><br>Avtor: <?= $artikel["avtor"]?><br>Založba: <?= $artikel["zalozba"]?><br>Cena: <?= $artikel["cena"]?>€</p>
-			</li>
+            <?php foreach($stranke as $stranka): ?>
+			<li class="list-group-item">
+			<p class="text-dark"> <b>Stranka (id:<?= $stranka["id"]?>)</b></p>
+				<form>
+				
+				<div class="form-group row">
+				<label for="inputEmail3" class="col-sm-2 col-form-label  col-form-label-sm ">E-pošta:</label>
+				<div class="col-sm-10">
+				<input type="email" class="form-control form-control-sm" id="inputEmail3" value=<?= $stranka["email"]?>>
+				</div>
+				</div>
+				
+				<div class="form-group row">
+				<label for="inputPassword3" class="col-sm-2 col-form-label col-form-label-sm">Geslo:</label>
+				<div class="col-sm-10">
+				<input type="password" class="form-control form-control-sm" id="inputPassword3" value=<?= $stranka["geslo"]?>>
+				</div>
+				</div>
+				
+				<div class="form-group row">
+				<label for="inputPassword3" class="col-sm-2 col-form-label col-form-label-sm">Ime:</label>
+				<div class="col-sm-10">
+				<input type="text" class="form-control form-control-sm" id="inputPassword3" value=<?= $stranka["ime"]?>>
+				</div>
+				</div>
+				
+				<div class="form-group row">
+				<label for="inputPassword3" class="col-sm-2 col-form-label col-form-label-sm">Priimek:</label>
+				<div class="col-sm-10">
+				<input type="text" class="form-control form-control-sm" id="inputPassword3" value=<?= $stranka["priimek"]?>>
+				</div>
+				</div>
+				
+				<div class="form-check mb-2 mr-sm-2">
+				<input class="form-check-input" type="checkbox" id="inlineFormCheck">
+				<label class="form-check-label" for="inlineFormCheck">
+				Stranka aktivna
+				</label>
+				</div>
+				
+				<div class="form-group row">
+				<div class="col-sm-10 text-right ml-auto">
+				<button type="submit" class="btn btn-primary btn-sm "><i class="fas fa-user-edit"></i> Shrani spremembe</button>
+				</div>
+				</div>
+				
+				</form>
+				
+            </li>
             <?php endforeach; ?>
-
+			
 			</ul>
 			
 			</div>
-
+			
+			
+	
 			</div>
     </div>
   
-
-	</div>
-	
-	
-	<div class="col-sm-4 " style="height:100%;">
+  
+  </div>
+  
+  
+  
+  <!-- druga kartica spodej -------------->
+  
+  <div class="col-sm-4 " style="height:100%;">
   
 	<div class="card border-dark" style="height:100%" >
-		<div class="card-header bg-dark text-white" >Ustvari artikel</div>
+		<div class="card-header bg-dark text-white" >Ustvari stranko</div>
 			<div class="card-body px-3 py-3" style="height:100%">
 			
-				<form method="POST">
+				<form>
 					<div class="form-group">
-					<label for="formGroupExampleInput">Naslov knjige:</label>
-					<input type="text" class="form-control" id="formGroupExampleInput" placeholder="naslov knjige" name="naslov">
+					<label for="formGroupExampleInput">E-pošta:</label>
+					<input type="email" class="form-control" id="formGroupExampleInput" placeholder="posta@primer.com">
 					</div>
 					
 					<div class="form-group">
-					<label for="formGroupExampleInput2">Založba:</label>
-					<input type="text" class="form-control" id="formGroupExampleInput2" placeholder="založba knjige" name="zalozba">
+					<label for="formGroupExampleInput2">Geslo:</label>
+					<input type="password" class="form-control" id="formGroupExampleInput2" placeholder="geslo stranke">
 					</div>
 					
 					<div class="form-group">
-					<label for="formGroupExampleInput2">Avtor:</label>
-					<input type="text" class="form-control" id="formGroupExampleInput2" placeholder="avtor knjige" name="avtor">
+					<label for="formGroupExampleInput2">Ime:</label>
+					<input type="text" class="form-control" id="formGroupExampleInput2" placeholder="ime stranke">
 					</div>
 					
 					<div class="form-group">
-					<label for="formGroupExampleInput2">Cena:</label>
-					<input type="text" class="form-control" id="formGroupExampleInput2" placeholder="cena knjige" name="cena">
-					</div>
-
-					<div class="form-group">
-					<label for="formGroupExampleInput2">Naslov slike:</label>
-					<input type="text" class="form-control" id="formGroupExampleInput2" placeholder="naslov slike" name="naslov_slike">
+					<label for="formGroupExampleInput2">Priimek:</label>
+					<input type="text" class="form-control" id="formGroupExampleInput2" placeholder="priimek stranke">
 					</div>
 					
 					<div class="form-group text-center">
-					<button type="submit" class="btn btn-primary"><i class="fas fa-plus"></i> Ustvari artikel</button>
+					<button type="submit" class="btn btn-primary"><i class="fas fa-user-plus"></i> Ustvari stranko</button>
 					</div>
 				</form>
 				
@@ -159,15 +204,14 @@
 	
 		</div>
 	</div>
-	
-	
-	
-	
-	
-	
-	</div>
   
- 
+  </div>
+  
+  
+  
+
+  
+  
   </div>
   
   

@@ -37,6 +37,12 @@ class UporabnikiController {
         }
     }
 
+    public static function stranke() {
+        echo ViewHelper::render("view/prodajalec_seznam_strank.php", [
+            "stranke" => UporabnikiDB::getAllTip("stranka")
+        ]);
+    }
+
     public static function kreirajUporabnika() {
         $ime = $_POST["ime"];
         $priimek = $_POST["priimek"];

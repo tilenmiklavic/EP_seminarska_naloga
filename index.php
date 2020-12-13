@@ -68,6 +68,19 @@ $urls = [
     "/^odjava$/" => function ($method) {
         UporabnikiController::odjava();
     },
+
+    /*
+    ========================================
+    URL-ji za prodajalca
+    ========================================
+    */
+    "/^stranke$/" => function ($method) {
+        if ($method == "POST") {
+            UporabnikiController::kreirajUporabnika();
+        } else {
+            UporabnikiController::stranke();
+        }
+    },
     "/^$/" => function () {
         // univerzalna funckcija 
         // ce noven URL ne prime 
