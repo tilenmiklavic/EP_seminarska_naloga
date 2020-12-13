@@ -68,6 +68,13 @@ $urls = [
     "/^odjava$/" => function ($method) {
         UporabnikiController::odjava();
     },
+    "/^nastavitve$/" => function ($method) {
+        if ($method == "POST") {
+            UporabnikiController::posodobiNastavitve();
+        } else {
+            UporabnikiController::nastavitve();
+        }
+    },
 
     /*
     ========================================

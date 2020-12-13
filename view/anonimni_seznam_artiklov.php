@@ -59,7 +59,7 @@
 			<div id="testMenuRazlika2" class="dropdown-menu dropdown-menu-right"  id="dropdownMeni" aria-labelledby="navbarDropdown">
 				<a class="dropdown-item disabled" href="#">Stran uporabljate kot gost</a>
 				<div class="dropdown-divider"></div>
-				<a class="dropdown-item" href="#"><i class="fas fa-box-open"></i></i> Seznam artiklov</a>
+				<a class="dropdown-item" href="artikli"><i class="fas fa-box-open"></i></i> Seznam artiklov</a>
 				<a class="dropdown-item" href="prijava"><i class="fas fa-sign-in-alt"></i> Prijava</a>
 				<a class="dropdown-item" href="registracija"><i class="fas fa-user-plus"></i> Registracija</a>
 				

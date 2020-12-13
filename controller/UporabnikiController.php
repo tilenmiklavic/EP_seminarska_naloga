@@ -66,9 +66,56 @@ class UporabnikiController {
 
         }  else {
 
-            ViewHelper::redirect(VASE_URL . "registracija");
+            echo ViewHelper::redirect(VASE_URL . "registracija");
 
         }
+    }
+
+    public static function nastavitve() {
+        $id = $_SESSION["uporabnik_id"];
+        $uporabnik = null;
+
+
+        if ($id) {
+            $uporabnik = UporabnikiDB::get($id);
+
+            if ($uporabnik && $uporabnik["tip"] == "stranka") {
+                echo ViewHelper::render("view/stranka_nastavitve.php", [
+                    "uporabnik" => $uporabnik
+                ]);
+            } else if ($uporabnik && $uporabnik["tip"] == "prodajalec") {
+                echo ViewHelper::render("view/prodajalec_nastavitve.php", [
+                    "uporabnik" => $uporabnik
+                ]);
+            } else if ($uporabnik && $uporabnik["tip"] == "admin") {
+                echo ViewHelper::render("view/administrator_nastavitve.php", [
+                    "uporabnik" => $uporabnik
+                ]);
+            } else {
+                // error 
+            }
+        } else {
+            ViewHelper::redirect(BASE_URL);
+        }
+    }
+
+    public static function posodobiNastavitve() {
+        $id = $_SESSION["uporabnik_id"];
+        $uporabnik = UporabnikiDB::get($id);
+
+        var_dump($uporabnik);
+
+        $ime = $_POST["ime"];
+        $priimek = $_POST["priimek"];
+        $email = $_POST["email"];
+        $geslo = $_POST["geslo"];
+        $tip = $uporabnik["tip"];
+        $status = $uporabnik["status"];
+
+
+        UporabnikiDB::edit($id, $ime, $priimek, $email, $geslo, $tip, $status);
+
+        ViewHelper::redirect(BASE_URL . "nastavitve");
     }
 
     public static function odjava() {

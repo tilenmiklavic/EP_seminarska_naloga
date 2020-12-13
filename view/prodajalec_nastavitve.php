@@ -60,7 +60,7 @@
 				<a class="dropdown-item disabled" href="#">Janez Novak</a>
 				<div class="dropdown-divider"></div>
 				<a class="dropdown-item" href="artikli"><i class="fas fa-box-open"></i></i> Seznam artiklov</a>
-				<a class="dropdown-item" href="#"><i class="fas fa-clipboard-check"></i> Trenutna naročila</a>
+				<a class="dropdown-item" href="narocila"><i class="fas fa-clipboard-check"></i> Trenutna naročila</a>
 				<a class="dropdown-item" href="#"><i class="fas fa-history"></i> Zgodovina naročil</a>
 				<a class="dropdown-item" href="stranke"><i class="fas fa-users-cog"></i> Stranke</a>
 				<a class="dropdown-item" href="nastavitve"><i class="fas fa-cog"></i> Nastavitve</a>
@@ -84,132 +84,50 @@
   tle notr gre vsebina celotne strani
   ========================================
   -->
-	<div class="row" style="height:100%;">
-	
-	<div class="col-sm-8" style="height:100%">
-  
-  
-  
-   <div class="card border-dark" style="height:100%" >
-		<div class="card-header bg-dark text-white" >Vse stranke</div>
+	<div class="card border-dark" style="height:100%" >
+		<div class="card-header bg-dark text-white" >Nastavitve</div>
 			<div class="card-body px-1 py-1" style="height:100%">
 			
-				<!-- zavijem da je kartica skrollable in se ne preliva cez -->
-			<div class="scrollable" style="height:100%; overflow-y: auto;">
-			
-			
-			<ul class="list-group" style="width:100%; height:100%;">
-            
-            <?php foreach($stranke as $stranka): ?>
-			<li class="list-group-item">
-			<p class="text-dark"> <b>Stranka (id:<?= $stranka["id"]?>)</b></p>
-				<form>
+			<div class="col-sm-4">
+
+				<form method="POST">
 				
-				<div class="form-group row">
-				<label for="inputEmail3" class="col-sm-2 col-form-label  col-form-label-sm ">E-pošta:</label>
-				<div class="col-sm-10">
-				<input type="email" class="form-control form-control-sm" id="inputEmail3" value=<?= $stranka["email"]?>>
-				</div>
+				<div class="form-group">
+				<label for="inputEmail3">E-pošta:</label>
+				<input type="email" class="form-control" id="inputEmail3" value=<?= $uporabnik["email"]?> name="email">
 				</div>
 				
-				<div class="form-group row">
-				<label for="inputPassword3" class="col-sm-2 col-form-label col-form-label-sm">Geslo:</label>
-				<div class="col-sm-10">
-				<input type="password" class="form-control form-control-sm" id="inputPassword3" value=<?= $stranka["geslo"]?>>
-				</div>
+				<div class="form-group">
+				<label for="inputPassword3">Geslo:</label>
+				<input type="password" class="form-control" id="inputPassword3" value=<?= $uporabnik["geslo"]?> name="geslo">
 				</div>
 				
-				<div class="form-group row">
-				<label for="inputPassword3" class="col-sm-2 col-form-label col-form-label-sm">Ime:</label>
-				<div class="col-sm-10">
-				<input type="text" class="form-control form-control-sm" id="inputPassword3" value=<?= $stranka["ime"]?>>
-				</div>
+				<div class="form-group">
+				<label for="inputPassword3">Ime:</label>
+				<input type="text" class="form-control" id="inputPassword3" value=<?= $uporabnik["ime"]?> name="ime">
 				</div>
 				
-				<div class="form-group row">
-				<label for="inputPassword3" class="col-sm-2 col-form-label col-form-label-sm">Priimek:</label>
-				<div class="col-sm-10">
-				<input type="text" class="form-control form-control-sm" id="inputPassword3" value=<?= $stranka["priimek"]?>>
-				</div>
+				<div class="form-group">
+				<label for="inputPassword3">Priimek:</label>
+				<input type="text" class="form-control" id="inputPassword3" value=<?= $uporabnik["priimek"]?> name="priimek">
 				</div>
 				
-				<div class="form-check mb-2 mr-sm-2">
-				<input class="form-check-input" type="checkbox" id="inlineFormCheck">
-				<label class="form-check-label" for="inlineFormCheck">
-				Stranka aktivna
-				</label>
-				</div>
-				
-				<div class="form-group row">
-				<div class="col-sm-10 text-right ml-auto">
-				<button type="submit" class="btn btn-primary btn-sm "><i class="fas fa-user-edit"></i> Shrani spremembe</button>
-				</div>
+				<div class="form-group">
+				<button type="submit" class="btn btn-primary"><i class="fas fa-user-edit"></i> Shrani spremembe</button>
 				</div>
 				
 				</form>
-				
-            </li>
-            <?php endforeach; ?>
-			
-			</ul>
-			
 			</div>
 			
 			
-	
 			</div>
     </div>
   
   
-  </div>
   
   
   
-  <!-- druga kartica spodej -------------->
   
-  <div class="col-sm-4 " style="height:100%;">
-  
-	<div class="card border-dark" style="height:100%" >
-		<div class="card-header bg-dark text-white" >Ustvari stranko</div>
-			<div class="card-body px-3 py-3" style="height:100%">
-			
-				<form method="POST">
-					<div class="form-group">
-					<label for="formGroupExampleInput">E-pošta:</label>
-					<input type="email" class="form-control" id="formGroupExampleInput" placeholder="posta@primer.com" name="email">
-					</div>
-					
-					<div class="form-group">
-					<label for="formGroupExampleInput2">Geslo:</label>
-					<input type="password" class="form-control" id="formGroupExampleInput2" placeholder="geslo stranke" name="geslo">
-					</div>
-					
-					<div class="form-group">
-					<label for="formGroupExampleInput2">Ime:</label>
-					<input type="text" class="form-control" id="formGroupExampleInput2" placeholder="ime stranke" name="ime">
-					</div>
-					
-					<div class="form-group">
-					<label for="formGroupExampleInput2">Priimek:</label>
-					<input type="text" class="form-control" id="formGroupExampleInput2" placeholder="priimek stranke" name="priimek">
-					</div>
-					
-					<div class="form-group text-center">
-					<button type="submit" class="btn btn-primary"><i class="fas fa-user-plus"></i> Ustvari stranko</button>
-					</div>
-				</form>
-				
-	
-			</div>
-	
-		</div>
-	</div>
-  
-  </div>
-  
-  
-  
-
   
   
   </div>
@@ -217,6 +135,7 @@
   
   <!-- ------------------------------------------- -->
   
+
 
 </body>
 
