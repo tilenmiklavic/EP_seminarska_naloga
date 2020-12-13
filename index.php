@@ -17,7 +17,11 @@ error_log("Zacetek indexa");
 
 $urls = [
     "/^artikli$/" => function ($method) {
-        TrgovinaController::index();
+        if ($method == "POST") {
+            TrgovinaController::kreirajArtikel();
+        } else {
+            TrgovinaController::index();
+        }
     },
     "/^artikli\/(\d+)$/" => function ($method, $id) {
         TrgovinaController::get($id);

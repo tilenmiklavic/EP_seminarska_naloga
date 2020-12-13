@@ -46,6 +46,31 @@ class TrgovinaController {
         }
     }
 
+    public static function kreirajArtikel() {
+
+        $naslov = $_POST["naslov"];
+        $zalozba = $_POST["zalozba"];
+        $avtor = $_POST["avtor"];
+        $cena = $_POST["cena"];
+        $slike = NULL;
+        $naslov_slike = $_POST["naslov_slike"];
+
+        $id = ArtikliDB::insert($naslov, $zalozba, $avtor, $cena, $slike, $naslov_slike);
+
+        if ($id) {
+
+            // artikel uspesno dodan 
+            ViewHelper::redirect(BASE_URL);
+
+        } else {
+
+            // prislo je do napake pri dodajanju artikla 
+            ViewHelper::render("view/prodajalec_seznam_artiklov");
+
+        }
+
+    }
+
     /*
     TODO 
 

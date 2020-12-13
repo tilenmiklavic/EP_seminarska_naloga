@@ -44,6 +44,7 @@ class ArtikliDB {
 
 
         $statement->execute();
+        return $db->lastInsertId();
     }
     
     public static function edit($id, $ime, $avtor, $zalozba, $cena, $slike, $naslov_slike) {

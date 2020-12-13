@@ -123,7 +123,7 @@
 		<div class="card-header bg-dark text-white" >Ustvari artikel</div>
 			<div class="card-body px-3 py-3" style="height:100%">
 			
-				<form>
+				<form method="POST">
 					<div class="form-group">
 					<label for="formGroupExampleInput">Naslov knjige:</label>
 					<input type="text" class="form-control" id="formGroupExampleInput" placeholder="naslov knjige" name="naslov">
@@ -142,6 +142,11 @@
 					<div class="form-group">
 					<label for="formGroupExampleInput2">Cena:</label>
 					<input type="text" class="form-control" id="formGroupExampleInput2" placeholder="cena knjige" name="cena">
+					</div>
+
+					<div class="form-group">
+					<label for="formGroupExampleInput2">Naslov slike:</label>
+					<input type="text" class="form-control" id="formGroupExampleInput2" placeholder="naslov slike" name="naslov_slike">
 					</div>
 					
 					<div class="form-group text-center">
