@@ -173,25 +173,25 @@
 		<div class="card-header bg-dark text-white" >Ustvari stranko</div>
 			<div class="card-body px-3 py-3" style="height:100%">
 			
-				<form>
+				<form method="POST">
 					<div class="form-group">
 					<label for="formGroupExampleInput">E-pošta:</label>
-					<input type="email" class="form-control" id="formGroupExampleInput" placeholder="posta@primer.com">
+					<input type="email" class="form-control" id="formGroupExampleInput" placeholder="posta@primer.com" name="email">
 					</div>
 					
 					<div class="form-group">
 					<label for="formGroupExampleInput2">Geslo:</label>
-					<input type="password" class="form-control" id="formGroupExampleInput2" placeholder="geslo stranke">
+					<input type="password" class="form-control" id="formGroupExampleInput2" placeholder="geslo stranke" name="geslo">
 					</div>
 					
 					<div class="form-group">
 					<label for="formGroupExampleInput2">Ime:</label>
-					<input type="text" class="form-control" id="formGroupExampleInput2" placeholder="ime stranke">
+					<input type="text" class="form-control" id="formGroupExampleInput2" placeholder="ime stranke" name="ime">
 					</div>
 					
 					<div class="form-group">
 					<label for="formGroupExampleInput2">Priimek:</label>
-					<input type="text" class="form-control" id="formGroupExampleInput2" placeholder="priimek stranke">
+					<input type="text" class="form-control" id="formGroupExampleInput2" placeholder="priimek stranke" name="priimek">
 					</div>
 					
 					<div class="form-group text-center">

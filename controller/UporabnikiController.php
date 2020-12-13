@@ -55,10 +55,16 @@ class UporabnikiController {
 
         if ($id) {
 
-            $_SESSION["uporabnik_id"] = $id;
-            echo ViewHelper::redirect(BASE_URL);
+            if (!isset($_SESSION["uporabnik_id"])) {
+                $_SESSION["uporabnik_id"] = $id;
+                echo ViewHelper::redirect(BASE_URL);
+            } else {
+                echo ViewHelper::redirect(BASE_URL . "stranke");
+            }
+            
+            
 
-        } else {
+        }  else {
 
             ViewHelper::redirect(VASE_URL . "registracija");
 
