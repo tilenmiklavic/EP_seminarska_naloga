@@ -6,6 +6,7 @@ session_start();
 require_once("controller/TrgovinaController.php");
 require_once("controller/UporabnikiController.php");
 require_once("controller/TrgovinaRESTController.php");
+require_once("controller/StrankaController.php");
 
 define("BASE_URL", rtrim($_SERVER["SCRIPT_NAME"], "index.php"));
 define("IMAGES_URL", rtrim($_SERVER["SCRIPT_NAME"], "index.php") . "static/slike/");
@@ -94,6 +95,18 @@ $urls = [
             UporabnikiController::stranke();
         }
         
+    },
+    /*
+    ========================================
+    URL-ji za stranko
+    ========================================
+    */
+    "/^kosarica$/" => function ($method) {
+        if ($method == "POST") {
+            StrankaController::dodajArtikelVKosarico();
+        } else {
+            StrankaController::kosarica();
+        }
     },
     "/^$/" => function () {
         // univerzalna funckcija 

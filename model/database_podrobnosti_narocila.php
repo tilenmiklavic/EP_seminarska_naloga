@@ -31,6 +31,37 @@ class PodrobnostiNarocilaDB {
         return $statement->fetch();
     }
 
+    public static function getByNarociloAndArtikel($id_narocila, $id_artikla) {
+        $db = DBInit::getInstance();
+        
+        $statement = $db->prepare("SELECT * FROM podrobnosti_narocila WHERE id_artikla=? AND narocila_id=?");
+        $statement->bindParam(1, $id_artikla);
+        $statement->bindParam(2, $id_narocila);
+        $statement->execute();
+        
+        return $statement->fetch();
+    }
+
+    public static function getByNarocilo($id_narocila) {
+        $db = DBInit::getInstance();
+        
+        $statement = $db->prepare("SELECT * FROM podrobnosti_narocila WHERE narocila_id=?");
+        $statement->bindParam(1, $id_narocila);
+        $statement->execute();
+        
+        return $statement->fetchAll();
+    }
+
+    public static function vsebinaKosarice($id_narocila) {
+        $db = DBInit::getInstance();
+        
+        $statement = $db->prepare("SELECT podrobnosti_narocila.id_artikla, podrobnosti_narocila.kolicina, artikli.cena, artikli.ime FROM podrobnosti_narocila, artikli WHERE narocila_id=? AND podrobnosti_narocila.id_artikla=artikli.id");
+        $statement->bindParam(1, $id_narocila);
+        $statement->execute();
+        
+        return $statement->fetchAll();
+    }
+
     public static function insert($id_artikla, $kolicina, $narocila_id) {                
         $db = DBInit::getInstance();
         
@@ -46,10 +77,12 @@ class PodrobnostiNarocilaDB {
         
         $db = DBInit::getInstance();
         
-        $statement = $db->prepare("update podrobnosti_narocila set id_artikla=?, kolicina=?, narocila_id=? where id=$id");
+        $statement = $db->prepare("UPDATE podrobnosti_narocila set id_artikla=?, kolicina=?, narocila_id=? where id_artikla=? AND narocila_id=?");
         $statement->bindParam(1, $id_artikla);
         $statement->bindParam(2, $kolicina);
         $statement->bindParam(3, $narocila_id);
+        $statement->bindParam(4, $id_artikla);
+        $statement->bindParam(5, $narocila_id);
 
 
         $statement->execute();

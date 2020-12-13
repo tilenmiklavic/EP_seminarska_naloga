@@ -46,7 +46,6 @@ class TrgovinaController {
         }
 
         if ($uporabnik && $uporabnik["tip"] == "stranka") {
-
             echo ViewHelper::render("view/stranka_seznam_artiklov.php", [
                 "artikli" => ArtikliDB::getAll(),
                 "uporabnik" => $uporabnik

@@ -31,22 +31,36 @@ class NarocilaDB {
         return $statement->fetch();
     }
 
+    public static function getByUporabnikId($id, $status) {
+        $db = DBInit::getInstance();
+        
+        $statement = $db->prepare("SELECT * FROM narocila WHERE uporabniki_id=? AND status=?");
+        $statement->bindParam(1, $id);
+        $statement->bindParam(2, $status);
+
+        $statement->execute();
+        
+        return $statement->fetch();
+    }
+
     public static function insert($uporabnik_id, $status) {                
         $db = DBInit::getInstance();
         
-        $statement = $db->prepare("INSERT into narocila (uporabnik_id, status) values (?, ?);");
+        $statement = $db->prepare("INSERT into narocila (uporabniki_id, status) values (?, ?);");
         $statement->bindParam(1, $uporabnik_id);
         $statement->bindParam(2, $status);
 
 
         $statement->execute();
+
+        return $db->lastInsertId();
     }
     
     public static function edit($uporabnik_id, $status) {
         
         $db = DBInit::getInstance();
         
-        $statement = $db->prepare("update narocila set uporabnik_id=?, status=? where id=$id");
+        $statement = $db->prepare("update narocila set uporabniki_id=?, status=? where id=$id");
         $statement->bindParam(1, $uporabnik_id);
         $statement->bindParam(2, $status);
 

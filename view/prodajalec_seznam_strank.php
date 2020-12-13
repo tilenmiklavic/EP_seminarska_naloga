@@ -32,7 +32,7 @@
 	<div class="container-lg px-3" >
 		
 		<!-- navbar logo -->
-		<a class="navbar-brand" href="artikli"> 
+		<a class="navbar-brand" href="index"> 
 			<i class="fas fa-store"></i> <b><i>Trgovina abc</i></b>
 		</a>
 		
@@ -59,7 +59,7 @@
 			<div id="testMenuRazlika2" class="dropdown-menu dropdown-menu-right"  id="dropdownMeni" aria-labelledby="navbarDropdown">
 				<a class="dropdown-item disabled" href="#">Janez Novak</a>
 				<div class="dropdown-divider"></div>
-				<a class="dropdown-item" href="artikli"><i class="fas fa-box-open"></i></i> Seznam artiklov</a>
+				<a class="dropdown-item" href="index"><i class="fas fa-box-open"></i></i> Seznam artiklov</a>
 				<a class="dropdown-item" href="#"><i class="fas fa-clipboard-check"></i> Trenutna naročila</a>
 				<a class="dropdown-item" href="#"><i class="fas fa-history"></i> Zgodovina naročil</a>
 				<a class="dropdown-item" href="stranke"><i class="fas fa-users-cog"></i> Stranke</a>

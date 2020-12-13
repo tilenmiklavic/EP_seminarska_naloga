@@ -84,40 +84,43 @@
   ========================================
   -->
   <div class="card border-dark" style="height:100%" >
-		<div class="card-header bg-dark text-white" >Seznam artiklov</div>
-			<div class="card-body px-1 py-1" style="height:100%">
+		<div class="card-header bg-dark text-white" >Košarica</div>
+			<div class="card-body px-3 py-3" style="height:100%">
 			
 				<!-- zavijem da je kartica skrollable in se ne preliva cez -->
 			<div class="scrollable" style="height:100%; overflow-y: auto;">
 			
-			<!-- seznam vseh iger za test samo 9 x iger dodanih -->
-			<ul class="list-group" style="width:100%; height:100%;">
-            
-			<?php foreach ($artikli as $artikel): ?>
-			<form method="post" action="kosarica">
-			<li class="list-group-item d-flex align-items-center ">
-			<a  href="artikli/<?= $artikel["id"]?>"> <img src=<?= $artikel["naslov_slike"]?> style="height:15vh;"> </a>
-			<p class="text-dark ml-2"> <b><?= $artikel["ime"]?></b><br>Avtor: <?= $artikel["avtor"]?><br>Založba: <?= $artikel["zalozba"]?><br>Cena: <?= $artikel["cena"]?>€</p>
-			<input type="hidden" value=<?= $artikel["id"]?> name="id">
-			<button type="submit" class="btn btn-primary ml-auto"><i class="fas fa-plus"></i> Dodaj v košarico</button>
-			</li>
-			</form>
-            <?php endforeach; ?>
-		
-
+			<ul>
+                <?php foreach($artikli as $artikel): ?>
+				<li>
+					<h6><?= $artikel["ime"]?>(Cena: <?= $artikel["cena"]?>€)</h6>
+					<form>
+					<div class="form-group col-sm-1 pl-0 ml-0">
+						<input class="form-control form-control-sm" type="number" value=<?= $artikel["kolicina"]?> id="example-number-input">
+					</div>
+					</form>
+					
+                </li>
+                <?php endforeach; ?>
+				
 			</ul>
 			
+			<br><p>Skupna cena: <?= $skupna_cena?>€</p>
+			<button type="button" class="btn btn-primary"><i class="fas fa-file-invoice-dollar"></i> Zaključi z nakupom</button>
+
+			
+			
+
+		
 			</div>
 			
 			
-	
-			</div>
     </div>
   
  
   </div>
   
-  
+</div>  
   <!-- ------------------------------------------- -->
   
 
