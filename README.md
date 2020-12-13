@@ -41,16 +41,18 @@ Uporabljene tehnologije: PHP, HTML, CSS, JavaScript, SQL, Android
 
 ### Naloge (napiši se zravn takoj ko začneš delat)
 
-- [ ] izpis artiklov - **Tilen**
+- [x] izpis artiklov - **Tilen**
 - [x] ustvaritev stranke
-- [ ] ustvartiev artikla **Tilen**
+- [x] ustvartiev artikla **Tilen**
 - [x] x-artikel - izpiše detajle klik na izbran artikel povede na stran x-artikel
 - [ ] sprememba svojih atribtuov (sepravi x-nastative) **Tilen**
-- [ ] spremmeba atributov ostalih **Tilen**
+- [ ] sprememba atributov ostalih **Tilen**
 - [x] implementiranje seje (uporabnik ostane prijavljen)
 - [x] prijava/odjava/registracija
 - [ ] pogledi za trgovca **Tilen**
 - [ ] pogledi za administratorja **Tilen**
+- [ ] prikaz vseh strank prodajalcu **Tilen**
+- [ ] kreiranje nove stranke **Tilen**
 
 ----------------------------------------------------------------------------
 
