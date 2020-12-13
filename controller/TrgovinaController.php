@@ -37,7 +37,13 @@ class TrgovinaController {
                 "uporabnik" => $uporabnik
             ]);
 
-        }  else {
+        }  else if ($uporabnik && $uporabnik["tip"] == "admin") {
+          
+            echo ViewHelper::render("view/administrator_seznam_prodajalcev.php", [
+                "prodajalci" => UporabnikiDB::getAllTip("prodajalec")
+            ]);
+            
+        } else {
             
             echo ViewHelper::render("view/anonimni_seznam_artiklov.php", [
                 "artikli" => ArtikliDB::getAll()

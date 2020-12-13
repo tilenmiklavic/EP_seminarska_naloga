@@ -103,14 +103,25 @@ class UporabnikiController {
         $id = $_SESSION["uporabnik_id"];
         $uporabnik = UporabnikiDB::get($id);
 
-        var_dump($uporabnik);
-
-        $ime = $_POST["ime"];
-        $priimek = $_POST["priimek"];
-        $email = $_POST["email"];
-        $geslo = $_POST["geslo"];
+        $ime = $uporabnik["ime"];
+        $priimek = $uporabnik["priimek"];
+        $email = $uporabnik["email"];
+        $geslo = $uporabnik["geslo"];
         $tip = $uporabnik["tip"];
         $status = $uporabnik["status"];
+
+        if ($tip == "admin") {
+
+            $geslo = $_POST["geslo"];
+
+        } else {
+
+            $ime = $_POST["ime"];
+            $priimek = $_POST["priimek"];
+            $email = $_POST["email"];
+            $geslo = $_POST["geslo"];
+
+        }
 
 
         UporabnikiDB::edit($id, $ime, $priimek, $email, $geslo, $tip, $status);

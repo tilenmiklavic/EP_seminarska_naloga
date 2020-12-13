@@ -59,7 +59,7 @@
 			<div id="testMenuRazlika2" class="dropdown-menu dropdown-menu-right"  id="dropdownMeni" aria-labelledby="navbarDropdown">
 				<a class="dropdown-item disabled" href="#">Administrator</a>
 				<div class="dropdown-divider"></div>
-				<a class="dropdown-item" href="prodajalci"><i class="fas fa-users-cog"></i> Prodajalci</a>
+				<a class="dropdown-item" href="#"><i class="fas fa-users-cog"></i> Prodajalci</a>
 				<a class="dropdown-item" href="nastavitve"><i class="fas fa-cog"></i> Nastavitve</a>
 				<a class="dropdown-item" href="odjava"><i class="fas fa-sign-out-alt"></i> Odjava</a>
 			</div>
@@ -81,30 +81,126 @@
   tle notr gre vsebina celotne strani
   ========================================
   -->
-	<div class="card border-dark" style="height:100%" >
-		<div class="card-header bg-dark text-white" >Nastavitve</div>
+  <div class="row" style="height:100%;">
+	
+	<div class="col-sm-8" style="height:100%">
+  
+  
+  
+   <div class="card border-dark" style="height:100%" >
+		<div class="card-header bg-dark text-white" >Vsi prodajalci</div>
 			<div class="card-body px-1 py-1" style="height:100%">
 			
-			<div class="col-sm-4">
-				<form method="POST">	
-					<div class="form-group">
-					<label for="formGroupExampleInput2">Geslo:</label>
-					<input type="password" class="form-control" id="formGroupExampleInput2" value=<?= $uporabnik["geslo"]?> name="geslo">
-					</div>
-					
-					
-					<div class="form-group">
-					<button type="submit" class="btn btn-primary"><i class="fas fa-key"></i> Spremeni geslo</button>
-					</div>
-				</form>
-			</div>
+				<!-- zavijem da je kartica skrollable in se ne preliva cez -->
+			<div class="scrollable" style="height:100%; overflow-y: auto;">
 			
+			
+			<ul class="list-group" style="width:100%; height:100%;">
+            
+            <?php foreach($prodajalci as $prodajalec): ?>
+			<li class="list-group-item">
+			<p class="text-dark"> <b>Prodajalec (id:<?= $prodajalec["id"]?>)</b></p>
+				<form method="POST">
+				
+				<div class="form-group row">
+				<label for="inputEmail3" class="col-sm-2 col-form-label  col-form-label-sm ">E-pošta:</label>
+				<div class="col-sm-10">
+				<input type="email" class="form-control form-control-sm" id="inputEmail3" value=<?= $prodajalec["email"]?>>
+				</div>
+				</div>
+				
+				<div class="form-group row">
+				<label for="inputPassword3" class="col-sm-2 col-form-label col-form-label-sm">Geslo:</label>
+				<div class="col-sm-10">
+				<input type="password" class="form-control form-control-sm" id="inputPassword3" value=<?= $prodajalec["geslo"]?>>
+				</div>
+				</div>
+				
+				<div class="form-group row">
+				<label for="inputPassword3" class="col-sm-2 col-form-label col-form-label-sm">Ime:</label>
+				<div class="col-sm-10">
+				<input type="text" class="form-control form-control-sm" id="inputPassword3" value=<?= $prodajalec["ime"]?>>
+				</div>
+				</div>
+				
+				<div class="form-group row">
+				<label for="inputPassword3" class="col-sm-2 col-form-label col-form-label-sm">Priimek:</label>
+				<div class="col-sm-10">
+				<input type="text" class="form-control form-control-sm" id="inputPassword3" value=<?= $prodajalec["priimek"]?>>
+				</div>
+				</div>
+				
+				<div class="form-check mb-2 mr-sm-2">
+				<input class="form-check-input" type="checkbox" id="inlineFormCheck">
+				<label class="form-check-label" for="inlineFormCheck">
+				Prodajalec aktiven
+				</label>
+				</div>
+				
+				<div class="form-group row">
+				<div class="col-sm-10 text-right ml-auto">
+				<button type="submit" class="btn btn-primary btn-sm "><i class="fas fa-user-edit"></i> Shrani spremembe</button>
+				</div>
+				</div>
+				
+				</form>
+				
+            </li>
+            <?php endforeach; ?>
+
+			</ul>
+			
+			</div>
 			
 			</div>
     </div>
   
   
+  </div>
   
+  
+  
+  <!-- druga kartica spodej -------------->
+  
+  <div class="col-sm-4 " style="height:100%;">
+  
+	<div class="card border-dark" style="height:100%" >
+		<div class="card-header bg-dark text-white" >Ustvari prodajalca</div>
+			<div class="card-body px-3 py-3" style="height:100%">
+			
+				<form>
+					<div class="form-group">
+					<label for="formGroupExampleInput">E-pošta:</label>
+					<input type="email" class="form-control" id="formGroupExampleInput" placeholder="posta@primer.com">
+					</div>
+					
+					<div class="form-group">
+					<label for="formGroupExampleInput2">Geslo:</label>
+					<input type="password" class="form-control" id="formGroupExampleInput2" placeholder="geslo prodajalca">
+					</div>
+					
+					<div class="form-group">
+					<label for="formGroupExampleInput2">Ime:</label>
+					<input type="text" class="form-control" id="formGroupExampleInput2" placeholder="ime prodajalca">
+					</div>
+					
+					<div class="form-group">
+					<label for="formGroupExampleInput2">Priimek:</label>
+					<input type="text" class="form-control" id="formGroupExampleInput2" placeholder="priimek prodajalca">
+					</div>
+					
+					<div class="form-group text-center">
+					<button type="submit" class="btn btn-primary"><i class="fas fa-user-plus"></i> Ustvari prodajalca</button>
+					</div>
+				</form>
+				
+	
+			</div>
+	
+		</div>
+	</div>
+  
+  </div>
   
   
   
