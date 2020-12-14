@@ -21,7 +21,7 @@ Uporabljene tehnologije: PHP, HTML, CSS, JavaScript, SQL, Android
 - [x] posodibtev lastnih atributov za vse uporabnike **Tilen**
 - [ ] hierarhično posodabljanje in kreacija tipov uporabnikov (spet svoja stran))
 - [x] izpis artiklov na strani uporabnikov **(Tilen)**
-- [ ] povazava do posameznega artikla (spreminjanje atribtov če je tip uporanbika prodajalec)
+- [ ] povazava do posameznega artikla (spreminjanje atribtov če je tip uporanbika prodajalec) **Luka**
 - [ ] košarica uporabnika (nova stran) **Tilen**
 - [ ] izpis predračuna
 
