@@ -31,7 +31,7 @@ Uporabljene tehnologije: PHP, HTML, CSS, JavaScript, SQL, Android
 - [ ] izpis vseh naročil s statusom potrjeno (zraven možnost storniranja) **Rihard**
 - [ ] izpis vseh artiklov za prodajalca (zraven še možnost deaktiviranja izdelka) + še dodan pogled za ustvaritev artikla (ista stran kot pri prikazu posameznega artikla samo da je prazno)
 
-- [ ] izpis pretklih nakupov (status naročil vsa razen neoodano(neoodano predstavlja košarico))
+- [ ] izpis pretklih nakupov (status naročil vsa razen neoodano(neoodano predstavlja košarico)) **Rihard**
 
 - [x] anonimni uproabnik ima samo možnost izpisa vseh artiklov (isti izpis kot stranka) in ogled detajlov artiklov)
 - [x] registracija novega uporabnika (se ga doda kot tip stranka) 
