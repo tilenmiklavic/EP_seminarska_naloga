@@ -23,12 +23,12 @@ Uporabljene tehnologije: PHP, HTML, CSS, JavaScript, SQL, Android
 - [x] izpis artiklov na strani uporabnikov **(Tilen)**
 - [ ] povazava do posameznega artikla (spreminjanje atribtov če je tip uporanbika prodajalec) **Luka**
 - [ ] košarica uporabnika (nova stran) **Tilen**
-- [ ] izpis predračuna
+- [ ] izpis predračuna **Rihard**
 
 
-- [ ] povezava do posameznega naročila
-- [ ] izpis naročil s statusom oddano (in možnost da spremeni status v preklic oziroma potrdi)
-- [ ] izpis vseh naročil s statusom potrjeno (zraven možnost storniranja)
+- [ ] povezava do posameznega naročila **Rihard**
+- [ ] izpis naročil s statusom oddano (in možnost da spremeni status v preklic oziroma potrdi) **Rihard**
+- [ ] izpis vseh naročil s statusom potrjeno (zraven možnost storniranja) **Rihard**
 - [ ] izpis vseh artiklov za prodajalca (zraven še možnost deaktiviranja izdelka) + še dodan pogled za ustvaritev artikla (ista stran kot pri prikazu posameznega artikla samo da je prazno)
 
 - [ ] izpis pretklih nakupov (status naročil vsa razen neoodano(neoodano predstavlja košarico))
