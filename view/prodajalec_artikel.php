@@ -97,17 +97,17 @@
 				
 				<div class="form-group ">
 				<label for="inputEmail3" >Naslov knjige:</label>
-				<input type="text" class="form-control form-control-sm" id="inputEmail3" value=<?= $artikel["ime"]?> name="ime">
+				<input type="text" class="form-control form-control-sm" id="inputEmail3" value="<?= $artikel["ime"]?>" name="ime">
 				</div>
 
 				<div class="form-group ">
 				<label for="inputAuthor3" >Avtor:</label>
-				<input type="text" class="form-control form-control-sm" id="inputAvtor3" value=<?= $artikel["avtor"]?> name="avtor">
+				<input type="text" class="form-control form-control-sm" id="inputAvtor3" value="<?= $artikel["avtor"]?>" name="avtor">
 				</div>
 				
 				<div class="form-group ">
 				<label for="inputPassword3" >Založba:</label>
-				<input type="text" class="form-control form-control-sm" id="inputPassword3" value=<?= $artikel["zalozba"]?> name="zalozba">
+				<input type="text" class="form-control form-control-sm" id="inputPassword3" value="<?= $artikel["zalozba"]?>" name="zalozba">
 				</div>
 				
 				<div class="form-group ">
