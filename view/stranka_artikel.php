@@ -59,11 +59,11 @@
 			<div id="testMenuRazlika2" class="dropdown-menu dropdown-menu-right"  id="dropdownMeni" aria-labelledby="navbarDropdown">
 				<a class="dropdown-item disabled" href="#">Matej Kovač</a>
 				<div class="dropdown-divider"></div>
-				<a class="dropdown-item" href="#"><i class="fas fa-box-open"></i></i> Seznam artiklov</a>
-				<a class="dropdown-item" href="#"><i class="fas fa-shopping-basket"></i> Košarica</a>
+				<a class="dropdown-item" href="../index"><i class="fas fa-box-open"></i></i> Seznam artiklov</a>
+				<a class="dropdown-item" href="../kosarica"><i class="fas fa-shopping-basket"></i> Košarica</a>
 				<a class="dropdown-item" href="#"><i class="fas fa-history"></i> Zgodovina nakupov</a>
-				<a class="dropdown-item" href="#"><i class="fas fa-cog"></i> Nastavitve</a>
-				<a class="dropdown-item" href="#"><i class="fas fa-sign-out-alt"></i> Odjava</a>
+				<a class="dropdown-item" href="../nastavitve"><i class="fas fa-cog"></i> Nastavitve</a>
+				<a class="dropdown-item" href="../odjava"><i class="fas fa-sign-out-alt"></i> Odjava</a>
 			</div>
 			</li>
 		</ul>

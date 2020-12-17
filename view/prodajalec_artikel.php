@@ -64,7 +64,7 @@
 				<a class="dropdown-item" href="#"><i class="fas fa-history"></i> Zgodovina naročil</a>
 				<a class="dropdown-item" href="stranke"><i class="fas fa-users-cog"></i> Stranke</a>
 				<a class="dropdown-item" href="nastavitve"><i class="fas fa-cog"></i> Nastavitve</a>
-				<a class="dropdown-item" href="odjava"><i class="fas fa-sign-out-alt"></i> Odjava</a>
+				<a class="dropdown-item" href="../odjava"><i class="fas fa-sign-out-alt"></i> Odjava</a>
 			</div>
 			</li>
 		</ul>
