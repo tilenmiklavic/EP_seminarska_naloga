@@ -49,8 +49,8 @@ Uporabljene tehnologije: PHP, HTML, CSS, JavaScript, SQL, Android
 - [ ] sprememba atributov ostalih **Tilen**
 - [x] implementiranje seje (uporabnik ostane prijavljen)
 - [x] prijava/odjava/registracija
-- [ ] pogledi za trgovca **Tilen**
-- [ ] pogledi za administratorja **Tilen**
+- [x] pogledi za trgovca **Tilen**
+- [x] pogledi za administratorja **Tilen**
 - [x] prikaz vseh strank prodajalcu **Tilen**
 - [x] kreiranje nove stranke **Tilen**
 
