@@ -100,38 +100,43 @@
             <?php foreach($prodajalci as $prodajalec): ?>
 			<li class="list-group-item">
 			<p class="text-dark"> <b>Prodajalec (id:<?= $prodajalec["id"]?>)</b></p>
-				<form method="POST">
+				<form method="POST" action="prodajalci">
+				<input type="hidden" value="<?= $prodajalec["id"]?>" name="id">
 				
 				<div class="form-group row">
 				<label for="inputEmail3" class="col-sm-2 col-form-label  col-form-label-sm ">E-pošta:</label>
 				<div class="col-sm-10">
-				<input type="email" class="form-control form-control-sm" id="inputEmail3" value=<?= $prodajalec["email"]?>>
+				<input type="email" class="form-control form-control-sm" id="inputEmail3" value=<?= $prodajalec["email"]?> name="email">
 				</div>
 				</div>
 				
 				<div class="form-group row">
 				<label for="inputPassword3" class="col-sm-2 col-form-label col-form-label-sm">Geslo:</label>
 				<div class="col-sm-10">
-				<input type="password" class="form-control form-control-sm" id="inputPassword3" value=<?= $prodajalec["geslo"]?>>
+				<input type="password" class="form-control form-control-sm" id="inputPassword3" value=<?= $prodajalec["geslo"]?> name="geslo">
 				</div>
 				</div>
 				
 				<div class="form-group row">
 				<label for="inputPassword3" class="col-sm-2 col-form-label col-form-label-sm">Ime:</label>
 				<div class="col-sm-10">
-				<input type="text" class="form-control form-control-sm" id="inputPassword3" value=<?= $prodajalec["ime"]?>>
+				<input type="text" class="form-control form-control-sm" id="inputPassword3" value=<?= $prodajalec["ime"]?> name="ime">
 				</div>
 				</div>
 				
 				<div class="form-group row">
 				<label for="inputPassword3" class="col-sm-2 col-form-label col-form-label-sm">Priimek:</label>
 				<div class="col-sm-10">
-				<input type="text" class="form-control form-control-sm" id="inputPassword3" value=<?= $prodajalec["priimek"]?>>
+				<input type="text" class="form-control form-control-sm" id="inputPassword3" value=<?= $prodajalec["priimek"]?> name="priimek">
 				</div>
 				</div>
 				
 				<div class="form-check mb-2 mr-sm-2">
-				<input class="form-check-input" type="checkbox" id="inlineFormCheck">
+				<?php if ($prodajalec["status"] == "active"): ?>
+					<input class="form-check-input" type="checkbox" id="inlineFormCheck" name="aktiven" checked>
+				<?php else: ?>
+					<input class="form-check-input" type="checkbox" id="inlineFormCheck" name="aktiven">
+				<?php endif?>
 				<label class="form-check-label" for="inlineFormCheck">
 				Prodajalec aktiven
 				</label>

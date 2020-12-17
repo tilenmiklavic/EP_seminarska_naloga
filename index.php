@@ -80,6 +80,16 @@ $urls = [
             UporabnikiController::nastavitve();
         }
     },
+    /*
+    ========================================
+    URL-ji za prodajalca
+    ========================================
+    */
+    "/^prodajalci$/" => function ($method) {
+        if ($method == "POST") {
+            UporabnikiController::posodobiProdajalca();
+        }
+    },
 
     /*
     ========================================

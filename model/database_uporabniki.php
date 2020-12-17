@@ -80,7 +80,7 @@ class UporabnikiDB {
         $statement->bindParam(5, $tip);
         $statement->bindParam(6, $status);
 
-        $statement->execute();
+        return $statement->execute();
 
     }
     

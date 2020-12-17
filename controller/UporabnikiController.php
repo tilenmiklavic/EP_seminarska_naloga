@@ -87,6 +87,27 @@ class UporabnikiController {
         
     }
 
+    public static function posodobiProdajalca() {
+        $id = $_POST["id"];
+        $email = $_POST["email"];
+        $geslo = $_POST["geslo"];
+        $ime = $_POST["ime"];
+        $priimek = $_POST["priimek"];
+        $status = "active";
+
+        if (!isset($_POST["aktiven"])) {
+            $status = "inactive";
+        }
+
+        $tip = "prodajalec";
+
+        if (UporabnikiDB::edit($id, $ime, $priimek, $email, $geslo, $tip, $status)) {
+            ViewHelper::redirect(BASE_URL . "index");
+        } else {
+            echo("Napaka");
+        }
+    }
+
     public static function nastavitve() {
         $id = $_SESSION["uporabnik_id"];
         $uporabnik = null;
