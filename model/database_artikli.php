@@ -13,6 +13,15 @@ class ArtikliDB {
         return $statement->fetchAll();
     }
 
+    public static function getAllChecked() {
+        $db = DBInit::getInstance();
+
+        $statement = $db->prepare("SELECT * FROM artikli WHERE active=1");
+        $statement->execute();
+
+        return $statement->fetchAll();
+    }
+
     public static function delete($id) {
         $db = DBInit::getInstance();
 
