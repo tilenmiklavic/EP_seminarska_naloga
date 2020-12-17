@@ -133,11 +133,11 @@
 				
 				<div class="form-check mb-2 mr-sm-2">
 				<?php if ($prodajalec["status"] == "active"): ?>
-					<input class="form-check-input" type="checkbox" id="inlineFormCheck" name="aktiven" checked>
+					<input class="form-check-input" type="checkbox" id="inlineFormCheck<?= $prodajalec["id"] ?>" name="aktiven" checked>
 				<?php else: ?>
-					<input class="form-check-input" type="checkbox" id="inlineFormCheck" name="aktiven">
+					<input class="form-check-input" type="checkbox" id="inlineFormCheck<?= $prodajalec["id"] ?>" name="aktiven">
 				<?php endif?>
-				<label class="form-check-label" for="inlineFormCheck">
+				<label class="form-check-label" for="inlineFormCheck<?= $prodajalec["id"]?>">
 				Prodajalec aktiven
 				</label>
 				</div>
@@ -173,25 +173,25 @@
 		<div class="card-header bg-dark text-white" >Ustvari prodajalca</div>
 			<div class="card-body px-3 py-3" style="height:100%">
 			
-				<form>
+				<form method="POST" action="prodajalci/dodaj"> 
 					<div class="form-group">
 					<label for="formGroupExampleInput">E-pošta:</label>
-					<input type="email" class="form-control" id="formGroupExampleInput" placeholder="posta@primer.com">
+					<input type="email" class="form-control" id="formGroupExampleInput" placeholder="posta@primer.com" name="email">
 					</div>
 					
 					<div class="form-group">
 					<label for="formGroupExampleInput2">Geslo:</label>
-					<input type="password" class="form-control" id="formGroupExampleInput2" placeholder="geslo prodajalca">
+					<input type="password" class="form-control" id="formGroupExampleInput2" placeholder="geslo prodajalca" name="geslo">
 					</div>
 					
 					<div class="form-group">
-					<label for="formGroupExampleInput2">Ime:</label>
-					<input type="text" class="form-control" id="formGroupExampleInput2" placeholder="ime prodajalca">
+					<label for="formGroupExampleInput3">Ime:</label>
+					<input type="text" class="form-control" id="formGroupExampleInput3" placeholder="ime prodajalca" name="ime">
 					</div>
 					
 					<div class="form-group">
-					<label for="formGroupExampleInput2">Priimek:</label>
-					<input type="text" class="form-control" id="formGroupExampleInput2" placeholder="priimek prodajalca">
+					<label for="formGroupExampleInput4">Priimek:</label>
+					<input type="text" class="form-control" id="formGroupExampleInput4" placeholder="priimek prodajalca" name="priimek">
 					</div>
 					
 					<div class="form-group text-center">

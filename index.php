@@ -90,6 +90,11 @@ $urls = [
             UporabnikiController::posodobiProdajalca();
         }
     },
+    "/^prodajalci\/dodaj$/" => function ($method) {
+        if ($method == "POST") {
+            UporabnikiController::dodajProdajalca();
+        }
+    },
 
     /*
     ========================================

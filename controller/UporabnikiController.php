@@ -108,6 +108,20 @@ class UporabnikiController {
         }
     }
 
+    public static function dodajProdajalca() {
+        $email = $_POST["email"];
+        $ime = $_POST["ime"];
+        $priimek = $_POST["priimek"];
+        $geslo = $_POST["geslo"];
+
+        $tip = "prodajalec";
+        $status = "active";
+
+        if (UporabnikiDB::insert($ime, $priimek, $email, $geslo, $tip, $status)) {
+            ViewHelper::redirect(BASE_URL . "index");
+        }
+    }
+
     public static function nastavitve() {
         $id = $_SESSION["uporabnik_id"];
         $uporabnik = null;
