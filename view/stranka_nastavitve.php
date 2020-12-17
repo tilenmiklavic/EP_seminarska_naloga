@@ -32,7 +32,7 @@
 	<div class="container-lg px-3" >
 		
 		<!-- navbar logo -->
-		<a class="navbar-brand" href="artikli"> 
+		<a class="navbar-brand" href="index"> 
 			<i class="fas fa-store"></i> <b><i>Trgovina abc</i></b>
 		</a>
 		

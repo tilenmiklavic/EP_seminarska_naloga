@@ -44,22 +44,29 @@ class UporabnikiDB {
     public static function prijava($email, $geslo) {
         $db = DBInit::getInstance();
 
-        $statement = $db->prepare("SELECT * FROM uporabniki WHERE email=? AND geslo=?");
+        $statement = $db->prepare("SELECT * FROM uporabniki WHERE email=?");
         $statement->bindParam(1, $email);
-        $statement->bindParam(2, $geslo);
         $statement->execute();
 
-        return $statement->fetch();
+        $uporabnik = $statement->fetch();
+        
+        if (password_verify($geslo, $uporabnik["geslo"])) {
+            return $uporabnik;
+        } else {
+            return null;
+        }
     }
 
     public static function insert($ime, $priimek, $email, $geslo, $tip, $status) {                
         $db = DBInit::getInstance();
+
+        $pass = password_hash($geslo, PASSWORD_BCRYPT);
         
         $statement = $db->prepare("INSERT into uporabniki (ime, priimek, email, geslo, tip, status) values (?, ?, ?, ?, ?, ?);");
         $statement->bindParam(1, $ime);
         $statement->bindParam(2, $priimek);
         $statement->bindParam(3, $email);
-        $statement->bindParam(4, $geslo);
+        $statement->bindParam(4, $pass);
         $statement->bindParam(5, $tip);
         $statement->bindParam(6, $status);
 
@@ -72,11 +79,13 @@ class UporabnikiDB {
         
         $db = DBInit::getInstance();
         
+        $pass = password_hash($geslo, PASSWORD_BCRYPT);
+        
         $statement = $db->prepare("update uporabniki set ime=?, priimek=?, email=?, geslo=?, tip=?, status=? where id=$id");
         $statement->bindParam(1, $ime);
         $statement->bindParam(2, $priimek);
         $statement->bindParam(3, $email);
-        $statement->bindParam(4, $geslo);
+        $statement->bindParam(4, $pass);
         $statement->bindParam(5, $tip);
         $statement->bindParam(6, $status);
 
