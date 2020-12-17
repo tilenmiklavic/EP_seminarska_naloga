@@ -24,6 +24,7 @@ Uporabljene tehnologije: PHP, HTML, CSS, JavaScript, SQL, Android
 - [ ] povazava do posameznega artikla (spreminjanje atribtov če je tip uporanbika prodajalec) **Luka**
 - [ ] košarica uporabnika (nova stran) **Tilen**
 - [ ] izpis predračuna **Rihard**
+- [x] pravilna hramba gesel **Tilen**
 
 
 - [ ] povezava do posameznega naročila **Rihard**
