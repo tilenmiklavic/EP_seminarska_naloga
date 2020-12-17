@@ -105,11 +105,16 @@ class TrgovinaController {
         $avtor = $_POST["avtor"];
         $zalozba = $_POST["zalozba"];
         $cena = $_POST["cena"];
-        // $aktiven = $_POST["aktiven"];
+        $aktiven = 0;
         $slike = NULL;
         $naslov_slike = $_POST["naslov_slike"];
 
-        if (ArtikliDB::edit($id, $ime, $avtor, $zalozba, $cena, $slike, $naslov_slike)) {
+        if (isset($_POST["aktiven"])) {
+            echo("aktiven");
+            $aktiven = 1;
+        }
+
+        if (ArtikliDB::edit($id, $ime, $avtor, $zalozba, $cena, $slike, $naslov_slike, $aktiven)) {
             echo ViewHelper::redirect(BASE_URL . "artikli/" . $id);
 
         } else {

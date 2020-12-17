@@ -32,7 +32,7 @@
 	<div class="container-lg px-3" >
 		
 		<!-- navbar logo -->
-		<a class="navbar-brand" href="#"> 
+		<a class="navbar-brand" href="../index"> 
 			<i class="fas fa-store"></i> <b><i>Trgovina abc</i></b>
 		</a>
 		
@@ -121,7 +121,11 @@
 				</div>
 				
 				<div class="form-check mb-2 mr-sm-2">
-				<input class="form-check-input" type="checkbox" id="inlineFormCheck" name="aktiven">
+				<?php if($artikel["active"] == 1): ?>
+					<input class="form-check-input" type="checkbox" id="inlineFormCheck" name="aktiven" checked>
+				<?php else: ?>
+					<input class="form-check-input" type="checkbox" id="inlineFormCheck" name="aktiven">
+				<?php endif ?>
 				<label class="form-check-label" for="inlineFormCheck">
 				Artikel aktiven
 				</label>
