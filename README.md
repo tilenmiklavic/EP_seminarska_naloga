@@ -46,13 +46,14 @@ Uporabljene tehnologije: PHP, HTML, CSS, JavaScript, SQL, Android
 - [x] ustvartiev artikla **Tilen**
 - [x] x-artikel - izpiše detajle klik na izbran artikel povede na stran x-artikel
 - [x] sprememba svojih atribtuov (sepravi x-nastative) **Tilen**
-- [ ] sprememba atributov ostalih **Tilen**
+- [x] sprememba atributov ostalih **Tilen**
 - [x] implementiranje seje (uporabnik ostane prijavljen)
 - [x] prijava/odjava/registracija
 - [x] pogledi za trgovca **Tilen**
 - [x] pogledi za administratorja **Tilen**
 - [x] prikaz vseh strank prodajalcu **Tilen**
 - [x] kreiranje nove stranke **Tilen**
+- [ ] dodajanje novega prodajalca **Tilen** 
 
 ----------------------------------------------------------------------------
 
