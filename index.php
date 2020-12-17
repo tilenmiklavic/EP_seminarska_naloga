@@ -25,7 +25,11 @@ $urls = [
         }
     },
     "/^artikli\/(\d+)$/" => function ($method, $id) {
-        TrgovinaController::get($id);
+        if ($method == "POST") {
+            TrgovinaController::edit($id);
+        } else {
+            TrgovinaController::get($id);
+        }
     },
     "/^artikli\/add$/" => function ($method) {
         if ($method == "POST") {

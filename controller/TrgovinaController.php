@@ -98,6 +98,28 @@ class TrgovinaController {
 
     }
 
+    public static function edit($id) {
+        $data = filter_input_array(INPUT_POST, self::getRules());
+
+        $ime = $_POST["ime"];
+        $avtor = $_POST["avtor"];
+        $zalozba = $_POST["zalozba"];
+        $cena = $_POST["cena"];
+        // $aktiven = $_POST["aktiven"];
+        $slike = NULL;
+        $naslov_slike = $_POST["naslov_slike"];
+
+        if (ArtikliDB::edit($id, $ime, $avtor, $zalozba, $cena, $slike, $naslov_slike)) {
+            echo ViewHelper::redirect(BASE_URL . "artikli/" . $id);
+
+        } else {
+            // primer ko se vztavljanje v bazo ne izvede
+            // napaka
+            echo ViewHelper::redirect(BASE_URL . "artikli/" . $id);
+        }
+
+    }
+
     /*
     TODO 
 

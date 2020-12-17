@@ -60,7 +60,7 @@ class ArtikliDB {
         $statement->bindParam(6, $naslov_slike);
 
 
-        $statement->execute();
+        return $statement->execute();
 
     }
     

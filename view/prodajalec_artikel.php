@@ -92,26 +92,36 @@
 			
 			<div class="col-sm-8">
 
-			<h3 class="text-dark"> <b class="">Knjiga blabla</b></h3><br>
-				<form>
+			<h3 class="text-dark"> <b class=""><?= $artikel["ime"]?></b></h3><br>
+				<form method="POST">
 				
 				<div class="form-group ">
 				<label for="inputEmail3" >Naslov knjige:</label>
-				<input type="text" class="form-control form-control-sm" id="inputEmail3" value=<?= $artikel["ime"]?>>
+				<input type="text" class="form-control form-control-sm" id="inputEmail3" value=<?= $artikel["ime"]?> name="ime">
+				</div>
+
+				<div class="form-group ">
+				<label for="inputAuthor3" >Avtor:</label>
+				<input type="text" class="form-control form-control-sm" id="inputAvtor3" value=<?= $artikel["avtor"]?> name="avtor">
 				</div>
 				
 				<div class="form-group ">
 				<label for="inputPassword3" >Založba:</label>
-				<input type="text" class="form-control form-control-sm" id="inputPassword3" value=<?= $artikel["zalozba"]?>>
+				<input type="text" class="form-control form-control-sm" id="inputPassword3" value=<?= $artikel["zalozba"]?> name="zalozba">
 				</div>
 				
 				<div class="form-group ">
 				<label for="inputPassword3" >Cena:</label>
-				<input type="text" class="form-control form-control-sm" id="inputPassword3" value="<?= $artikel["cena"]?>€">
+				<input type="text" class="form-control form-control-sm" id="inputPassword3" value="<?= $artikel["cena"]?>" name="cena">
+				</div>
+
+				<div class="form-group ">
+				<label for="inputImageAddress3" >Naslov slike:</label>
+				<input type="text" class="form-control form-control-sm" id="inputImageAddress3" value="<?= $artikel["naslov_slike"]?>" name="naslov_slike">
 				</div>
 				
 				<div class="form-check mb-2 mr-sm-2">
-				<input class="form-check-input" type="checkbox" id="inlineFormCheck">
+				<input class="form-check-input" type="checkbox" id="inlineFormCheck" name="aktiven">
 				<label class="form-check-label" for="inlineFormCheck">
 				Artikel aktiven
 				</label>
