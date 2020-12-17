@@ -14,25 +14,22 @@ class StrankaController {
 
         $id_uporabnika = $_SESSION["uporabnik_id"];
         $narocilo = NarocilaDB::getByUporabnikID($id_uporabnika, "kosarica");
-        $artikli = PodrobnostiNarocilaDB::vsebinaKosarice($narocilo["id"]);
+        $artikli = [];
+
+        if ($narocilo) {
+            $artikli = PodrobnostiNarocilaDB::vsebinaKosarice($narocilo["id"]);
+        }
+
         $skupna_cena = 0;
 
         foreach ($artikli as $artikel) {
             $skupna_cena += $artikel["cena"] * $artikel["kolicina"];
         }
 
-        if ($narocilo) {
-            echo ViewHelper::render("view/stranka_kosarica.php", [
-                "artikli" => $artikli,
-                "skupna_cena" => $skupna_cena
-            ]);
-        } else {
-            echo ViewHelper::render("view/stranka_kosarica.php", [
-                "artikli" => [],
-                "skupna_cena" -> $skupna_cena
-            ]);
-        }
-        
+        echo ViewHelper::render("view/stranka_kosarica.php", [
+            "artikli" => $artikli,
+            "skupna_cena" => $skupna_cena
+        ]);
     }
 
     public static function dodajArtikelVKosarico() {
