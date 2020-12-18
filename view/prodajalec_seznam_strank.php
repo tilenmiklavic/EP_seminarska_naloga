@@ -203,36 +203,59 @@
   
   <div class="col-sm-4 " style="height:100%;">
   
-	<div class="card border-dark" style="height:100%" >
+	<div class="card border-dark scrollable" style="height:100%" >
 		<div class="card-header bg-dark text-white" >Ustvari stranko</div>
 			<div class="card-body px-3 py-3" style="height:100%">
+				<div class="scrollable" style="height:100%; overflow-y: auto;">
+
 			
-				<form method="POST">
-					<div class="form-group">
-					<label for="formGroupExampleInput">E-pošta:</label>
-					<input type="email" class="form-control" id="formGroupExampleInput" placeholder="posta@primer.com" name="email">
-					</div>
-					
-					<div class="form-group">
-					<label for="formGroupExampleInput2">Geslo:</label>
-					<input type="password" class="form-control" id="formGroupExampleInput2" placeholder="geslo stranke" name="geslo">
-					</div>
-					
-					<div class="form-group">
-					<label for="formGroupExampleInput2">Ime:</label>
-					<input type="text" class="form-control" id="formGroupExampleInput2" placeholder="ime stranke" name="ime">
-					</div>
-					
-					<div class="form-group">
-					<label for="formGroupExampleInput2">Priimek:</label>
-					<input type="text" class="form-control" id="formGroupExampleInput2" placeholder="priimek stranke" name="priimek">
-					</div>
-					
-					<div class="form-group text-center">
-					<button type="submit" class="btn btn-primary"><i class="fas fa-user-plus"></i> Ustvari stranko</button>
-					</div>
-				</form>
+					<form method="POST">
+						<div class="form-group">
+						<label for="formGroupExampleInput">E-pošta:</label>
+						<input type="email" class="form-control" id="formGroupExampleInput" placeholder="posta@primer.com" name="email">
+						</div>
+						
+						<div class="form-group">
+						<label for="formGroupExampleInput2">Geslo:</label>
+						<input type="password" class="form-control" id="formGroupExampleInput2" placeholder="geslo stranke" name="geslo">
+						</div>
+						
+						<div class="form-group">
+						<label for="formGroupExampleInput2">Ime:</label>
+						<input type="text" class="form-control" id="formGroupExampleInput2" placeholder="ime stranke" name="ime">
+						</div>
+						
+						<div class="form-group">
+						<label for="formGroupExampleInput2">Priimek:</label>
+						<input type="text" class="form-control" id="formGroupExampleInput2" placeholder="priimek stranke" name="priimek">
+						</div>
+
+						<div class="form-group">
+						<label for="formGroupExampleInput2">Ulica:</label>
+						<input type="text" class="form-control" id="formGroupExampleInput2" placeholder="ulica" name="ulica">
+						</div>
+
+						<div class="form-group">
+						<label for="formGroupExampleInput2">Hisna stevilka:</label>
+						<input type="text" class="form-control" id="formGroupExampleInput2" placeholder="hisna stevilka" name="hisna_stevilka">
+						</div>
+
+						<div class="form-group">
+						<label for="formGroupExampleInput2">Posta:</label>
+						<input type="text" class="form-control" id="formGroupExampleInput2" placeholder="posta" name="posta">
+						</div>
+
+						<div class="form-group">
+						<label for="formGroupExampleInput2">Postna stevilka:</label>
+						<input type="text" class="form-control" id="formGroupExampleInput2" placeholder="postna stevilka" name="postna_stevilka">
+						</div>
+						
+						<div class="form-group text-center">
+						<button type="submit" class="btn btn-primary"><i class="fas fa-user-plus"></i> Ustvari stranko</button>
+						</div>
+					</form>
 				
+				</div>
 	
 			</div>
 	
