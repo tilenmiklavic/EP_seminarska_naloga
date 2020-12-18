@@ -91,12 +91,16 @@
 			
 			<div class="col-sm-4" style="height:100%">
 
+			<form method="post">
+			<input type="hidden" name="do" value="dodaj_v_kosarico">
+			<input type="hidden" value="<?= $artikel["id"]?>" name="id">
 			<h3 class="text-dark"> <b class=""><?= $artikel["ime"]?></b></h3><br>
 			<p>Založba: <?= $artikel["zalozba"]?></p>
 			<p>Avtor: <?= $artikel["avtor"]?></p>
 			<p>Cena: <?= $artikel["cena"]?>€</p>
 			<br>
-			<button type="button" class="btn btn-primary"><i class="fas fa-plus"></i> Dodaj v košarico</button>
+			<button type="submit" class="btn btn-primary"><i class="fas fa-plus"></i> Dodaj v košarico</button>
+			</form>
 
 			</div>
 			

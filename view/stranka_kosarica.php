@@ -93,20 +93,22 @@
 			<ul>
                 <?php foreach($artikli as $artikel): ?>
 				<li>
-					<img src="<?= $artikel["naslov_slike"]?>" width="50px" alt="slika artikla">
-					<div class="row">
-						<div class="col">
+					<div class="container row mt-3">
+						<div class="col-sm-1">
+							<img src="<?= $artikel["naslov_slike"]?>" width="50px" alt="slika artikla">
+						</div>
+						<div class="col-sm-3 p-0">
 							<form method="post">
 								<input type="hidden" name="do" value="update_cart">
 								<input type="hidden" name="id" value="<?= $artikel["id_artikla"] ?>">
 								<h6><?= $artikel["ime"]?> (Cena: <?= $artikel["cena"]?>€)</h6>
-								<div class="row container">
-									<div class="form-group col-sm-5 pl-0 ml-0">
+								<div>
+									<div class="form-group pl-0 ml-0">
 										<div class="row">
-											<div class="col">
+											<div class="col-4">
 											<input class="form-control form-control-sm" type="number" name="num" value=<?= $artikel["kolicina"]?> id="example-number-input" min="0">
 											</div>
-											<div class="col">
+											<div class="col-5">
 											<input type="submit" class="btn btn-primary btn-sm" value="Posodobi" name="posodobi">
 											</div>
 										</div>
@@ -118,7 +120,7 @@
 							<form method="post">
 								<input type="hidden" name="id" value="<?= $artikel["id_artikla"]?>">
 								<input type="hidden" name="do" value="odstrani_artikel">
-								<input type="submit" class="btn btn-danger btn-sm" value="Odstrani" name="odstrani">
+								<input type="submit" class="btn btn-danger btn-sm mt-4" value="Odstrani" name="odstrani">
 							</form>	
 						</div>
 					</div>				

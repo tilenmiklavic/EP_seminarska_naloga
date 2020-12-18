@@ -25,7 +25,12 @@ $urls = [
     },
     "/^artikli\/(\d+)$/" => function ($method, $id) {
         if ($method == "POST") {
-            TrgovinaController::edit($id);
+            if ($_POST["do"] == "dodaj_v_kosarico") {
+                StrankaController::dodajArtikelVKosarico();
+            } else {
+                TrgovinaController::edit($id);
+            }
+            
         } else {
             TrgovinaController::get($id);
         }
