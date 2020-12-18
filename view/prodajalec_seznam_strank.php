@@ -134,10 +134,42 @@
 				<input type="text" class="form-control form-control-sm" id="inputPassword3" value=<?= $stranka["priimek"]?> name="priimek">
 				</div>
 				</div>
+
+				<div class="form-group row">
+				<label for="inputPassword3" class="col-sm-2 col-form-label col-form-label-sm">Ulica:</label>
+				<div class="col-sm-10">
+				<input type="text" class="form-control form-control-sm" id="inputPassword3" value=<?= $stranka["ulica"]?> name="ulica">
+				</div>
+				</div>
+
+				<div class="form-group row">
+				<label for="inputPassword3" class="col-sm-2 col-form-label col-form-label-sm">Hisna stevilka:</label>
+				<div class="col-sm-10">
+				<input type="text" class="form-control form-control-sm" id="inputPassword3" value=<?= $stranka["hisna_stevilka"]?> name="hisna_stevilka">
+				</div>
+				</div>
+
+				<div class="form-group row">
+				<label for="inputPassword3" class="col-sm-2 col-form-label col-form-label-sm">Posta:</label>
+				<div class="col-sm-10">
+				<input type="text" class="form-control form-control-sm" id="inputPassword3" value=<?= $stranka["posta"]?> name="posta">
+				</div>
+				</div>
+
+				<div class="form-group row">
+				<label for="inputPassword3" class="col-sm-2 col-form-label col-form-label-sm">Postna stevilka:</label>
+				<div class="col-sm-10">
+				<input type="text" class="form-control form-control-sm" id="inputPassword3" value=<?= $stranka["postna_stevilka"]?> name="postna_stevilka">
+				</div>
+				</div>
 				
 				<div class="form-check mb-2 mr-sm-2">
-				<input class="form-check-input" type="checkbox" id="inlineFormCheck">
-				<label class="form-check-label" for="inlineFormCheck">
+				<?php if($stranka["status"] == "active"): ?>
+					<input class="form-check-input" type="checkbox" id="inlineFormCheck<?= $stranka["id"]?>" checked name="aktiven">
+				<?php else: ?>
+					<input class="form-check-input" type="checkbox" id="inlineFormCheck<?= $stranka["id"]?>" name="aktiven">
+				<?php endif ?> 
+				<label class="form-check-label" for="inlineFormCheck<?= $stranka["id"]?>">
 				Stranka aktivna
 				</label>
 				</div>

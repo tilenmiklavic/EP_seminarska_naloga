@@ -51,8 +51,12 @@ class UporabnikiController {
         $geslo = $_POST["geslo"];
         $tip = "stranka";
         $status = "active";
+        $ulica = $_POST["ulica"];
+        $hisna_stevilka = $_POST["hisna_stevilka"];
+        $posta = $_POST["posta"];
+        $postna_stevilka = $_POST["postna_stevilka"];
 
-        $id = UporabnikiDB::insert($ime, $priimek, $email, $geslo, $tip, $status);
+        $id = UporabnikiDB::insert($ime, $priimek, $email, $geslo, $tip, $status, $ulica, $hisna_stevilka, $posta, $postna_stevilka);
 
         if ($id) {
 
@@ -80,9 +84,18 @@ class UporabnikiController {
         $email = $_POST["email"];
         $geslo = $_POST["geslo"];
         $tip = $uporabnik["tip"];
-        $status = $uporabnik["status"];
+        $status = "active";
+        $ulica = $_POST["ulica"];
+        $hisna_stevilka = $_POST["hisna_stevilka"];
+        $posta = $_POST["posta"];
+        $postna_stevilka = $_POST["postna_stevilka"];
 
-        $id = UporabnikiDB::edit($id, $ime, $priimek, $email, $geslo, $tip, $status);
+        if (!isset($_POST["aktiven"])) {
+            $status = "inactive";
+        }
+
+
+        $id = UporabnikiDB::edit($id, $ime, $priimek, $email, $geslo, $tip, $status, $ulica, $hisna_stevilka, $posta, $postna_stevilka);
 
         ViewHelper::redirect(BASE_URL . "stranke");
         
@@ -117,8 +130,12 @@ class UporabnikiController {
 
         $tip = "prodajalec";
         $status = "active";
+        $ulica = NULL;
+        $hisna_stevilka = NULL;
+        $posta = NULL;
+        $postna_stevilka = NULL;
 
-        if (UporabnikiDB::insert($ime, $priimek, $email, $geslo, $tip, $status)) {
+        if (UporabnikiDB::insert($ime, $priimek, $email, $geslo, $tip, $status, $ulica, $hisna_stevilka, $posta, $postna_stevilka)) {
             ViewHelper::redirect(BASE_URL . "index");
         }
     }

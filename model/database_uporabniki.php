@@ -57,37 +57,48 @@ class UporabnikiDB {
         }
     }
 
-    public static function insert($ime, $priimek, $email, $geslo, $tip, $status) {                
+    public static function insert($ime, $priimek, $email, $geslo, $tip, $status, $ulica, $hisna_stevilka, $posta, $postna_stevilka) {                
         $db = DBInit::getInstance();
 
         $pass = password_hash($geslo, PASSWORD_BCRYPT);
         
-        $statement = $db->prepare("INSERT into uporabniki (ime, priimek, email, geslo, tip, status) values (?, ?, ?, ?, ?, ?);");
+        $statement = $db->prepare("INSERT into uporabniki (ime, priimek, email, geslo, tip, status, ulica, hisna_stevilka, posta, postna_stevilka) values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?);");
         $statement->bindParam(1, $ime);
         $statement->bindParam(2, $priimek);
         $statement->bindParam(3, $email);
         $statement->bindParam(4, $pass);
         $statement->bindParam(5, $tip);
         $statement->bindParam(6, $status);
+        $statement->bindParam(7, $ulica);
+        $statement->bindParam(8, $hisna_stevilka);
+        $statement->bindParam(9, $posta);
+        $statement->bindParam(10, $postna_stevilka);
+
 
         $statement->execute();
 
         return $db->lastInsertId();
     }
     
-    public static function edit($id, $ime, $priimek, $email, $geslo, $tip, $status) {
+    public static function edit($id, $ime, $priimek, $email, $geslo, $tip, $status, $ulica, $hisna_stevilka, $posta, $postna_stevilka) {
         
         $db = DBInit::getInstance();
         
         $pass = password_hash($geslo, PASSWORD_BCRYPT);
         
-        $statement = $db->prepare("update uporabniki set ime=?, priimek=?, email=?, geslo=?, tip=?, status=? where id=$id");
+        $statement = $db->prepare("update uporabniki set ime=?, priimek=?, email=?, geslo=?, tip=?, status=?, ulica=?, hisna_stevilka=?, posta=?, postna_stevilka=? where id=$id");
         $statement->bindParam(1, $ime);
         $statement->bindParam(2, $priimek);
         $statement->bindParam(3, $email);
         $statement->bindParam(4, $pass);
         $statement->bindParam(5, $tip);
         $statement->bindParam(6, $status);
+        $statement->bindParam(7, $ulica);
+        $statement->bindParam(8, $hisna_stevilka);
+        $statement->bindParam(9, $posta);
+        $statement->bindParam(10, $postna_stevilka);
+
+
 
         return $statement->execute();
 
