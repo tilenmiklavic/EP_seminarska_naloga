@@ -32,7 +32,7 @@
 	<div class="container-lg px-3" >
 		
 		<!-- navbar logo -->
-		<a class="navbar-brand" href="#"> 
+		<a class="navbar-brand" href="../index"> 
 			<i class="fas fa-store"></i> <b><i>Trgovina abc</i></b>
 		</a>
 		
@@ -57,7 +57,7 @@
 				    <i class="fas fa-user-circle"></i>
 				</a>
 			<div id="testMenuRazlika2" class="dropdown-menu dropdown-menu-right"  id="dropdownMeni" aria-labelledby="navbarDropdown">
-				<a class="dropdown-item disabled" href="#">Matej Kovač</a>
+				<a class="dropdown-item disabled" href="#"><?= $stranka["ime"]?> <?= $stranka["priimek"]?></a>
 				<div class="dropdown-divider"></div>
 				<a class="dropdown-item" href="../index"><i class="fas fa-box-open"></i></i> Seznam artiklov</a>
 				<a class="dropdown-item" href="../kosarica"><i class="fas fa-shopping-basket"></i> Košarica</a>
@@ -102,6 +102,34 @@
 			<button type="submit" class="btn btn-primary"><i class="fas fa-plus"></i> Dodaj v košarico</button>
 			</form>
 
+			<div class="mt-5">
+				<form method="post"> 
+				<input type="hidden" name="do" value="oceni">
+				<h4>Podaj svojo oceno o izdelku:</h4>
+					<div class="row col-8">
+						<div class="col">
+						1
+						</div>
+						<div class="col">
+						2
+						</div>
+						<div class="col">
+						3
+						</div>
+						<div class="col">
+						4
+						</div>
+						<div class="col">
+						5
+						</div>
+					</div>
+					<div clsss="col-8">
+						<input type="range" name="ocena" min="1" max="5">
+					</div>
+
+					<button type="submit" class="btn btn-primary">Oceni</button>
+				</form>
+			</div>
 			</div>
 			
 			

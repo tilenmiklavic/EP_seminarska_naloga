@@ -110,13 +110,18 @@ class UporabnikiController {
         $priimek = $_POST["priimek"];
         $status = "active";
 
+        $ulica = NULL;
+        $hisna_stevilka = null;
+        $posta = null;
+        $postna_stevilka = null;
+
         if (!isset($_POST["aktiven"])) {
             $status = "inactive";
         }
 
         $tip = "prodajalec";
 
-        if (UporabnikiDB::edit($id, $ime, $priimek, $email, $geslo, $tip, $status)) {
+        if (UporabnikiDB::edit($id, $ime, $priimek, $email, $geslo, $tip, $status, $ulica, $hisna_stevilka, $posta, $postna_stevilka)) {
             ViewHelper::redirect(BASE_URL . "index");
         } else {
             echo("Napaka");

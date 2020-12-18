@@ -30,6 +30,7 @@ CREATE TABLE IF NOT EXISTS `trgovina`.`artikli` (
   `naslov_slike` VARCHAR(100) NULL DEFAULT NULL,
   `active` TINYINT NULL DEFAULT '1',
   `ocena` INTEGER NULL DEFAULT '5',
+  `stevilo_ocen` INTEGER NULL DEFAULT '0',
   PRIMARY KEY (`id`),
   UNIQUE INDEX `id_UNIQUE` (`id` ASC) VISIBLE)
 ENGINE = InnoDB
@@ -113,8 +114,8 @@ INSERT INTO `uporabniki` (`id`,`ime`,`priimek`,`email`,`geslo`,`tip`,`status`,`u
 INSERT INTO `uporabniki` (`id`,`ime`,`priimek`,`email`,`geslo`,`tip`,`status`,`ulica`,`hisna_stevilka`,`posta`,`postna_stevilka`) VALUES (7,'Lenart','Miklavci','lenart@gmail.com','$2y$10$VDxBuhuXrw8G/O9iioKpVOJQ.fFrPOKuIeN9y4uBvjvESb2xOn2Ja','stranka','active','Kettejeva ulica',15,'Maribor',2000);
 INSERT INTO `uporabniki` (`id`,`ime`,`priimek`,`email`,`geslo`,`tip`,`status`,`ulica`,`hisna_stevilka`,`posta`,`postna_stevilka`) VALUES (8,'Matija','Miklavic','matija@gmail.com','$2y$10$ovkBjg9R6oVfquQDLMELfeXoo2FI6qt2dBxixt.542snG1tQi27.G','stranka','active','Mladinska ulica',66,'Kranj',4000);
 
-INSERT INTO `artikli` (`id`,`ime`,`avtor`,`zalozba`,`cena`,`slike`,`naslov_slike`,`active`, `ocena`) VALUES (7,'Harry Potter','J.K. Rowling','Mladinska',50,NULL,'https://images-na.ssl-images-amazon.com/images/I/81iqZ2HHD-L.jpg',0, 5);
-INSERT INTO `artikli` (`id`,`ime`,`avtor`,`zalozba`,`cena`,`slike`,`naslov_slike`,`active`, `ocena`) VALUES (8,'Gospodar Prstanov','J.R.R. Tolkien','Mladinska Knjiga',20,NULL,'https://images-na.ssl-images-amazon.com/images/I/8134AkhQJgL.jpg',1, 4);
-INSERT INTO `artikli` (`id`,`ime`,`avtor`,`zalozba`,`cena`,`slike`,`naslov_slike`,`active`, `ocena`) VALUES (9,'Stoparski vodic po galaksiji','Douglas Adams','Mladinska Knjiga',30,NULL,'https://images.penguinrandomhouse.com/cover/9781400052929',1, 3);
-INSERT INTO `artikli` (`id`,`ime`,`avtor`,`zalozba`,`cena`,`slike`,`naslov_slike`,`active`, `ocena`) VALUES (10,'Test','Avtor','Zalozba test',100,NULL,NULL,1, 5);
-INSERT INTO `artikli` (`id`,`ime`,`avtor`,`zalozba`,`cena`,`slike`,`naslov_slike`,`active`, `ocena`) VALUES (11,'Robin Hood','Mladinska Knjiga','Howard Pyle',25,NULL,'https://images-na.ssl-images-amazon.com/images/I/71-8zYH9nIL.jpg',1, 5);
+INSERT INTO `artikli` (`id`,`ime`,`avtor`,`zalozba`,`cena`,`slike`,`naslov_slike`,`active`, `ocena`, `stevilo_ocen`) VALUES (7,'Harry Potter','J.K. Rowling','Mladinska',50,NULL,'https://images-na.ssl-images-amazon.com/images/I/81iqZ2HHD-L.jpg',0, 5, 1);
+INSERT INTO `artikli` (`id`,`ime`,`avtor`,`zalozba`,`cena`,`slike`,`naslov_slike`,`active`, `ocena`, `stevilo_ocen`) VALUES (8,'Gospodar Prstanov','J.R.R. Tolkien','Mladinska Knjiga',20,NULL,'https://images-na.ssl-images-amazon.com/images/I/8134AkhQJgL.jpg',1, 4, 1);
+INSERT INTO `artikli` (`id`,`ime`,`avtor`,`zalozba`,`cena`,`slike`,`naslov_slike`,`active`, `ocena`, `stevilo_ocen`) VALUES (9,'Stoparski vodic po galaksiji','Douglas Adams','Mladinska Knjiga',30,NULL,'https://images.penguinrandomhouse.com/cover/9781400052929',1, 3, 1);
+INSERT INTO `artikli` (`id`,`ime`,`avtor`,`zalozba`,`cena`,`slike`,`naslov_slike`,`active`, `ocena`, `stevilo_ocen`) VALUES (10,'Test','Avtor','Zalozba test',100,NULL,NULL,1, 5, 1);
+INSERT INTO `artikli` (`id`,`ime`,`avtor`,`zalozba`,`cena`,`slike`,`naslov_slike`,`active`, `ocena`, `stevilo_ocen`) VALUES (11,'Robin Hood','Mladinska Knjiga','Howard Pyle',25,NULL,'https://images-na.ssl-images-amazon.com/images/I/71-8zYH9nIL.jpg',1, 5, 1);

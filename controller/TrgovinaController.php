@@ -28,7 +28,8 @@ class TrgovinaController {
         } else if ($uporabnik && $uporabnik["tip"] == "stranka") {
             
             echo ViewHelper::render("view/stranka_artikel.php", [ 
-                "artikel" => ArtikliDB::get($id)
+                "artikel" => ArtikliDB::get($id),
+                "stranka" => UporabnikiDB::get($_SESSION["uporabnik_id"])
             ]);
 
         } else {
@@ -82,8 +83,11 @@ class TrgovinaController {
         $cena = $_POST["cena"];
         $slike = NULL;
         $naslov_slike = $_POST["naslov_slike"];
+        $active = 1;
+        $ocena = 5;
+        $stevilo_ocen = 0;
 
-        $id = ArtikliDB::insert($naslov, $zalozba, $avtor, $cena, $slike, $naslov_slike);
+        $id = ArtikliDB::insert($naslov, $zalozba, $avtor, $cena, $slike, $naslov_slike, $active, $ocena, $stevilo_ocen);
 
         if ($id) {
 
@@ -101,6 +105,7 @@ class TrgovinaController {
 
     public static function edit($id) {
         $data = filter_input_array(INPUT_POST, self::getRules());
+        $artikel = ArtikliDB::get($id);
 
         $ime = $_POST["ime"];
         $avtor = $_POST["avtor"];
@@ -110,12 +115,15 @@ class TrgovinaController {
         $slike = NULL;
         $naslov_slike = $_POST["naslov_slike"];
 
+        $ocena = $artikel["ocena"];
+        $stevilo_ocen = $artikel["stevilo_ocen"];
+
         if (isset($_POST["aktiven"])) {
             echo("aktiven");
             $aktiven = 1;
         }
 
-        if (ArtikliDB::edit($id, $ime, $avtor, $zalozba, $cena, $slike, $naslov_slike, $aktiven)) {
+        if (ArtikliDB::edit($id, $ime, $avtor, $zalozba, $cena, $slike, $naslov_slike, $aktiven, $ocena, $stevilo_ocen)) {
             echo ViewHelper::redirect(BASE_URL . "artikli/" . $id);
 
         } else {

@@ -27,6 +27,8 @@ $urls = [
         if ($method == "POST") {
             if ($_POST["do"] == "dodaj_v_kosarico") {
                 StrankaController::dodajArtikelVKosarico();
+            } else if ($_POST["do"] == "oceni") {
+                StrankaController::dodajOceno($id);
             } else {
                 TrgovinaController::edit($id);
             }

@@ -113,6 +113,31 @@ class StrankaController {
         }
     }
 
+    public static function dodajOceno($id) {
+        $artikel = ArtikliDB::get($id);
+        $ocena = $_POST["ocena"];
+
+        echo($ocena);
+        $ime = $artikel["ime"];
+        $avtor = $artikel["avtor"];
+        $zalozba = $artikel["zalozba"];
+        $cena = $artikel["cena"];
+        $slike = $artikel["slike"];
+        $naslov_slike = $artikel["naslov_slike"];
+        $aktiven = $artikel["active"];
+        $stevilo_ocen = $artikel["stevilo_ocen"] + 1;
+
+        $ocena = ($ocena + ($stevilo_ocen-1) * $artikel["ocena"]) / $stevilo_ocen;
+
+        echo($ocena);
+        if (ArtikliDB::edit($id, $ime, $avtor, $zalozba, $cena, $slike, $naslov_slike, $aktiven, $ocena, $stevilo_ocen)) {
+            echo ViewHelper::redirect(BASE_URL . "artikli/" . $id);
+        } else {
+            echo("Napaka");
+        }
+
+    }
+
 
     /**
      * Returns TRUE if given $input array contains no FALSE values
