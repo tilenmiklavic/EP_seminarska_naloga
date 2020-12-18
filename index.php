@@ -14,7 +14,6 @@ define("CSS_URL", rtrim($_SERVER["SCRIPT_NAME"], "index.php") . "static/css/");
 
 $path = isset($_SERVER["PATH_INFO"]) ? trim($_SERVER["PATH_INFO"], "/") : "";
 
-error_log("Zacetek indexa");
 
 $urls = [
     "/^index$/" => function ($method) {

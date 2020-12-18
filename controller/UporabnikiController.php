@@ -26,12 +26,13 @@ class UporabnikiController {
         if ($uporabnik) {
             // uporabnik se je uspesno prijavil 
             // shranimo njegov id v session 
-
             $_SESSION["uporabnik_id"] = $uporabnik["id"];
             echo ViewHelper::redirect(BASE_URL);
-
+            
         } else {
 
+            // uporabnik se ni uspesno prijavil v sistem 
+            // geslo ali email sta morda napacna
             ViewHelper::redirect(BASE_URL . "prijava");
         
         }
