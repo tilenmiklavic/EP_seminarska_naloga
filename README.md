@@ -33,7 +33,7 @@ Uporabljene tehnologije: PHP, HTML, CSS, JavaScript, SQL, Android
 - [x] posodabljanje lastnih atributov za stranko
 - [x] pregled atriklov za stranko
 - [x] dodajanje artikla v kosarico
-- [ ] odstranjevanje artikla iz kosarice
+- [x] odstranjevanje artikla iz kosarice
 - [ ] zakljucek nakupa in posiljanje narocila v cakalno vrsto k Prodajalcu
 - [ ] Dostop do seznama preteklih nakupov. Uporabnik lahko vidi vsa svoja pretekla naročila: oddana, potrjena, preklicana in stornirana.
 - [ ] Uporaba vmesnika Stranka je dovoljena le preko zavarovanega kanala. Odjemalca overite z uporabniškim imenom in geslom, ki naj bosta shranjena v SUPB.
