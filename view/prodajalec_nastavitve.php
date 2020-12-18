@@ -57,7 +57,7 @@
 				    <i class="fas fa-user-circle"></i>
 				</a>
 			<div id="testMenuRazlika2" class="dropdown-menu dropdown-menu-right"  id="dropdownMeni" aria-labelledby="navbarDropdown">
-				<a class="dropdown-item disabled" href="#">Janez Novak</a>
+				<a class="dropdown-item disabled" href="#"><?= $prodajalec["ime"]?> <?= $prodajalec["priimek"]?></a>
 				<div class="dropdown-divider"></div>
 				<a class="dropdown-item" href="index"><i class="fas fa-box-open"></i></i> Seznam artiklov</a>
 				<a class="dropdown-item" href="narocila"><i class="fas fa-clipboard-check"></i> Trenutna naročila</a>

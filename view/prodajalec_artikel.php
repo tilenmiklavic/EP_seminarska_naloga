@@ -57,13 +57,13 @@
 				    <i class="fas fa-user-circle"></i>
 				</a>
 			<div id="testMenuRazlika2" class="dropdown-menu dropdown-menu-right"  id="dropdownMeni" aria-labelledby="navbarDropdown">
-				<a class="dropdown-item disabled" href="#">Janez Novak</a>
+				<a class="dropdown-item disabled" href="#"><?= $prodajalec["ime"]?> <?= $prodajalec["priimek"]?></a>
 				<div class="dropdown-divider"></div>
 				<a class="dropdown-item" href=<?= BASE_URL . "index"?>><i class="fas fa-box-open"></i></i> Seznam artiklov</a>
-				<a class="dropdown-item" href="narocila"><i class="fas fa-clipboard-check"></i> Trenutna naročila</a>
+				<a class="dropdown-item" href="../narocila"><i class="fas fa-clipboard-check"></i> Trenutna naročila</a>
 				<a class="dropdown-item" href="#"><i class="fas fa-history"></i> Zgodovina naročil</a>
-				<a class="dropdown-item" href="stranke"><i class="fas fa-users-cog"></i> Stranke</a>
-				<a class="dropdown-item" href="nastavitve"><i class="fas fa-cog"></i> Nastavitve</a>
+				<a class="dropdown-item" href="../stranke"><i class="fas fa-users-cog"></i> Stranke</a>
+				<a class="dropdown-item" href="../nastavitve"><i class="fas fa-cog"></i> Nastavitve</a>
 				<a class="dropdown-item" href="../odjava"><i class="fas fa-sign-out-alt"></i> Odjava</a>
 			</div>
 			</li>

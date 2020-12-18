@@ -40,7 +40,8 @@ class UporabnikiController {
 
     public static function stranke() {
         echo ViewHelper::render("view/prodajalec_seznam_strank.php", [
-            "stranke" => UporabnikiDB::getAllTip("stranka")
+            "stranke" => UporabnikiDB::getAllTip("stranka"),
+            "prodajalec" => UporabnikiDB::get($_SESSION["uporabnik_id"])
         ]);
     }
 
@@ -150,11 +151,13 @@ class UporabnikiController {
 
             if ($uporabnik && $uporabnik["tip"] == "stranka") {
                 echo ViewHelper::render("view/stranka_nastavitve.php", [
-                    "uporabnik" => $uporabnik
+                    "uporabnik" => $uporabnik,
+                    "stranka" => UporabnikiDB::get($_SESSION["uporabnik_id"])
                 ]);
             } else if ($uporabnik && $uporabnik["tip"] == "prodajalec") {
                 echo ViewHelper::render("view/prodajalec_nastavitve.php", [
-                    "uporabnik" => $uporabnik
+                    "uporabnik" => $uporabnik,
+                    "prodajalec" => UporabnikiDB::get($_SESSION["uporabnik_id"])
                 ]);
             } else if ($uporabnik && $uporabnik["tip"] == "admin") {
                 echo ViewHelper::render("view/administrator_nastavitve.php", [
@@ -178,6 +181,10 @@ class UporabnikiController {
         $geslo = $uporabnik["geslo"];
         $tip = $uporabnik["tip"];
         $status = $uporabnik["status"];
+        $ulica = $uporabnik["ulica"];
+        $hisna_stevilka = $uporabnik["hisna_stevilka"];
+        $posta = $uporabnik["posta"];
+        $postna_stevilka = $uporabnik["postna_stevilka"];
 
         if ($tip == "admin") {
 
@@ -193,7 +200,7 @@ class UporabnikiController {
         }
 
 
-        UporabnikiDB::edit($id, $ime, $priimek, $email, $geslo, $tip, $status);
+        UporabnikiDB::edit($id, $ime, $priimek, $email, $geslo, $tip, $status, $ulica, $hisna_stevilka, $posta, $postna_stevilka);
 
         ViewHelper::redirect(BASE_URL . "nastavitve");
     }

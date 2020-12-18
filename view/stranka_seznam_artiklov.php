@@ -11,14 +11,19 @@
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
 	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
-	
+
 	<!-- ikona in link do css -->
 	<link rel="stylesheet" href="izgled_header.css">
 	<link rel="icon" type='image/x-icon' href="./slike/logo_ikona.ico">
-	
+	<style>
+	.checked {
+		color: orange;
+	}
+	</style>
+
 	<!-- pisave -->
 	<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
-	
+
     <title>Trgovina abc</title>
 	
   </head>
@@ -57,7 +62,7 @@
 				    <i class="fas fa-user-circle"></i>
 				</a>
 			<div id="testMenuRazlika2" class="dropdown-menu dropdown-menu-right"  id="dropdownMeni" aria-labelledby="navbarDropdown">
-				<a class="dropdown-item disabled" href="#">Matej Kovač</a>
+				<a class="dropdown-item disabled" href="#"><?= $uporabnik["ime"]?> <?= $uporabnik["priimek"]?></a>
 				<div class="dropdown-divider"></div>
 				<a class="dropdown-item" href="index"><i class="fas fa-box-open"></i></i> Seznam artiklov</a>
 				<a class="dropdown-item" href="kosarica"><i class="fas fa-shopping-basket"></i> Košarica</a>
@@ -97,7 +102,18 @@
 			<form method="post" action="kosarica">
 			<li class="list-group-item d-flex align-items-center ">
 			<a  href="artikli/<?= $artikel["id"]?>"> <img src=<?= $artikel["naslov_slike"]?> style="height:15vh;"> </a>
-			<p class="text-dark ml-2"> <b><?= $artikel["ime"]?></b><br>Avtor: <?= $artikel["avtor"]?><br>Založba: <?= $artikel["zalozba"]?><br>Cena: <?= $artikel["cena"]?>€</p>
+			<p class="text-dark ml-2"> 
+				<b><?= $artikel["ime"]?></b><br>Avtor: <?= $artikel["avtor"]?><br>Založba: <?= $artikel["zalozba"]?><br>Cena: <?= $artikel["cena"]?>€<br>
+				<?php 
+					for ($i = 1; $i <= 5; ++$i) {
+						if ($i <= $artikel["ocena"]) {
+							echo "<span class='fa fa-star checked'></span>";
+						} else {
+							echo "<span class='fa fa-star'></span>";
+						}
+					}
+				?>
+			</p>
 			<input type="hidden" value=<?= $artikel["id"]?> name="id">
 			<button type="submit" class="btn btn-primary ml-auto"><i class="fas fa-plus"></i> Dodaj v košarico</button>
 			</li>

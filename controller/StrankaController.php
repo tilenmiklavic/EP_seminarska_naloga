@@ -28,7 +28,8 @@ class StrankaController {
 
         echo ViewHelper::render("view/stranka_kosarica.php", [
             "artikli" => $artikli,
-            "skupna_cena" => $skupna_cena
+            "skupna_cena" => $skupna_cena,
+            "stranka" => UporabnikiDB::get($id_uporabnika)
         ]);
     }
 

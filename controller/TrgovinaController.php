@@ -21,7 +21,8 @@ class TrgovinaController {
         if ($uporabnik && $uporabnik["tip"] == "prodajalec") {
 
             echo ViewHelper::render("view/prodajalec_artikel.php", [ 
-                "artikel" => ArtikliDB::get($id)
+                "artikel" => ArtikliDB::get($id),
+                "prodajalec" => UporabnikiDB::get($_SESSION["uporabnik_id"])
             ]);
 
         } else if ($uporabnik && $uporabnik["tip"] == "stranka") {

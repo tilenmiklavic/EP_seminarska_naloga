@@ -57,7 +57,7 @@
 				    <i class="fas fa-user-circle"></i>
 				</a>
 			<div id="testMenuRazlika2" class="dropdown-menu dropdown-menu-right"  id="dropdownMeni" aria-labelledby="navbarDropdown">
-				<a class="dropdown-item disabled" href="#">Matej Kovač</a>
+				<a class="dropdown-item disabled" href="#"><?= $stranka["priimek"]?> <?= $stranka["priimek"]?></a>
 				<div class="dropdown-divider"></div>
 				<a class="dropdown-item" href="index"><i class="fas fa-box-open"></i></i> Seznam artiklov</a>
 				<a class="dropdown-item" href="kosarica"><i class="fas fa-shopping-basket"></i> Košarica</a>
