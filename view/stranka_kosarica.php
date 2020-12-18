@@ -98,11 +98,18 @@
 						<div class="col">
 							<form method="post">
 								<input type="hidden" name="do" value="update_cart">
-								<input type="hidden" value="<?= $artikel["id_artikla"] ?>">
+								<input type="hidden" name="id" value="<?= $artikel["id_artikla"] ?>">
 								<h6><?= $artikel["ime"]?> (Cena: <?= $artikel["cena"]?>€)</h6>
 								<div class="row container">
-									<div class="form-group col-sm-2 pl-0 ml-0">
-										<input class="form-control form-control-sm" type="number" name="num" value=<?= $artikel["kolicina"]?> id="example-number-input">
+									<div class="form-group col-sm-5 pl-0 ml-0">
+										<div class="row">
+											<div class="col">
+											<input class="form-control form-control-sm" type="number" name="num" value=<?= $artikel["kolicina"]?> id="example-number-input" min="0">
+											</div>
+											<div class="col">
+											<input type="submit" class="btn btn-primary btn-sm" value="Posodobi" name="posodobi">
+											</div>
+										</div>
 									</div>
 								</div>
 							</form>	

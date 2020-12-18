@@ -72,19 +72,17 @@ class PodrobnostiNarocilaDB {
         $statement->execute();
     }
     
-    public static function edit($id_artikla, $kolicina, $narocila_id) {
+    public static function edit($id, $id_artikla, $kolicina, $narocila_id) {
         
         $db = DBInit::getInstance();
         
-        $statement = $db->prepare("UPDATE podrobnosti_narocila set id_artikla=?, kolicina=?, narocila_id=? where id_artikla=? AND narocila_id=?");
+        $statement = $db->prepare("UPDATE podrobnosti_narocila set id_artikla=?, kolicina=?, narocila_id=? where id_podrobnosti_narocila=$id");
         $statement->bindParam(1, $id_artikla);
         $statement->bindParam(2, $kolicina);
         $statement->bindParam(3, $narocila_id);
-        $statement->bindParam(4, $id_artikla);
-        $statement->bindParam(5, $narocila_id);
 
 
-        $statement->execute();
+        return $statement->execute();
 
     }
     
