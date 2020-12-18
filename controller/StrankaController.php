@@ -65,6 +65,29 @@ class StrankaController {
 
     }
 
+    public static function odstraniArtikelIzKosarice() {
+        // iz seje dobimo uporabnikov id in ga poklicemo iz baze
+        $id = $_SESSION["uporabnik_id"];
+        $uporabnik = UporabnikiDB::get($id);
+
+        $id_artikla = $_POST["id"];
+        $status = "kosarica";
+
+        $narocilo = NarocilaDB::getByUporabnikId($id, $status);
+        $podrobnost_narocila = PodrobnostiNarocilaDB::getByNarociloAndArtikel($narocilo["id"], $id_artikla);
+
+
+        if (PodrobnostiNarocilaDB::delete($podrobnost_narocila["id_podrobnosti_narocila"])) {
+            echo ViewHelper::redirect(BASE_URL . "kosarica");
+        } else {
+            echo("Napaka");
+        }
+    }
+
+    public static function posodobiKosarico() {
+
+    }
+
 
     /**
      * Returns TRUE if given $input array contains no FALSE values

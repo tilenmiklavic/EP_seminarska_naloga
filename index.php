@@ -121,7 +121,15 @@ $urls = [
     */
     "/^kosarica$/" => function ($method) {
         if ($method == "POST") {
-            StrankaController::dodajArtikelVKosarico();
+
+            if ($_POST["do"] == "update_cart") {
+                StrankaController::posodobiKosarico();
+            } else if ($_POST["do"] == "odstrani_artikel") {
+                StrankaController::odstraniArtikelIzKosarice();
+            } else {
+                StrankaController::dodajArtikelVKosarico();
+            }
+            
         } else {
             StrankaController::kosarica();
         }

@@ -16,9 +16,8 @@ class PodrobnostiNarocilaDB {
     public static function delete($id) {
         $db = DBInit::getInstance();
 
-        $statement = $db->prepare("DELETE FROM podrobnosti_narocila WHERE id = :id");
-        $statement->bindParam(":id", $id, PDO::PARAM_INT);
-        $statement->execute();
+        $statement = $db->prepare("DELETE FROM podrobnosti_narocila WHERE id_podrobnosti_narocila=$id");
+        return $statement->execute();
     }
 
     public static function get($id) {     
@@ -55,7 +54,7 @@ class PodrobnostiNarocilaDB {
     public static function vsebinaKosarice($id_narocila) {
         $db = DBInit::getInstance();
         
-        $statement = $db->prepare("SELECT podrobnosti_narocila.id_artikla, podrobnosti_narocila.kolicina, artikli.cena, artikli.ime FROM podrobnosti_narocila, artikli WHERE narocila_id=? AND podrobnosti_narocila.id_artikla=artikli.id");
+        $statement = $db->prepare("SELECT podrobnosti_narocila.id_artikla, podrobnosti_narocila.kolicina, artikli.cena, artikli.ime, artikli.naslov_slike FROM podrobnosti_narocila, artikli WHERE narocila_id=? AND podrobnosti_narocila.id_artikla=artikli.id");
         $statement->bindParam(1, $id_narocila);
         $statement->execute();
         

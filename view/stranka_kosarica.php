@@ -93,14 +93,29 @@
 			<ul>
                 <?php foreach($artikli as $artikel): ?>
 				<li>
-					<h6><?= $artikel["ime"]?>(Cena: <?= $artikel["cena"]?>€)</h6>
-					<form>
-					<div class="form-group col-sm-1 pl-0 ml-0">
-						<input class="form-control form-control-sm" type="number" value=<?= $artikel["kolicina"]?> id="example-number-input">
-					</div>
-					</form>
-					
-                </li>
+					<img src="<?= $artikel["naslov_slike"]?>" width="50px" alt="slika artikla">
+					<div class="row">
+						<div class="col">
+							<form method="post">
+								<input type="hidden" name="do" value="update_cart">
+								<input type="hidden" value="<?= $artikel["id_artikla"] ?>">
+								<h6><?= $artikel["ime"]?> (Cena: <?= $artikel["cena"]?>€)</h6>
+								<div class="row container">
+									<div class="form-group col-sm-2 pl-0 ml-0">
+										<input class="form-control form-control-sm" type="number" name="num" value=<?= $artikel["kolicina"]?> id="example-number-input">
+									</div>
+								</div>
+							</form>	
+						</div>
+						<div class="col"> 
+							<form method="post">
+								<input type="hidden" name="id" value="<?= $artikel["id_artikla"]?>">
+								<input type="hidden" name="do" value="odstrani_artikel">
+								<input type="submit" class="btn btn-danger btn-sm" value="Odstrani" name="odstrani">
+							</form>	
+						</div>
+					</div>				
+				</li>
                 <?php endforeach; ?>
 				
 			</ul>
