@@ -45,6 +45,10 @@ class NarocilaDB {
 
     public static function insert($uporabnik_id, $status) {                
         $db = DBInit::getInstance();
+
+        $uporabnik_id = htmlspecialchars($uporabnik_id);
+        $status = htmlspecialchars($status);
+
         
         $statement = $db->prepare("INSERT into narocila (uporabniki_id, status) values (?, ?);");
         $statement->bindParam(1, $uporabnik_id);
@@ -59,6 +63,9 @@ class NarocilaDB {
     public static function edit($uporabnik_id, $status) {
         
         $db = DBInit::getInstance();
+
+        $uporabnik_id = htmlspecialchars($uporabnik_id);
+        $status = htmlspecialchars($status);
         
         $statement = $db->prepare("update narocila set uporabniki_id=?, status=? where id=$id");
         $statement->bindParam(1, $uporabnik_id);

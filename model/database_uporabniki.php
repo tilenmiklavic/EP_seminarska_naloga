@@ -60,6 +60,18 @@ class UporabnikiDB {
     public static function insert($ime, $priimek, $email, $geslo, $tip, $status, $ulica, $hisna_stevilka, $posta, $postna_stevilka) {                
         $db = DBInit::getInstance();
 
+        $ime = htmlspecialchars($ime);
+        $priimek = htmlspecialchars($priimek);
+        $email = htmlspecialchars($email);
+        $geslo = htmlspecialchars($geslo);
+        $tip = htmlspecialchars($tip);
+        $status = htmlspecialchars($status);
+        $ulica = htmlspecialchars($ulica);
+        $hisna_stevilka = htmlspecialchars($hisna_stevilka);
+        $posta = htmlspecialchars($posta);
+        $postna_stevilka = htmlspecialchars($postna_stevilka);
+
+
         $pass = password_hash($geslo, PASSWORD_BCRYPT);
         
         $statement = $db->prepare("INSERT into uporabniki (ime, priimek, email, geslo, tip, status, ulica, hisna_stevilka, posta, postna_stevilka) values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?);");
@@ -83,6 +95,17 @@ class UporabnikiDB {
     public static function edit($id, $ime, $priimek, $email, $geslo, $tip, $status, $ulica, $hisna_stevilka, $posta, $postna_stevilka) {
         
         $db = DBInit::getInstance();
+
+        $ime = htmlspecialchars($ime);
+        $priimek = htmlspecialchars($priimek);
+        $email = htmlspecialchars($email);
+        $geslo = htmlspecialchars($geslo);
+        $tip = htmlspecialchars($tip);
+        $status = htmlspecialchars($status);
+        $ulica = htmlspecialchars($ulica);
+        $hisna_stevilka = htmlspecialchars($hisna_stevilka);
+        $posta = htmlspecialchars($posta);
+        $postna_stevilka = htmlspecialchars($postna_stevilka);
         
         $pass = password_hash($geslo, PASSWORD_BCRYPT);
         
