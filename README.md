@@ -56,7 +56,7 @@ Uporabljene tehnologije: PHP, HTML, CSS, JavaScript, SQL, Android
 - [ ] V1 (do 6%) Smiselna organizacija in izvedba uporabniškega vmesnika s pomočjo tehnologij kot so sta CSS in JavaScript. Za polno oceno je nujna tudi uporaba tehnologij, ki omogočajo asinhrono komunikacijo s strežnikom v ozadju in dinamično posodabljanje DOM; denimo tehnologije AJAX, Vue.js in podobno.
 - [ ] V2 (7%) Predstavitev artiklov s slikami. Slike lahko shranite v SUPB ali na datotečni sistem. Za polno oceno mora implementacija podpirati dodajanje in spreminjanje slik na enak način kot se spreminjajo ostali atributi artiklov ter možnost, da za vsak artikel dodamo več slik.
 - [ ] V3 (3%) Implementacija iskanja po artiklih. Iskalnik naj podpira binarno iskanje, tj. poizvedbe pri katerih lahko s posebnimi operatorji določene iskalne pojme izključimo.
-- [ ] V4 (4%) Implementacija ocenjevanja artiklov prijavljenega uporabnika ter predstavitev njihove povprečne ocene pri njihovem ogledu.
+- [x] V4 (4%) Implementacija ocenjevanja artiklov prijavljenega uporabnika ter predstavitev njihove povprečne ocene pri njihovem ogledu.
 ### Napredne funkcionalnosti Android
 - [ ] A1 (5%) Prijava in odjava.
 - [ ] A2 (5%) Pregled profilnih podatkov (ime, priimek, email, geslo, naslov ipd.) ter možnost njihovega spreminjanja.
@@ -92,8 +92,8 @@ Uporabljene tehnologije: PHP, HTML, CSS, JavaScript, SQL, Android
 
 - [x] anonimni uproabnik ima samo možnost izpisa vseh artiklov (isti izpis kot stranka) in ogled detajlov artiklov)
 - [x] registracija novega uporabnika (se ga doda kot tip stranka) 
-- [ ] uporabnik vpiše email in izpolni captcho
-- [ ] na email dobi geslo za prvo prijavo (itak geslo lahko pole spremeni)
+- [ ] uporabnik vpiše email in izpolni captcho **Rihard (če ni še noben zčnu in ko končam naročila)**
+- [ ] na email dobi geslo za prvo prijavo (itak geslo lahko pole spremeni) **Rihard (če ni še noben zčnu in ko končam naročila)**
 ----------------------------------------------------------------------------
 
 ### Naloge (napiši se zravn takoj ko začneš delat)
