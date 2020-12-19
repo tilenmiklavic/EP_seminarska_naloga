@@ -73,9 +73,10 @@ class UporabnikiController {
         $responseKeys = json_decode($response,true);
         // should return JSON with success as true
         if($responseKeys["success"]) {
-                echo '<h2>Thanks for posting comment</h2>';
+                echo '<h2>Captcha upsesno prijela, lahko nadaljujes.</h2>';
         } else {
-                echo '<h2>You are spammer ! Get the @$%K out</h2>';
+                echo '<h2>Captcha ni prijela, verjetno si spammer</h2>';
+                exit;
         }
 
 
