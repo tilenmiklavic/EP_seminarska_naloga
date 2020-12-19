@@ -86,7 +86,7 @@ class ArtikliDB extends AbstractDB {
         $aktiven = htmlspecialchars($aktiven);
         $ocena = htmlspecialchars($stevilo_ocen);
         
-        $statement = $db->prepare("update artikli set ime=?, avtor=?, zalozba=?, cena=?, slike=?, naslov_slike=?, active=?, ocena=?, stevilo_ocen=? where id=$id");
+        $statement = $db->prepare("update artikli set ime=?, avtor=?, zalozba=?, cena=?, slike=?, naslov_slike=?, active=?, ocena=?, stevilo_ocen=? where id=?");
         $statement->bindParam(1, $ime);
         $statement->bindParam(2, $avtor);
         $statement->bindParam(3, $zalozba);
@@ -96,6 +96,8 @@ class ArtikliDB extends AbstractDB {
         $statement->bindParam(7, $aktiven);
         $statement->bindParam(8, $ocena);
         $statement->bindParam(9, $stevilo_ocen);
+        $statement->bindParam(10, $id);
+
 
 
 

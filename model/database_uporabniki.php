@@ -87,6 +87,7 @@ class UporabnikiDB {
         $statement->bindParam(10, $postna_stevilka);
 
 
+
         $statement->execute();
 
         return $db->lastInsertId();
@@ -109,7 +110,7 @@ class UporabnikiDB {
         
         $pass = password_hash($geslo, PASSWORD_BCRYPT);
         
-        $statement = $db->prepare("update uporabniki set ime=?, priimek=?, email=?, geslo=?, tip=?, status=?, ulica=?, hisna_stevilka=?, posta=?, postna_stevilka=? where id=$id");
+        $statement = $db->prepare("update uporabniki set ime=?, priimek=?, email=?, geslo=?, tip=?, status=?, ulica=?, hisna_stevilka=?, posta=?, postna_stevilka=? where id=?");
         $statement->bindParam(1, $ime);
         $statement->bindParam(2, $priimek);
         $statement->bindParam(3, $email);
@@ -120,6 +121,7 @@ class UporabnikiDB {
         $statement->bindParam(8, $hisna_stevilka);
         $statement->bindParam(9, $posta);
         $statement->bindParam(10, $postna_stevilka);
+        $statement->bindParam(11, $id);
 
 
 

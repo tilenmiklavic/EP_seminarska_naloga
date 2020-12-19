@@ -67,9 +67,11 @@ class NarocilaDB {
         $uporabnik_id = htmlspecialchars($uporabnik_id);
         $status = htmlspecialchars($status);
         
-        $statement = $db->prepare("update narocila set uporabniki_id=?, status=? where id=$id");
+        $statement = $db->prepare("update narocila set uporabniki_id=?, status=? where id=?");
         $statement->bindParam(1, $uporabnik_id);
         $statement->bindParam(2, $status);
+        $statement->bindParam(3, $id);
+
 
         $statement->execute();
 
