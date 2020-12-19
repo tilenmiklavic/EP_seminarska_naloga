@@ -46,7 +46,7 @@ Uporabljene tehnologije: PHP, HTML, CSS, JavaScript, SQL, Android
 - [ ] ob kliku na artikel se pokazejo podrobnosti na novem zaslonu Android
 - [x] izdelovanje lastne certifikatne agencije in namestitev na streznik apache 
 - [x] Osebne certifikate izdelajte ročno z namenskim programom in z uporabo iste certifikatne agencije, kot ste jo uporabili za izdelavo strežniškega certifikata. Uporabite smiselna polja certifikata ter na ustrezen način povežite identiteto uporabnika v bazi z identiteto zapisano v certifikatu.
-- [ ] Pri realizaciji vseh delov prodajalne skrbno preverjajte vnose s strani odjemalca, pri čemer bodite posebej pozorni na napade injekcije kode SQL ter napade XSS.
+- [x] Pri realizaciji vseh delov prodajalne skrbno preverjajte vnose s strani odjemalca, pri čemer bodite posebej pozorni na napade injekcije kode SQL ter napade XSS.
 - [x] Metode protokola HTTP realizirajte v skladu s priporočili standarda HTTP, kjer uporabite zahtevke z metodo GET za lahke operacije, za zahtevnejše pa zahtevke z metodo POST.
 - [x] ustrezna hramba gesel
 - [ ] Izdelan model podatkovne baze naj bo normaliziran do tretje normalne oblike. Vse denormalizacije morajo biti utemeljene.
