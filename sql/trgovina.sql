@@ -14,6 +14,7 @@ SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,N
 -- -----------------------------------------------------
 -- Schema trgovina
 -- -----------------------------------------------------
+DROP SCHEMA `trgovina`;
 CREATE SCHEMA IF NOT EXISTS `trgovina` DEFAULT CHARACTER SET utf8 COLLATE utf8_slovenian_ci ;
 USE `trgovina` ;
 
@@ -105,8 +106,8 @@ SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
 
 
-INSERT INTO `uporabniki` (`id`,`ime`,`priimek`,`email`,`geslo`,`tip`,`status`,`ulica`,`hisna_stevilka`,`posta`,`postna_stevilka`) VALUES (1,'Lojze','Novak','lojze@gmail.com','$2y$10$VDxBuhuXrw8G/O9iioKpVOJQ.fFrPOKuIeN9y4uBvjvESb2xOn2Ja','admin','active',NULL,NULL,NULL,NULL);
-INSERT INTO `uporabniki` (`id`,`ime`,`priimek`,`email`,`geslo`,`tip`,`status`,`ulica`,`hisna_stevilka`,`posta`,`postna_stevilka`) VALUES (2,'Ana','Kovac','ana@gmail.com','$2y$10$pzN6HMq3dcGPeqd.4TrNpeXW21om8LwWetyyOGZDDCOvo0Df6r2Yu','prodajalec','active',NULL,NULL,NULL,NULL);
+INSERT INTO `uporabniki` (`id`,`ime`,`priimek`,`email`,`geslo`,`tip`,`status`,`ulica`,`hisna_stevilka`,`posta`,`postna_stevilka`) VALUES (1,'Lojze','Novak','admin@ep.si','$2y$10$VDxBuhuXrw8G/O9iioKpVOJQ.fFrPOKuIeN9y4uBvjvESb2xOn2Ja','admin','active',NULL,NULL,NULL,NULL);
+INSERT INTO `uporabniki` (`id`,`ime`,`priimek`,`email`,`geslo`,`tip`,`status`,`ulica`,`hisna_stevilka`,`posta`,`postna_stevilka`) VALUES (2,'Ana','Kovac','ana@ep.si','$2y$10$pzN6HMq3dcGPeqd.4TrNpeXW21om8LwWetyyOGZDDCOvo0Df6r2Yu','prodajalec','active',NULL,NULL,NULL,NULL);
 INSERT INTO `uporabniki` (`id`,`ime`,`priimek`,`email`,`geslo`,`tip`,`status`,`ulica`,`hisna_stevilka`,`posta`,`postna_stevilka`) VALUES (3,'Bojan','Kovacic','bojan@gmail.com','$2y$10$VDxBuhuXrw8G/O9iioKpVOJQ.fFrPOKuIeN9y4uBvjvESb2xOn2Ja','prodajalec','inactive',NULL,NULL,NULL,NULL);
 INSERT INTO `uporabniki` (`id`,`ime`,`priimek`,`email`,`geslo`,`tip`,`status`,`ulica`,`hisna_stevilka`,`posta`,`postna_stevilka`) VALUES (4,'Matic','Nogometas','matic@gmail.com','$2y$10$VDxBuhuXrw8G/O9iioKpVOJQ.fFrPOKuIeN9y4uBvjvESb2xOn2Ja','stranka','active','Svetosavksa ulika',2,'Ljubljana',1000);
 INSERT INTO `uporabniki` (`id`,`ime`,`priimek`,`email`,`geslo`,`tip`,`status`,`ulica`,`hisna_stevilka`,`posta`,`postna_stevilka`) VALUES (5,'Tjasa','Tuta','tjasa@gmail.com','$2y$10$VDxBuhuXrw8G/O9iioKpVOJQ.fFrPOKuIeN9y4uBvjvESb2xOn2Ja','stranka','active','Vilharjeva cesta',105,'Ljubljana',1000);

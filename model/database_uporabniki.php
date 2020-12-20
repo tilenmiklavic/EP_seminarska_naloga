@@ -50,9 +50,30 @@ class UporabnikiDB {
 
         $uporabnik = $statement->fetch();
         
-        if (password_verify($geslo, $uporabnik["geslo"])) {
-            return $uporabnik;
-        } else {
+        if($uporabnik){
+            if ($uporabnik["status"] == "active"){
+                if ($uporabnik["tip"] != "stranka"){
+                    $client_cert = filter_input(INPUT_SERVER, "SSL_CLIENT_CERT");
+                    $cert = openssl_x509_parse($client_cert);
+                    if (password_verify($geslo, $uporabnik["geslo"]) && $cert["subject"]["emailAddress"] === $email){
+                        return $uporabnik;
+                    }
+                    else {
+                        return null;
+                    }
+                }
+                else if (password_verify($geslo, $uporabnik["geslo"])) {
+                    return $uporabnik;
+                }
+                else {
+                    return null;
+                }
+            }
+             else {
+                return null;
+            }
+        }
+        else {
             return null;
         }
     }

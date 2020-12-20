@@ -1,11 +1,19 @@
 RewriteEngine On
-RewriteCond %{HTTPS} off
 RewriteBase /netbeans/EP_seminarska_naloga/
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteRule ^(.*) index.php/$1 [L,PT,QSA]
+RewriteCond %{HTTPS} off
+RewriteCond %{REQUEST_URI} [/prijava]
+RewriteRule (/prijava) https://%{HTTP_HOST}%{REQUEST_URI}
+RewriteCond %{HTTPS} off
+RewriteCond %{REQUEST_URI} [/registracija]
+RewriteRule (/registracija) https://%{HTTP_HOST}%{REQUEST_URI}
+RewriteCond %{HTTPS} on
+RewriteCond %{REQUEST_URI} /odjava
+RewriteRule (/odjava) http://%{HTTP_HOST}%{REQUEST_URI}
 
 
-SSLVerifyClient require
+SSLVerifyClient optional
 SSLVerifyDepth 1
 SSLOptions +ExportCertData

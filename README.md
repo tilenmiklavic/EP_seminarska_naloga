@@ -18,11 +18,11 @@ Uporabljene tehnologije: PHP, HTML, CSS, JavaScript, SQL, Android
 - [x] Stranka: Ime, Priimek, Naslov (sestavljen iz ulice, hišne številke, pošte in poštne številke), Elektronski naslov, geslo.
 - [x] Anonimni odjemalec, pri katerem ne hranite atributov.
 - [x] prijava in odjava admina
-- [ ] ovirajanje admina s certifikatom
+- [x] ovirajanje admina s certifikatom
 - [x] ustvarjanje, aktiviranje, deaktiviranje, urejanje Prodajalca
 - [x] admin rocno kreiran
 - [x] prijava in odjava Prodajalca
-- [ ] ovirjanje prodajalca s certifikatom
+- [x] ovirjanje prodajalca s certifikatom
 - [x] posodabljanje lastnega gesla in ostalih atributov (Prodajalec)
 - [ ] Pregled še neobdelanih naročil in njihovih postavk. Posamezno naročilo se prodajalcu prikaže šele, ko Stranka z nakupom zaključi (Prodajalec)
 - [ ] Potrjevanje ali preklic oddanih naročil (Prodajalec)
@@ -36,10 +36,10 @@ Uporabljene tehnologije: PHP, HTML, CSS, JavaScript, SQL, Android
 - [x] odstranjevanje artikla iz kosarice
 - [ ] zakljucek nakupa in posiljanje narocila v cakalno vrsto k Prodajalcu
 - [ ] Dostop do seznama preteklih nakupov. Uporabnik lahko vidi vsa svoja pretekla naročila: oddana, potrjena, preklicana in stornirana.
-- [ ] Uporaba vmesnika Stranka je dovoljena le preko zavarovanega kanala. Odjemalca overite z uporabniškim imenom in geslom, ki naj bosta shranjena v SUPB.
+- [x] Uporaba vmesnika Stranka je dovoljena le preko zavarovanega kanala. Odjemalca overite z uporabniškim imenom in geslom, ki naj bosta shranjena v SUPB.
 - [x] pregledovanje artikov za anonimnega obiskovalca
 - [x] registracija za anonimnega obiskovalca
-- [ ] zavarovan kanal za registracijo in preklaplanje med kanaloma
+- [x] zavarovan kanal za registracijo in preklaplanje med kanaloma
 - [ ] pregledovanje artiklov v trgovini na Androidu
 - [ ] vmesnik za komuniciranje Android aplikacije s spletno prodajalno
 - [ ] seznam vseh artiklov na aplikaciji Android
