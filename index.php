@@ -265,7 +265,7 @@ $urls = [
                 break;
         }
     },
-    "/^api\/aRTIKLI$/" => function ($method) {
+    "/^api\/artikli$/" => function ($method) {
         switch ($method) {
             case "POST":
                 TrgovinaRESTController::add();
