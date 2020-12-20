@@ -51,7 +51,7 @@ Uporabljene tehnologije: PHP, HTML, CSS, JavaScript, SQL, Android
 - [x] ustrezna hramba gesel
 - [ ] Izdelan model podatkovne baze naj bo normaliziran do tretje normalne oblike. Vse denormalizacije morajo biti utemeljene.
 ### Napredne funkcionalnosti
-- [ ] V1 (5%) Registracija strank z uporabo filtriranja CAPTCHA.
+- [x] V1 (5%) Registracija strank z uporabo filtriranja CAPTCHA.
 - [ ] V2 (5%) Registracija strank z uporabo potrditvenega e-maila.
 - [ ] V1 (do 6%) Smiselna organizacija in izvedba uporabniškega vmesnika s pomočjo tehnologij kot so sta CSS in JavaScript. Za polno oceno je nujna tudi uporaba tehnologij, ki omogočajo asinhrono komunikacijo s strežnikom v ozadju in dinamično posodabljanje DOM; denimo tehnologije AJAX, Vue.js in podobno.
 - [ ] V2 (7%) Predstavitev artiklov s slikami. Slike lahko shranite v SUPB ali na datotečni sistem. Za polno oceno mora implementacija podpirati dodajanje in spreminjanje slik na enak način kot se spreminjajo ostali atributi artiklov ter možnost, da za vsak artikel dodamo več slik.
