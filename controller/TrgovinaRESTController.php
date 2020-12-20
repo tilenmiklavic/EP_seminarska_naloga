@@ -19,11 +19,10 @@ class TrgovinaRESTController {
                 . $_SERVER["REQUEST_URI"];
 
         
-        //$data = ArtikliDB::getAllwithURI(["prefix" => $prefix]);
+        $data = ArtikliDB::getAllwithURI(["prefix" => $prefix]);
 
-        $data = ArtikliDB::getAll();
-        $data2 = ViewHelper::renderJSON($data, 200);
-
+        
+        $data2 = ViewHelper::renderJSON($data);
         echo($data2);
     }
 

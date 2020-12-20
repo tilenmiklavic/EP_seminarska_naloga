@@ -8,6 +8,8 @@ require_once("controller/UporabnikiController.php");
 require_once("controller/TrgovinaRESTController.php");
 require_once("controller/StrankaController.php");
 
+
+
 define("BASE_URL", rtrim($_SERVER["SCRIPT_NAME"], "index.php"));
 define("IMAGES_URL", rtrim($_SERVER["SCRIPT_NAME"], "index.php") . "static/slike/");
 define("CSS_URL", rtrim($_SERVER["SCRIPT_NAME"], "index.php") . "static/css/");
@@ -76,6 +78,12 @@ $urls = [
         } else {
             UporabnikiController::registracija();
         }
+    },
+    "/^potrdi$/" => function ($method) {
+        UporabnikiController::potrdiMail();
+    },
+    "/^registracija\/potrditev\/(\d+)$/" => function ($method, $id) {
+        UporabnikiController::potrdiUporabnika($id);
     },
     "/^odjava$/" => function ($method) {
         UporabnikiController::odjava();
@@ -228,7 +236,7 @@ $urls = [
                 break;
         }
     },
-    "/^api\/artikli$/" => function ($method) {
+    "/^api\/aRTIKLI$/" => function ($method) {
         switch ($method) {
             case "POST":
                 TrgovinaRESTController::add();
@@ -259,5 +267,4 @@ foreach ($urls as $pattern => $controller) {
     }     
 }
 
-error_log("Dispaly errro");
 ViewHelper::displayError(new InvalidArgumentException("No controller matched."), true);

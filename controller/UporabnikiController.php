@@ -59,16 +59,16 @@ class UporabnikiController {
     }
 
     public static function kreirajUporabnika() {
-        $ime = $_POST["ime"] | "Testno ime";
-        $priimek = $_POST["priimek"] | "Testni priimek";
-        $email = $_POST["email"] | "testni.mail@gmail.com";
-        $geslo = $_POST["geslo"] | "pass";
+        $ime = $_POST["ime"];
+        $priimek = $_POST["priimek"];
+        $email = $_POST["email"];
+        $geslo = $_POST["geslo"];
         $tip = "stranka";
-        $status = "active";
-        $ulica = $_POST["ulica"] | "testna ulica";
-        $hisna_stevilka = $_POST["hisna_stevilka"] | "10";
+        $status = "inactive";
+        $ulica = $_POST["ulica"];
+        $hisna_stevilka = $_POST["hisna_stevilka"];
         $posta = $_POST["posta"] | "Testna posta";
-        $postna_stevilka = $_POST["postna_stevilka"] | "1000";
+        $postna_stevilka = $_POST["postna_stevilka"];
 
         $captcha;
         if(isset($_POST['g-recaptcha-response'])){
@@ -98,13 +98,13 @@ class UporabnikiController {
         if ($id) {
 
             if (!isset($_SESSION["uporabnik_id"])) {
-                $_SESSION["uporabnik_id"] = $id;
+                // $_SESSION["uporabnik_id"] = $id;
 
-                ViewHelper::redirect(BASE_URL);
-                UporabnikiController::sendEmail($email, $geslo, $ime, $priimek);
+                ViewHelper::redirect(BASE_URL . "potrdi");
+                UporabnikiController::sendEmail($email, $geslo, $ime, $priimek, $id);
                 
             } else {
-                UporabnikiController::sendEmail($email, $geslo, $ime, $priimek);
+                UporabnikiController::sendEmail($email, $geslo, $ime, $priimek, $id);
                 //echo ViewHelper::redirect(BASE_URL . "stranke");
             }
             
@@ -115,8 +115,10 @@ class UporabnikiController {
         }
     }
 
-    public static function sendEmail($email, $geslo, $ime, $priimek) {
+    public static function sendEmail($email, $geslo, $ime, $priimek, $id) {
 
+        $prefix = $_SERVER["REQUEST_SCHEME"] . "://" . $_SERVER["HTTP_HOST"]
+                . $_SERVER["REQUEST_URI"] . '/potrditev/' . $id;
 
         $mail = new PHPMailer(true);
         try {
@@ -141,7 +143,8 @@ class UporabnikiController {
                              . 'Vaši podatki so: <br> Ime: ' . $ime
                              . '<br> Priimek: ' . $priimek
                              . '<br> Email: ' . $email
-                             . '<br> Geslo: ' . $geslo;
+                             . '<br> Geslo: ' . $geslo
+                             . '<br> Za potrditev obisci povezavo: ' . $prefix;
             $mail->AltBody = 'Uspesna prijava na spletno trgovino ABC';
         
             $mail->send();
@@ -150,6 +153,31 @@ class UporabnikiController {
             echo "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";
             exit;
         }
+    }
+
+    public static function potrdiMail() {
+        echo ViewHelper::render("view/stranka_potrdi_mail.php");
+    }
+
+    public static function potrdiUporabnika($id) {
+        $uporabnik = UporabnikiDB::get($id);
+
+        var_dump($id);
+
+        $ime = $uporabnik["ime"];
+        $priimek = $uporabnik["priimek"];
+        $email = $uporabnik["email"];
+        $geslo = $uporabnik["geslo"];
+        $tip = $uporabnik["tip"];
+        $status = "active";
+        $ulica = $uporabnik["ulica"];
+        $hisna_stevilka = $uporabnik["hisna_stevilka"];
+        $posta = $uporabnik["posta"];
+        $postna_stevilka = $uporabnik["postna_stevilka"];
+
+        $id = UporabnikiDB::edit($id, $ime, $priimek, $email, $geslo, $tip, $status, $ulica, $hisna_stevilka, $posta, $postna_stevilka);
+
+        ViewHelper::redirect(BASE_URL . "prijava");
     }
 
     public static function posodobiUporabnika() {

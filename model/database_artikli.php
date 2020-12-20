@@ -15,7 +15,8 @@ class ArtikliDB extends AbstractDB {
     }
 
     public static function getAllwithURI(array $prefix) {
-        
+    
+    
         return parent::query("SELECT id, ime, avtor, cena, "
                         . "          CONCAT(:prefix, id) as uri "
                         . "FROM artikli "

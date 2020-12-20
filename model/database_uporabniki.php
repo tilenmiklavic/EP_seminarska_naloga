@@ -44,7 +44,7 @@ class UporabnikiDB {
     public static function prijava($email, $geslo) {
         $db = DBInit::getInstance();
 
-        $statement = $db->prepare("SELECT * FROM uporabniki WHERE email=?");
+        $statement = $db->prepare("SELECT * FROM uporabniki WHERE email=? AND status='active'");
         $statement->bindParam(1, $email);
         $statement->execute();
 
