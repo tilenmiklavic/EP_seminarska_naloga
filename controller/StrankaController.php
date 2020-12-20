@@ -137,6 +137,104 @@ class StrankaController {
         }
 
     }
+    
+     
+    public static function predracun() {
+
+        $id_uporabnika = $_SESSION["uporabnik_id"];
+        $narocilo = NarocilaDB::getByUporabnikID($id_uporabnika, "kosarica");
+        $artikli = [];
+        $id_narocila = $narocilo["id"];
+        
+
+        if ($narocilo) {
+            $artikli = PodrobnostiNarocilaDB::vsebinaKosarice($narocilo["id"]);
+        }
+
+        $skupna_cena = 0;
+
+        foreach ($artikli as $artikel) {
+            $skupna_cena += $artikel["cena"] * $artikel["kolicina"];
+        }
+        
+        if ($skupna_cena == 0) {
+            
+            echo ViewHelper::redirect(BASE_URL . "kosarica");
+            
+        } else {
+
+            echo ViewHelper::render("view/stranka_predracun.php", [
+                "artikli" => $artikli,
+                "skupna_cena" => $skupna_cena,
+                "stranka" => UporabnikiDB::get($id_uporabnika),
+                "id_narocila" => $id_narocila
+            ]);
+        
+        }
+        
+    }
+    
+    public static function oddajNarocilo() {
+        $id_uporabnika = $_SESSION["uporabnik_id"];
+        $narocilo = NarocilaDB::getByUporabnikID($id_uporabnika, "kosarica");
+        $id_narocila = $narocilo["id"];
+        
+        
+        NarocilaDB::edit2($id_narocila, "oddano");
+
+        echo ViewHelper::redirect(BASE_URL . "uspesno_oddano_narocilo");
+        
+        
+    }
+    
+    public static function uspesno_oddano_narocilo() {
+        
+        echo ViewHelper::render("view/stranka_uspesno_oddano_narocilo.php");
+        
+    }
+    
+    public static function zgodovina_nakupov() {
+        
+        $id_uporabnika = $_SESSION["uporabnik_id"];
+        $tabZgodovinaNakupov = NarocilaDB::najdiZgodovinoNakupov($id_uporabnika);
+        
+        $tabIDji = [];
+        $tabStatusov = [];
+        
+        foreach ($tabZgodovinaNakupov as $narocilo) {
+            array_push($tabIDji, $narocilo["id"]);
+            array_push($tabStatusov, $narocilo["status"]);
+        }
+        
+        $tabNakupov = [];
+        $tabSkupnihCen = [];
+        
+        
+        foreach ($tabIDji as $trenutni_id) {
+            $artikli = [];
+            $artikli = PodrobnostiNarocilaDB::vsebinaKosarice($trenutni_id);
+            array_push($tabNakupov, $artikli);
+            
+            $skupna_cena = 0;
+
+            foreach ($artikli as $artikel) {
+                $skupna_cena += $artikel["cena"] * $artikel["kolicina"];
+            }
+            
+            array_push($tabSkupnihCen, $skupna_cena);
+        }
+
+        echo ViewHelper::render("view/stranka_zgodovina_nakupov.php", [
+            "tabIDji" => $tabIDji,
+            "tabNakupov" => $tabNakupov,
+            "tabSkupnihCen" => $tabSkupnihCen,
+            "tabStatusov"=> $tabStatusov,
+            "stranka" => UporabnikiDB::get($id_uporabnika)
+        ]);
+        
+    }
+
+
 
 
     /**
