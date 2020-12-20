@@ -130,8 +130,9 @@
 			</ul>
 			
 			<br><p>Skupna cena: <?= $skupna_cena?>€</p>
+			<a href="predracun">
 			<button type="button" class="btn btn-primary"><i class="fas fa-file-invoice-dollar"></i> Zaključi z nakupom</button>
-
+                        </a>  
 			
 			
 
