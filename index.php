@@ -204,7 +204,36 @@ $urls = [
             StrankaController::zgodovina_nakupov();
         
         
-    },       
+    },  
+    
+    //REZULTATI ISKANJA //       
+    "/^stranka_rezultati_iskanja$/" => function ($method) {
+        if ($method == "POST") {
+
+            if ($_POST["do"] == "isci") {
+                StrankaController::rezultatiIskanjaStrankaPolno();
+            }
+            
+        } else {
+            StrankaController::rezultatiIskanjaStrankaPrazno();
+        }
+        
+        
+    }, 
+    
+    "/^prodajalec_rezultati_iskanja$/" => function ($method) {
+        if ($method == "POST") {
+
+            if ($_POST["do"] == "isci") {
+                UporabnikiController::rezultatiIskanjaProdajalecPolno();
+            }
+            
+        } else {
+            UporabnikiController::rezultatiIskanjaProdajalecPrazno();
+        }
+        
+        
+    }, 
     
             
     "/^$/" => function () {
