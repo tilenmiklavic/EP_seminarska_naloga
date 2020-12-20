@@ -77,5 +77,62 @@ class NarocilaDB {
 
     }
     
+        public static function edit2($id, $status) {
+        
+        $db = DBInit::getInstance();
+        
+        $statement = $db->prepare("update narocila set status=? where id=?");
+
+        $statement->bindParam(1, $status);
+        $statement->bindParam(2, $id);
+
+        $statement->execute();
+
+    }
+    
+    public static function najdiZgodovinoNakupov($uporabnik_id) {
+        $db = DBInit::getInstance();
+        
+        $status = "kosarica";
+        
+        $statement = $db->prepare("SELECT * FROM narocila WHERE uporabniki_id = ? AND status != ?");
+        $statement->bindParam(1, $uporabnik_id);
+        $statement->bindParam(2, $status);
+        
+        $statement->execute();
+        
+        return $statement->fetchAll();
+    }
+    
+    public static function najdiTrenutnaNarocila() {
+        
+        $db = DBInit::getInstance();
+        
+        $status = "oddano";
+        
+        $statement = $db->prepare("SELECT * FROM narocila WHERE status = ?");
+        $statement->bindParam(1, $status);
+        
+        $statement->execute();
+        
+        return $statement->fetchAll();
+        
+    }
+    
+    public static function najdiPotrjenaNarocila() {
+        $db = DBInit::getInstance();
+        
+        $status = "potrjeno";
+        
+        $statement = $db->prepare("SELECT * FROM narocila WHERE status = ?");
+        $statement->bindParam(1, $status);
+        
+        $statement->execute();
+        
+        return $statement->fetchAll();
+    }
+    
+  
+
 }
 
