@@ -163,10 +163,10 @@ class UporabnikiController {
         $geslo = $_POST["geslo"];
         $tip = $uporabnik["tip"];
         $status = "active";
-        $ulica = $_POST["ulica"];
-        $hisna_stevilka = $_POST["hisna_stevilka"];
-        $posta = $_POST["posta"];
-        $postna_stevilka = $_POST["postna_stevilka"];
+        $ulica = $_POST["ulica"] | $uporabnik["ulica"];
+        $hisna_stevilka = $_POST["hisna_stevilka"] | $uporabnik["hisna_stevilka"];
+        $posta = $_POST["posta"] | $uporabnik["posta"];
+        $postna_stevilka = $_POST["postna_stevilka"] | $uporabnik["postna_stevilka"];
 
         if (!isset($_POST["aktiven"])) {
             $status = "inactive";
@@ -188,9 +188,9 @@ class UporabnikiController {
         $status = "active";
 
         $ulica = NULL;
-        $hisna_stevilka = null;
-        $posta = null;
-        $postna_stevilka = null;
+        $hisna_stevilka = 0;
+        $posta = NULL;
+        $postna_stevilka = 0;
 
         if (!isset($_POST["aktiven"])) {
             $status = "inactive";
@@ -214,9 +214,9 @@ class UporabnikiController {
         $tip = "prodajalec";
         $status = "active";
         $ulica = NULL;
-        $hisna_stevilka = NULL;
+        $hisna_stevilka = 0;
         $posta = NULL;
-        $postna_stevilka = NULL;
+        $postna_stevilka = 0;
 
         if (UporabnikiDB::insert($ime, $priimek, $email, $geslo, $tip, $status, $ulica, $hisna_stevilka, $posta, $postna_stevilka)) {
             ViewHelper::redirect(BASE_URL . "index");
