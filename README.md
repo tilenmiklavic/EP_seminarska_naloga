@@ -12,6 +12,15 @@ Uporabljene tehnologije: PHP, HTML, CSS, JavaScript, SQL, Android
 **Geslo:** ep 
 **Admin:** admin@ep.si
 
+## Uporabniška imena in gesla
+### Admin
+ui: admin@ep.si geslo: pass
+### Prodajalec
+ui: ana@ep.si geslo: pass
+ui bojan@ep.si geslo: pass
+### Stranka
+ui: tjasa@gmail.com geslo: pass
+
 ## ZAHTEVE:
 - [x] Administrator: Ime, Priimek, Elektronski naslov in geslo.
 - [x] Prodajalec: Ime, Priimek, Elektronski naslov in geslo.
