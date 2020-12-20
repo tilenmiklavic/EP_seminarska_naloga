@@ -96,7 +96,9 @@
                 <li class="list-group-item d-flex align-items-center ">
                 <a  href="artikli/<?= $artikel["id"]?>" > <img src=<?= $artikel["naslov_slike"]?> style="height:15vh;"> </a>
                 <p class="text-dark ml-2"> <b><?= $artikel["ime"]?></b><br>Avtor: <?= $artikel["avtor"]?><br>Založba: <?= $artikel["zalozba"]?><br>Cena: <?= $artikel["cena"]?>€</p>
-                <button type="button" class="btn btn-primary ml-auto"><i class="fas fa-plus"></i> Dodaj v košarico</button>
+                <!--button type="button" class="btn btn-primary ml-auto"><i class="fas fa-plus"></i> Dodaj v košarico</button-->
+                
+                <!-- zakomentiru gumb k itak anonimni nemore dat u kosarico lahko samo gleda -->
                 </li>
             <?php endforeach; ?>
 

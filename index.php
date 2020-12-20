@@ -72,6 +72,7 @@ $urls = [
     "/^registracija$/" => function ($method) {
         if ($method == "POST") {
             UporabnikiController::kreirajUporabnika();
+            //UporabnikiController::sendEmail("tilen.miklavic@gmail.com", "pass", "Tilen", "Miklavic");
         } else {
             UporabnikiController::registracija();
         }

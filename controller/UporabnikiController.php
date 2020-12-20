@@ -5,6 +5,19 @@ require_once("model/database_narocila.php");
 require_once("model/database_podrobnosti_narocila.php");
 require_once("model/database_uporabniki.php");
 require_once("ViewHelper.php");
+require_once("controller/TrgovinaController.php");
+
+// Import PHPMailer classes into the global namespace
+// These must be at the top of your script, not inside a function
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\SMTP;
+use PHPMailer\PHPMailer\Exception;
+
+// Load Composer's autoloader
+require 'vendor/autoload.php';
+
+// Instantiation and passing `true` enables exceptions
+$mail = new PHPMailer(true);
 
 
 class UporabnikiController {
@@ -46,32 +59,96 @@ class UporabnikiController {
     }
 
     public static function kreirajUporabnika() {
-        $ime = $_POST["ime"];
-        $priimek = $_POST["priimek"];
-        $email = $_POST["email"];
-        $geslo = $_POST["geslo"];
+        $ime = $_POST["ime"] | "Testno ime";
+        $priimek = $_POST["priimek"] | "Testni priimek";
+        $email = $_POST["email"] | "testni.mail@gmail.com";
+        $geslo = $_POST["geslo"] | "pass";
         $tip = "stranka";
         $status = "active";
-        $ulica = $_POST["ulica"];
-        $hisna_stevilka = $_POST["hisna_stevilka"];
-        $posta = $_POST["posta"];
-        $postna_stevilka = $_POST["postna_stevilka"];
+        $ulica = $_POST["ulica"] | "testna ulica";
+        $hisna_stevilka = $_POST["hisna_stevilka"] | "10";
+        $posta = $_POST["posta"] | "Testna posta";
+        $postna_stevilka = $_POST["postna_stevilka"] | "1000";
+
+        $captcha;
+        if(isset($_POST['g-recaptcha-response'])){
+            $captcha=$_POST['g-recaptcha-response'];
+        }
+        if(!$captcha){
+            echo '<h2>Please check the the captcha form.</h2>';
+        }
+        $secretKey = "6LdzPA0aAAAAAJmLuY8PfosAfXXlNZK0qGVevnHp";
+        $ip = $_SERVER['REMOTE_ADDR'];
+        // post request to server
+        $url = 'https://www.google.com/recaptcha/api/siteverify?secret=' . urlencode($secretKey) .  '&response=' . urlencode($captcha);
+        $response = file_get_contents($url);
+        $responseKeys = json_decode($response,true);
+        // should return JSON with success as true
+        if($responseKeys["success"]) {
+                echo '<h2>Captcha uspesno prijela, lahko nadaljujes.</h2>';
+        } else {
+                echo '<h2>Captcha ni prijela, verjetno si spammer</h2>';
+                exit;
+        }
+
+
 
         $id = UporabnikiDB::insert($ime, $priimek, $email, $geslo, $tip, $status, $ulica, $hisna_stevilka, $posta, $postna_stevilka);
-
+        
         if ($id) {
 
             if (!isset($_SESSION["uporabnik_id"])) {
                 $_SESSION["uporabnik_id"] = $id;
-                echo ViewHelper::redirect(BASE_URL);
+
+                ViewHelper::redirect(BASE_URL);
+                UporabnikiController::sendEmail($email, $geslo, $ime, $priimek);
+                
             } else {
-                echo ViewHelper::redirect(BASE_URL . "stranke");
+                UporabnikiController::sendEmail($email, $geslo, $ime, $priimek);
+                //echo ViewHelper::redirect(BASE_URL . "stranke");
             }
             
         }  else {
 
             ViewHelper::redirect(BASE_URL . "registracija");
 
+        }
+    }
+
+    public static function sendEmail($email, $geslo, $ime, $priimek) {
+
+
+        $mail = new PHPMailer(true);
+        try {
+            //Server settings
+            $mail->SMTPDebug = SMTP::DEBUG_SERVER;                      // Enable verbose debug output
+            $mail->isSMTP();                                            // Send using SMTP
+            $mail->Host       = 'smtp.gmail.com';                    // Set the SMTP server to send through
+            $mail->SMTPAuth   = true;                                   // Enable SMTP authentication
+            $mail->Username   = 'markus.vandersar@gmail.com';                     // SMTP username
+            $mail->Password   = 'Geslo123#';                               // SMTP password
+            $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;         // Enable TLS encryption; `PHPMailer::ENCRYPTION_SMTPS` encouraged
+            $mail->Port       = 587;                                    // TCP port to connect to, use 465 for `PHPMailer::ENCRYPTION_SMTPS` above
+        
+            //Recipients
+            $mail->setFrom('trgovina-abc@example.com', 'Trgovina ABC');
+            $mail->addAddress( $email, $ime );     // Add a recipient
+        
+            // Content
+            $mail->isHTML(true);                                  // Set email format to HTML
+            $mail->Subject = 'Registracija';
+            $mail->Body    = 'Uspešno ste se registrirali v spletno trgovino ABC. <br>' 
+                             . 'Vaši podatki so: <br> Ime: ' . $ime
+                             . '<br> Priimek: ' . $priimek
+                             . '<br> Email: ' . $email
+                             . '<br> Geslo: ' . $geslo;
+            $mail->AltBody = 'Uspesna prijava na spletno trgovino ABC';
+        
+            $mail->send();
+            echo 'Message has been sent';
+        } catch (Exception $e) {
+            echo "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";
+            exit;
         }
     }
 

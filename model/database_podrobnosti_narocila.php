@@ -63,6 +63,10 @@ class PodrobnostiNarocilaDB {
 
     public static function insert($id_artikla, $kolicina, $narocila_id) {                
         $db = DBInit::getInstance();
+
+        $id_artikla = htmlspecialchars($id_artikla);
+        $kolicina = htmlspecialchars($kolicina);
+        $narocila_id = htmlspecialchars($narocila_id);
         
         $statement = $db->prepare("INSERT into podrobnosti_narocila (id_artikla, kolicina, narocila_id) values (?, ?, ?);");
         $statement->bindParam(1, $id_artikla);
@@ -75,11 +79,17 @@ class PodrobnostiNarocilaDB {
     public static function edit($id, $id_artikla, $kolicina, $narocila_id) {
         
         $db = DBInit::getInstance();
+
+        $id_artikla = htmlspecialchars($id_artikla);
+        $kolicina = htmlspecialchars($kolicina);
+        $narocila_id = htmlspecialchars($narocila_id);
         
-        $statement = $db->prepare("UPDATE podrobnosti_narocila set id_artikla=?, kolicina=?, narocila_id=? where id_podrobnosti_narocila=$id");
+        $statement = $db->prepare("UPDATE podrobnosti_narocila set id_artikla=?, kolicina=?, narocila_id=? where id_podrobnosti_narocila=?");
         $statement->bindParam(1, $id_artikla);
         $statement->bindParam(2, $kolicina);
         $statement->bindParam(3, $narocila_id);
+        $statement->bindParam(4, $id);
+
 
 
         return $statement->execute();

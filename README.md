@@ -46,13 +46,13 @@ Uporabljene tehnologije: PHP, HTML, CSS, JavaScript, SQL, Android
 - [ ] ob kliku na artikel se pokazejo podrobnosti na novem zaslonu Android
 - [x] izdelovanje lastne certifikatne agencije in namestitev na streznik apache 
 - [x] Osebne certifikate izdelajte ročno z namenskim programom in z uporabo iste certifikatne agencije, kot ste jo uporabili za izdelavo strežniškega certifikata. Uporabite smiselna polja certifikata ter na ustrezen način povežite identiteto uporabnika v bazi z identiteto zapisano v certifikatu.
-- [ ] Pri realizaciji vseh delov prodajalne skrbno preverjajte vnose s strani odjemalca, pri čemer bodite posebej pozorni na napade injekcije kode SQL ter napade XSS.
+- [x] Pri realizaciji vseh delov prodajalne skrbno preverjajte vnose s strani odjemalca, pri čemer bodite posebej pozorni na napade injekcije kode SQL ter napade XSS.
 - [x] Metode protokola HTTP realizirajte v skladu s priporočili standarda HTTP, kjer uporabite zahtevke z metodo GET za lahke operacije, za zahtevnejše pa zahtevke z metodo POST.
 - [x] ustrezna hramba gesel
 - [ ] Izdelan model podatkovne baze naj bo normaliziran do tretje normalne oblike. Vse denormalizacije morajo biti utemeljene.
 ### Napredne funkcionalnosti
-- [ ] V1 (5%) Registracija strank z uporabo filtriranja CAPTCHA.
-- [ ] V2 (5%) Registracija strank z uporabo potrditvenega e-maila.
+- [x] V1 (5%) Registracija strank z uporabo filtriranja CAPTCHA.
+- [x] V2 (5%) Registracija strank z uporabo potrditvenega e-maila.
 - [ ] V1 (do 6%) Smiselna organizacija in izvedba uporabniškega vmesnika s pomočjo tehnologij kot so sta CSS in JavaScript. Za polno oceno je nujna tudi uporaba tehnologij, ki omogočajo asinhrono komunikacijo s strežnikom v ozadju in dinamično posodabljanje DOM; denimo tehnologije AJAX, Vue.js in podobno.
 - [ ] V2 (7%) Predstavitev artiklov s slikami. Slike lahko shranite v SUPB ali na datotečni sistem. Za polno oceno mora implementacija podpirati dodajanje in spreminjanje slik na enak način kot se spreminjajo ostali atributi artiklov ter možnost, da za vsak artikel dodamo več slik.
 - [ ] V3 (3%) Implementacija iskanja po artiklih. Iskalnik naj podpira binarno iskanje, tj. poizvedbe pri katerih lahko s posebnimi operatorji določene iskalne pojme izključimo.
@@ -92,8 +92,8 @@ Uporabljene tehnologije: PHP, HTML, CSS, JavaScript, SQL, Android
 
 - [x] anonimni uproabnik ima samo možnost izpisa vseh artiklov (isti izpis kot stranka) in ogled detajlov artiklov)
 - [x] registracija novega uporabnika (se ga doda kot tip stranka) 
-- [ ] uporabnik vpiše email in izpolni captcho
-- [ ] na email dobi geslo za prvo prijavo (itak geslo lahko pole spremeni)
+- [ ] uporabnik vpiše email in izpolni captcho **Rihard (če ni še noben zčnu in ko končam naročila)**
+- [ ] na email dobi geslo za prvo prijavo (itak geslo lahko pole spremeni) **Rihard (če ni še noben zčnu in ko končam naročila)**
 ----------------------------------------------------------------------------
 
 ### Naloge (napiši se zravn takoj ko začneš delat)
