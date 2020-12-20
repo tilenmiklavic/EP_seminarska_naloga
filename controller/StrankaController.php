@@ -188,8 +188,13 @@ class StrankaController {
     }
     
     public static function uspesno_oddano_narocilo() {
-        
-        echo ViewHelper::render("view/stranka_uspesno_oddano_narocilo.php");
+    
+        $id_uporabnika = $_SESSION["uporabnik_id"];
+        $stranka = UporabnikiDB::get($id_uporabnika);
+
+        echo ViewHelper::render("view/stranka_uspesno_oddano_narocilo.php", [
+            "stranka" => $stranka
+        ]);
         
     }
     
