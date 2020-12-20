@@ -122,6 +122,41 @@ $urls = [
         }
         
     },
+    
+             
+    "/^prodajalec_trenutna_narocila$/" => function ($method) {
+        if ($method == "POST") {
+            
+            if ($_POST["do"] == "potrdi_narocilo") {
+                UporabnikiController::potrdiNarocilo();
+            } else if ($_POST["do"] == "preklici_narocilo") {
+                UporabnikiController::prekliciNarocilo();
+            }
+        }
+        
+        else {
+            UporabnikiController::trenutnaNarocila();
+        }
+        
+        
+    },
+    
+    "/^prodajalec_zgodovina_narocil$/" => function ($method) {
+        if ($method == "POST") {
+            
+            if ($_POST["do"] == "storniraj_narocilo") {
+                UporabnikiController::stornirajNarocilo();
+            } 
+        }
+        
+        else {
+            UporabnikiController::zgodovinaNarocil();
+        }
+        
+        
+    },
+                     
+    
     /*
     ========================================
     URL-ji za stranko
@@ -142,6 +177,36 @@ $urls = [
             StrankaController::kosarica();
         }
     },
+    
+     "/^predracun$/" => function ($method) {
+        if ($method == "POST") {
+        
+            if ($_POST["do"] == "oddaj_narocilo") {
+                StrankaController::oddajNarocilo();
+            }
+        }
+        
+        else {
+            StrankaController::predracun();
+        }
+        
+    },
+    
+    "/^uspesno_oddano_narocilo$/" => function ($method) {
+
+            StrankaController::uspesno_oddano_narocilo();
+        
+        
+    },
+    
+    "/^zgodovina_nakupov$/" => function ($method) {
+
+            StrankaController::zgodovina_nakupov();
+        
+        
+    },       
+    
+            
     "/^$/" => function () {
         // univerzalna funckcija 
         // ce noven URL ne prime 
