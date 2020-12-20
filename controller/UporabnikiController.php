@@ -292,6 +292,111 @@ class UporabnikiController {
 
         ViewHelper::redirect(BASE_URL);
     }
+    
+    public static function trenutnaNarocila() {
+        
+        $id_uporabnika = $_SESSION["uporabnik_id"];
+        $tabTrenutnaNarocila = NarocilaDB::najdiTrenutnaNarocila();
+        
+        $tabVsebinaNarocil = [];
+        $tabSkupnihCen = [];
+        $tabUporabnikov = [];
+        
+        foreach ($tabTrenutnaNarocila as $narocilo) {
+            $artikli = [];
+            $artikli = PodrobnostiNarocilaDB::vsebinaKosarice($narocilo["id"]);
+            array_push($tabVsebinaNarocil, $artikli);
+            
+            $skupna_cena = 0;
+
+            foreach ($artikli as $artikel) {
+                $skupna_cena += $artikel["cena"] * $artikel["kolicina"];
+            }
+            
+            array_push($tabSkupnihCen, $skupna_cena);
+            
+            //dobim uporabnike ki so narocili
+            $uporabnik = UporabnikiDB::get($narocilo["uporabniki_id"]);
+            $ime =$uporabnik["ime"];
+            $priimek = $uporabnik["priimek"];
+            $skupno = $ime . " " .$priimek;
+            
+            array_push($tabUporabnikov, $skupno);
+        }
+        
+        
+        echo ViewHelper::render("view/prodajalec_trenutna_narocila.php", [
+            "tabTrenutnaNarocila" => $tabTrenutnaNarocila,
+            "tabVsebinaNarocil" => $tabVsebinaNarocil,
+            "tabSkupnihCen" => $tabSkupnihCen,
+            "tabUporabnikov"=> $tabUporabnikov,
+            "prodajalec" => UporabnikiDB::get($_SESSION["uporabnik_id"])
+        ]);
+        
+        
+    }
+    
+    public static function potrdiNarocilo() {
+        $id_narocila = $_POST["id_t_narocila"];
+        
+        NarocilaDB::edit2($id_narocila, "potrjeno");
+        echo ViewHelper::redirect(BASE_URL . "prodajalec_trenutna_narocila");
+    }
+
+    public static function prekliciNarocilo() {
+        $id_narocila = $_POST["id_t_narocila"];
+        
+        NarocilaDB::edit2($id_narocila, "preklicano");
+        echo ViewHelper::redirect(BASE_URL . "prodajalec_trenutna_narocila");
+    }
+    
+    public static function zgodovinaNarocil() {
+        $id_uporabnika = $_SESSION["uporabnik_id"];
+        $tabTrenutnaNarocila = NarocilaDB::najdiPotrjenaNarocila();
+        
+        $tabVsebinaNarocil = [];
+        $tabSkupnihCen = [];
+        $tabUporabnikov = [];
+        
+        foreach ($tabTrenutnaNarocila as $narocilo) {
+            $artikli = [];
+            $artikli = PodrobnostiNarocilaDB::vsebinaKosarice($narocilo["id"]);
+            array_push($tabVsebinaNarocil, $artikli);
+            
+            $skupna_cena = 0;
+
+            foreach ($artikli as $artikel) {
+                $skupna_cena += $artikel["cena"] * $artikel["kolicina"];
+            }
+            
+            array_push($tabSkupnihCen, $skupna_cena);
+            
+            //dobim uporabnike ki so narocili
+            $uporabnik = UporabnikiDB::get($narocilo["uporabniki_id"]);
+            $ime =$uporabnik["ime"];
+            $priimek = $uporabnik["priimek"];
+            $skupno = $ime . " " .$priimek;
+            
+            array_push($tabUporabnikov, $skupno);
+        }
+        
+        
+        echo ViewHelper::render("view/prodajalec_zgodovina_narocil.php", [
+            "tabTrenutnaNarocila" => $tabTrenutnaNarocila,
+            "tabVsebinaNarocil" => $tabVsebinaNarocil,
+            "tabSkupnihCen" => $tabSkupnihCen,
+            "tabUporabnikov"=> $tabUporabnikov,
+            "prodajalec" => UporabnikiDB::get($_SESSION["uporabnik_id"])
+        ]);
+    }
+    
+    public static function stornirajNarocilo() {
+        $id_narocila = $_POST["id_t_narocila"];
+        
+        NarocilaDB::edit2($id_narocila, "stornirano");
+        echo ViewHelper::redirect(BASE_URL . "prodajalec_zgodovina_narocil");
+    }
+
 
 
     /**
