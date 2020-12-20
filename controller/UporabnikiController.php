@@ -396,6 +396,34 @@ class UporabnikiController {
         NarocilaDB::edit2($id_narocila, "stornirano");
         echo ViewHelper::redirect(BASE_URL . "prodajalec_zgodovina_narocil");
     }
+    
+      //rezultati iskanja
+    public static function rezultatiIskanjaProdajalecPrazno() {
+        $id_uporabnika = $_SESSION["uporabnik_id"];
+        
+        
+        echo ViewHelper::render("view/stranka_rezultati_iskanja_prazno.php", [
+            "uporabnik" => UporabnikiDB::get($id_uporabnika)
+        ]);
+    }
+    
+    public static function rezultatiIskanjaProdajalecPolno() {
+        $id_uporabnika = $_SESSION["uporabnik_id"];
+        //var_dump($id_uporabnika);
+        
+        $niz = $_POST["poljeIskalniNiz"];
+        //var_dump($niz);
+        
+        $artikli = ArtikliDB::isciPoArtiklihProdajalec($niz);
+        //var_dump($artikli);
+        
+        echo ViewHelper::render("view/stranka_rezultati_iskanja_polno.php", [
+            "uporabnik" => UporabnikiDB::get($id_uporabnika),
+            "artikli"=> $artikli
+        ]); 
+         
+        
+    }
 
 
 
