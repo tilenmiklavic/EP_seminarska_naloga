@@ -44,10 +44,11 @@
 		<div class="collapse navbar-collapse" id="navbarTogglerDemo02">
 		
 		<!-- Search form -->
-		<form class="form-inline ml-auto">
-		<button class="btn btn-sm btn-outline-light my-2 my-sm-0" type="submit"> <i class="fas fa-search"></i></button>
-		<input class="form-control-sm ml-sm-1 " type="search" placeholder="Išči" aria-label="Search">
-		</form>
+		<div class="ml-auto">
+		<a href="stranka_rezultati_iskanja">
+		<button type="button" class="btn  btn-sm btn-outline-light ">Iskanje</button>
+		</a>
+		</div>
 		
 		<!-- dropwdown meni -->
 		<ul class="navbar-nav ml-2">

@@ -239,7 +239,32 @@ class StrankaController {
         
     }
 
-
+    public static function rezultatiIskanjaStrankaPrazno() {
+        $id_uporabnika = $_SESSION["uporabnik_id"];
+        
+        
+        echo ViewHelper::render("view/stranka_rezultati_iskanja_prazno.php", [
+            "uporabnik" => UporabnikiDB::get($id_uporabnika)
+        ]);
+    }
+    
+    public static function rezultatiIskanjaStrankaPolno() {
+        $id_uporabnika = $_SESSION["uporabnik_id"];
+        //var_dump($id_uporabnika);
+        
+        $niz = $_POST["poljeIskalniNiz"];
+        //var_dump($niz);
+        
+        $artikli = ArtikliDB::isciPoArtiklihStranka($niz);
+        //var_dump($artikli);
+        
+        echo ViewHelper::render("view/stranka_rezultati_iskanja_polno.php", [
+            "uporabnik" => UporabnikiDB::get($id_uporabnika),
+            "artikli"=> $artikli
+        ]); 
+         
+        
+    }
 
 
     /**

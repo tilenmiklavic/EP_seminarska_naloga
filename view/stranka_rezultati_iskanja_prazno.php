@@ -11,14 +11,19 @@
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
 	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
-	
+
 	<!-- ikona in link do css -->
 	<link rel="stylesheet" href="izgled_header.css">
 	<link rel="icon" type='image/x-icon' href="./slike/logo_ikona.ico">
-	
+	<style>
+	.checked {
+		color: orange;
+	}
+	</style>
+
 	<!-- pisave -->
 	<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
-	
+
     <title>Trgovina abc</title>
 	
   </head>
@@ -44,11 +49,11 @@
 		<div class="collapse navbar-collapse" id="navbarTogglerDemo02">
 		
 		<!-- Search form -->
-		<div class="ml-auto">
-		<a href="stranka_rezultati_iskanja">
-		<button type="button" class="btn  btn-sm btn-outline-light ">Iskanje</button>
-		</a>
-		</div>
+                <div class="ml-auto">
+                <a href="stranka_rezultati_iskanja">
+                <button type="button" class="btn  btn-sm btn-outline-light ">Iskanje</button>
+                </a>
+                </div>
 		
 		<!-- dropwdown meni -->
 		<ul class="navbar-nav ml-2">
@@ -58,7 +63,7 @@
 				    <i class="fas fa-user-circle"></i>
 				</a>
 			<div id="testMenuRazlika2" class="dropdown-menu dropdown-menu-right"  id="dropdownMeni" aria-labelledby="navbarDropdown">
-				<a class="dropdown-item disabled" href="#"><?= $stranka["ime"] ?> <?= $stranka["priimek"]?></a>
+				<a class="dropdown-item disabled" href="#"><?= $uporabnik["ime"]?> <?= $uporabnik["priimek"]?></a>
 				<div class="dropdown-divider"></div>
 				<a class="dropdown-item" href="index"><i class="fas fa-box-open"></i></i> Seznam artiklov</a>
 				<a class="dropdown-item" href="kosarica"><i class="fas fa-shopping-basket"></i> Košarica</a>
@@ -85,59 +90,18 @@
   ========================================
   -->
   <div class="card border-dark" style="height:100%" >
-		<div class="card-header bg-dark text-white" >Predračun</div>
-			<div class="card-body px-3 py-3" style="height:100%">
+		<div class="card-header bg-dark text-white" >Iščite po artiklih</div>
+			<div class="card-body px-1 py-1" style="height:100%">
 			
 				<!-- zavijem da je kartica skrollable in se ne preliva cez -->
 			<div class="scrollable" style="height:100%; overflow-y: auto;">
 			
-	
-			
-			
-			<h6><b>Naročilo (id: <?=$id_narocila?>)</b></h6><br>
-			<p>Naročil: <?= $stranka["ime"] ?> <?= $stranka["priimek"]?></p>
-			
-                        <ul>
-                <?php foreach($artikli as $artikel): ?>
-				<li>
-					<div class="container row mt-3">
-						<div class="col-sm-1">
-							<img src="<?= $artikel["naslov_slike"]?>" width="50px" alt="slika artikla">
-						</div>
-						<div class="col-sm-3 p-0">
-							
-						<input type="hidden" name="do" value="update_cart">
-						<input type="hidden" name="id" value="<?= $artikel["id_artikla"] ?>">
-						<h6><?= $artikel["ime"]?> (Cena: <?= $artikel["cena"]?>€)</h6>
-                                                <span class="badge badge-primary">Količina: <?=$artikel["kolicina"]?></span>
-						
-							
-						</div>
-						
-					</div>				
-				</li>
-                <?php endforeach; ?>
-				
-			</ul>
-                        
-                        
-                        <br>
-                  
-                        <p><b>Skupna cena: <?=$skupna_cena?>€</b></p>
-                        
-                            <form method="post">
-				<input type="hidden" name="do" value="oddaj_narocilo">
-                                <button type="submit" class="btn btn-primary mb-2"><i class="fas fa-file-invoice-dollar"></i> Oddaj naročilo</button>
-                            </form>
-			
-                        
-                        <a href="kosarica">
-			<button type="button" class="btn btn-secondary"><i class="fas fa-shopping-basket"></i> Nazaj v košarico</button>
-                        </a>
-                        
-			
-			
-			
+			<!-- Search form -->
+                        <form method="POST" class="form-inline m-2">
+			<input type="hidden" name="do" value="isci">
+                        <button class="btn btn-lg btn-outline-dark my-2 my-sm-0" type="submit"> <i class="fas fa-search"></i></button>
+                        <input class="form-control chrform-control-lg ml-sm-1 " type="text" placeholder="Išči" name="poljeIskalniNiz" aria-label="Search">
+                        </form>
 			
 			
 			</div>

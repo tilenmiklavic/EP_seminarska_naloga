@@ -106,5 +106,37 @@ class ArtikliDB extends AbstractDB {
 
     }
     
+    
+    public static function isciPoArtiklihStranka($iskalniNiz) {
+        $db = DBInit::getInstance();
+        
+        $statement1 = $db->prepare("ALTER TABLE artikli ADD FULLTEXT(ime);");
+        $statement1->execute();
+        
+        $statement = $db->prepare("SELECT * FROM artikli WHERE MATCH (ime) AGAINST (? IN BOOLEAN MODE) AND active=1;");
+        $statement->bindParam(1, $iskalniNiz);
+        
+        $statement->execute();
+        
+        return $statement->fetchAll();
+        
+    }
+    
+    public static function isciPoArtiklihProdajalec($iskalniNiz) {
+        $db = DBInit::getInstance();
+        
+        $statement1 = $db->prepare("ALTER TABLE artikli ADD FULLTEXT(ime);");
+        $statement1->execute();
+        
+        $statement = $db->prepare("SELECT * FROM artikli WHERE MATCH (ime) AGAINST (? IN BOOLEAN MODE);");
+        $statement->bindParam(1, $iskalniNiz);
+        
+        $statement->execute();
+        
+        return $statement->fetchAll();
+        
+    }
+    
+    
 }
 
