@@ -45,9 +45,7 @@
 		
 		<!-- Search form -->
 		<div class="ml-auto">
-		<a href="stranka_rezultati_iskanja">
-		<button type="button" class="btn  btn-sm btn-outline-light ">Iskanje</button>
-		</a>
+		
 		</div>
 		
 		<!-- dropwdown meni -->
