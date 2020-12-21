@@ -115,7 +115,7 @@ pdfkeywords={spletna prodajalna, PHP, SSL, MySQL}, a4paper, pagebackref=true, un
 % ##################
 \chapter{Uvod}
 
-Za seminarsko nalogo smo izdelali spletno knjigarno. Namenjena je anonimnim in registriranim kupcem, ter jim ogomoča pregled artiklov in dodajanje le teh v košarico. Ravno tako podpira prijavo in registracijo novih uporabnikov. Spletno knjigarno ravno tako uporabljajo prodajalci, ki imajo pregled nad strankami in lahko z njihovimi podatki upravljajo. Njihova naloga pa je tudi potrjevanje, zavračanje in storniranje računov. Za sistem skrbi sistemski inženir (admin), ki ima pregled nad vsemi trgovci. 
+Za seminarsko nalogo smo izdelali spletno knjigarno. Namenjena je anonimnim in registriranim kupcem, ter jim ogomoča pregled artiklov in dodajanje le teh v košarico. Ravno tako podpira prijavo in registracijo novih uporabnikov. Spletno knjigarno ravno tako uporabljajo prodajalci, ki imajo pregled nad strankami in lahko z njihovimi podatki upravljajo. Njihova naloga pa je tudi potrjevanje, zavračanje in storniranje naročil. Za sistem skrbi sistemski inženir (admin), ki ima pregled nad vsemi trgovci. 
 
 % -----------------------------------------------
 \chapter{Navedba realiziranih storitev}
@@ -124,11 +124,11 @@ Implementirali smo reigstracijo strank z uporabo filtriranja CAPTCHA. Za to smo 
 
 Implementirali smo tudi registracijo strank z uporabo potrditvenega e-maila. Za to smo uporabili priljubljeno knjižnico PHPMailer. Ob reigstraciji novega uporabnika, se le temu na vpisan e-poštni naslov pošlje sporočilo z vsemi podatki, ravno tako pa povezava do strani za potrditev e-poštnega naslova. Preden uporabnik potrdi svoj e-mail, je v bazi označen kot neaktiven, ko pa obišče povezavo za potrditev, se spremeni v "aktivnega" kupca. \newline
 
-Implementirali smo smiselno organizacijo in izvedbo uporabniškega vmesnika s pomočjo tehnologij kot so sta CSS in JavaScript. Za to smo uporabili CSS in JS knjižnico Bootstrap, ki nam v večini koristi za smiselen celoten estetski izgled strani. 
+Implementirali smo smiselno organizacijo in izvedbo uporabniškega vmesnika s pomočjo tehnologij kot so sta CSS in JavaScript. Za to smo uporabili CSS in JS knjižnico Bootstrap, ki nam v večini koristi za smiselen celoten estetski izgled strani. \newline
 
-Implementirali smo binarno iskanje... \newline
+Implementirali smo binarno iskanje po naslovih knjig. Stranke lahko iščejo le po aktiviranih artiklih, prodajalci pa tudi po deaktiviranih artiklih. \newline
 
-Predstavitev artiklov s slikami... \newline
+Implementirali smo predstavitev artiklov s slikami, na način dodajanja povezave. Ko prodajalec ustvari sliko, doda povezavo(pot) do slike (bodisi internet, bodisi do lokalne slike naložene v strežnik).  \newline
 
 Implementirali smo ocenjevanje artiklov. Do te funkcionalnosti lahko dostopajo samo prijavljeni uporabniki, ko kliknejo na artikel, da se jim pokažejo podrobnosti. Na tej strani lahko podajo svojo oceno za določen artikel, ta pa se nato shrani v podatkovno bazo. Na strani s pregledom artiklov lahko vsak vidi povprečno oceno posamičnega artikla. \newline
 
@@ -162,6 +162,8 @@ Vsa gesla se pred vpisom v podatkovno bazo šifrira in se jih nato vedno preverj
 S funkcijo htmlspecialchard() je naša spletna knjigarna zaščitena pred napadi XSS. \newline
 
 Z uporabo PDO-ja pa je zaščitena tudi pred SQL-injection napadi. \newline
+
+Z uporabo filter input so zaščitene vse POST spremenljivke.
 
 
 % -----------------------------------------------
@@ -218,10 +220,21 @@ Podpis: {\drugiavtor}, l.r.
 
 \newpage
 
-Spodaj podpisana \textit{\tretjiavtor}, vpisna številka \textit{\tretjiindeks}, sem (so)avtor seminarske naloge z naslovom \textit{\naslov}. S svojim podpisom zagotavljam, da sem izdelal ali bil soudeležen pri izdelavi naslednjih sklopov seminarske naloge:
+Spodaj podpisana \textit{\tretjiavtor}, vpisna številka \textit{\tretjiindeks}, sem (so)avtor seminarske naloge z naslovom \textit{\naslov}. S svojim podpisom zagotavljam, da sem izdelal ali bil soudeležen pri izdelavi naslednjih sklopov seminarske naloge:\newline
 \begin{itemize}
-    \item Vzorčni sklop 1
-	 \item Vzorčni sklop 2
+    \item Kreacija vseh html pogledov s pomočjo bootstrap in css
+	 \item Del index.php routerja
+	 \item Del databaseArtikli.php, del databaseNarocila.php za komunikacijo s podatkovno bazo
+	 \item Implementacija predračuna in prikaza povzetka kupljenih izdelkov
+	 \item Implementacija potrditve(oddaje) naročila
+	 \item Implementacija seznama preteklih nakupov(preteklih naročil) pri strankah
+	 \item Implementacija seznama trenutnih naročil(neobdelanih) pri prodajalcih
+	 \item Implementacija potrditve ali preklica naročil
+	 \item Implementacija ogleda zgodovine preteklih potrjenih naročil pri prodajalcih
+	 \item Implementacija storniranja prej sprejetih naročil
+	 \item Implementacija binarnega iskanja pri strankah
+	 \item Implementacija binarnega iskanja pri prodajalcih
+	 \item Zaščita POST spremenljivk v vseh kontrolerjih s filter input
 \end{itemize}
 
 Podpis: {\tretjiavtor}, l.r.
