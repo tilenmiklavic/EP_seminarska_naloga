@@ -39,7 +39,7 @@ class StrankaController {
         $id = $_SESSION["uporabnik_id"];
         $uporabnik = UporabnikiDB::get($id);
 
-        $id_artikla = $_POST["id"];
+        $id_artikla = filter_input(INPUT_POST, "id", FILTER_SANITIZE_SPECIAL_CHARS);
         $status = "kosarica";
 
         // ce narocilo ze obstaja mu samo povecamo kolicino 
@@ -71,7 +71,7 @@ class StrankaController {
         $id = $_SESSION["uporabnik_id"];
         $uporabnik = UporabnikiDB::get($id);
 
-        $id_artikla = $_POST["id"];
+        $id_artikla = filter_input(INPUT_POST, "id", FILTER_SANITIZE_SPECIAL_CHARS);
         $status = "kosarica";
 
         $narocilo = NarocilaDB::getByUporabnikId($id, $status);
@@ -90,12 +90,12 @@ class StrankaController {
         $id = $_SESSION["uporabnik_id"];
         $uporabnik = UporabnikiDB::get($id);
 
-        $id_artikla = $_POST["id"];
+        $id_artikla = filter_input(INPUT_POST, "id", FILTER_SANITIZE_SPECIAL_CHARS);
         $status = "kosarica";
 
         $narocilo = NarocilaDB::getByUporabnikId($id, $status);
         $podrobnost_narocila = PodrobnostiNarocilaDB::getByNarociloAndArtikel($narocilo["id"], $id_artikla);
-        $kolicina = $_POST["num"];
+        $kolicina = filter_input(INPUT_POST, "num", FILTER_SANITIZE_SPECIAL_CHARS);
 
         if ($kolicina < 1) {
             if (PodrobnostiNarocilaDB::delete($podrobnost_narocila["id_podrobnosti_narocila"])) {
@@ -115,7 +115,7 @@ class StrankaController {
 
     public static function dodajOceno($id) {
         $artikel = ArtikliDB::get($id);
-        $ocena = $_POST["ocena"];
+        $ocena = filter_input(INPUT_POST, "ocena", FILTER_SANITIZE_SPECIAL_CHARS);
 
         echo($ocena);
         $ime = $artikel["ime"];

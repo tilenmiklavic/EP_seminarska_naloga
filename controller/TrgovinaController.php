@@ -77,12 +77,12 @@ class TrgovinaController {
 
     public static function kreirajArtikel() {
 
-        $naslov = $_POST["naslov"];
-        $zalozba = $_POST["zalozba"];
-        $avtor = $_POST["avtor"];
-        $cena = $_POST["cena"];
+        $naslov = filter_input(INPUT_POST, "naslov", FILTER_SANITIZE_SPECIAL_CHARS);
+        $zalozba = filter_input(INPUT_POST, "zalozba", FILTER_SANITIZE_SPECIAL_CHARS);
+        $avtor = filter_input(INPUT_POST, "avtor", FILTER_SANITIZE_SPECIAL_CHARS);
+        $cena = filter_input(INPUT_POST, "cena", FILTER_SANITIZE_SPECIAL_CHARS);
         $slike = NULL;
-        $naslov_slike = $_POST["naslov_slike"];
+        $naslov_slike = filter_input(INPUT_POST, "naslov_slike", FILTER_SANITIZE_SPECIAL_CHARS);
         $active = 1;
         $ocena = 5;
         $stevilo_ocen = 0;
@@ -107,13 +107,13 @@ class TrgovinaController {
         $data = filter_input_array(INPUT_POST, self::getRules());
         $artikel = ArtikliDB::get($id);
 
-        $ime = $_POST["ime"];
-        $avtor = $_POST["avtor"];
-        $zalozba = $_POST["zalozba"];
-        $cena = $_POST["cena"];
+        $ime = filter_input(INPUT_POST, "ime", FILTER_SANITIZE_SPECIAL_CHARS);
+        $avtor = filter_input(INPUT_POST, "avtor", FILTER_SANITIZE_SPECIAL_CHARS);
+        $zalozba = filter_input(INPUT_POST, "zalozba", FILTER_SANITIZE_SPECIAL_CHARS);
+        $cena = filter_input(INPUT_POST, "cena", FILTER_SANITIZE_SPECIAL_CHARS);
         $aktiven = 0;
         $slike = NULL;
-        $naslov_slike = $_POST["naslov_slike"];
+        $naslov_slike = filter_input(INPUT_POST, "naslov_slike", FILTER_SANITIZE_SPECIAL_CHARS);
 
         $ocena = $artikel["ocena"];
         $stevilo_ocen = $artikel["stevilo_ocen"];

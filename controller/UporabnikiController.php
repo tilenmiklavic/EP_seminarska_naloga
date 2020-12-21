@@ -31,8 +31,8 @@ class UporabnikiController {
     }
 
     public static function prijaviUporabnika() {
-        $email = $_POST["email"];
-        $geslo = $_POST["password"];
+        $email = filter_input(INPUT_POST, "email", FILTER_SANITIZE_SPECIAL_CHARS);
+        $geslo = filter_input(INPUT_POST, "password", FILTER_SANITIZE_SPECIAL_CHARS);
 
         $uporabnik = UporabnikiDB::prijava($email, $geslo);
 
@@ -59,16 +59,16 @@ class UporabnikiController {
     }
 
     public static function kreirajUporabnika() {
-        $ime = $_POST["ime"];
-        $priimek = $_POST["priimek"];
-        $email = $_POST["email"];
-        $geslo = $_POST["geslo"];
+        $ime = filter_input(INPUT_POST, "ime", FILTER_SANITIZE_SPECIAL_CHARS);
+        $priimek = filter_input(INPUT_POST, "priimek", FILTER_SANITIZE_SPECIAL_CHARS);
+        $email = filter_input(INPUT_POST, "email", FILTER_SANITIZE_SPECIAL_CHARS);
+        $geslo = filter_input(INPUT_POST, "geslo", FILTER_SANITIZE_SPECIAL_CHARS);
         $tip = "stranka";
         $status = "inactive";
-        $ulica = $_POST["ulica"];
-        $hisna_stevilka = $_POST["hisna_stevilka"];
-        $posta = $_POST["posta"] | "Testna posta";
-        $postna_stevilka = $_POST["postna_stevilka"];
+        $ulica = filter_input(INPUT_POST, "ulica", FILTER_SANITIZE_SPECIAL_CHARS);
+        $hisna_stevilka = filter_input(INPUT_POST, "hisna_stevilka", FILTER_SANITIZE_SPECIAL_CHARS);
+        $posta = filter_input(INPUT_POST, "posta", FILTER_SANITIZE_SPECIAL_CHARS) | "Testna posta";
+        $postna_stevilka = filter_input(INPUT_POST, "postna_stevilka", FILTER_SANITIZE_SPECIAL_CHARS);
 
         $captcha;
         if(isset($_POST['g-recaptcha-response'])){
@@ -181,20 +181,20 @@ class UporabnikiController {
     }
 
     public static function posodobiUporabnika() {
-        $id = $_POST["id"];
+        $id = filter_input(INPUT_POST, "id", FILTER_SANITIZE_SPECIAL_CHARS);
         $uporabnik = UporabnikiDB::get($id);
 
         
-        $ime = $_POST["ime"];
-        $priimek = $_POST["priimek"];
-        $email = $_POST["email"];
-        $geslo = $_POST["geslo"];
+        $ime = filter_input(INPUT_POST, "ime", FILTER_SANITIZE_SPECIAL_CHARS);
+        $priimek = filter_input(INPUT_POST, "priimek", FILTER_SANITIZE_SPECIAL_CHARS);
+        $email = filter_input(INPUT_POST, "email", FILTER_SANITIZE_SPECIAL_CHARS);
+        $geslo = filter_input(INPUT_POST, "geslo", FILTER_SANITIZE_SPECIAL_CHARS);
         $tip = $uporabnik["tip"];
         $status = "active";
-        $ulica = $_POST["ulica"] | $uporabnik["ulica"];
-        $hisna_stevilka = $_POST["hisna_stevilka"] | $uporabnik["hisna_stevilka"];
-        $posta = $_POST["posta"] | $uporabnik["posta"];
-        $postna_stevilka = $_POST["postna_stevilka"] | $uporabnik["postna_stevilka"];
+        $ulica = filter_input(INPUT_POST, "ulica", FILTER_SANITIZE_SPECIAL_CHARS)| $uporabnik["ulica"];
+        $hisna_stevilka = filter_input(INPUT_POST, "hisna_stevilka", FILTER_SANITIZE_SPECIAL_CHARS) | $uporabnik["hisna_stevilka"];
+        $posta = filter_input(INPUT_POST, "posta", FILTER_SANITIZE_SPECIAL_CHARS) | $uporabnik["posta"];
+        $postna_stevilka = filter_input(INPUT_POST, "postna_stevilka", FILTER_SANITIZE_SPECIAL_CHARS) | $uporabnik["postna_stevilka"];
 
         if (!isset($_POST["aktiven"])) {
             $status = "inactive";
@@ -208,11 +208,11 @@ class UporabnikiController {
     }
 
     public static function posodobiProdajalca() {
-        $id = $_POST["id"];
-        $email = $_POST["email"];
-        $geslo = $_POST["geslo"];
-        $ime = $_POST["ime"];
-        $priimek = $_POST["priimek"];
+        $id = filter_input(INPUT_POST, "id", FILTER_SANITIZE_SPECIAL_CHARS);
+        $email = filter_input(INPUT_POST, "email", FILTER_SANITIZE_SPECIAL_CHARS);
+        $geslo = filter_input(INPUT_POST, "geslo", FILTER_SANITIZE_SPECIAL_CHARS);
+        $ime = filter_input(INPUT_POST, "ime", FILTER_SANITIZE_SPECIAL_CHARS);
+        $priimek = filter_input(INPUT_POST, "priimek", FILTER_SANITIZE_SPECIAL_CHARS);
         $status = "active";
 
         $ulica = NULL;
@@ -234,10 +234,10 @@ class UporabnikiController {
     }
 
     public static function dodajProdajalca() {
-        $email = $_POST["email"];
-        $ime = $_POST["ime"];
-        $priimek = $_POST["priimek"];
-        $geslo = $_POST["geslo"];
+        $email = filter_input(INPUT_POST, "email", FILTER_SANITIZE_SPECIAL_CHARS);
+        $ime = filter_input(INPUT_POST, "ime", FILTER_SANITIZE_SPECIAL_CHARS);
+        $priimek = filter_input(INPUT_POST, "priimek", FILTER_SANITIZE_SPECIAL_CHARS);
+        $geslo = filter_input(INPUT_POST, "geslo", FILTER_SANITIZE_SPECIAL_CHARS);
 
         $tip = "prodajalec";
         $status = "active";
@@ -298,14 +298,14 @@ class UporabnikiController {
 
         if ($tip == "admin") {
 
-            $geslo = $_POST["geslo"];
+            $geslo = filter_input(INPUT_POST, "geslo", FILTER_SANITIZE_SPECIAL_CHARS);
 
         } else {
 
-            $ime = $_POST["ime"];
-            $priimek = $_POST["priimek"];
-            $email = $_POST["email"];
-            $geslo = $_POST["geslo"];
+            $ime = filter_input(INPUT_POST, "ime", FILTER_SANITIZE_SPECIAL_CHARS);
+            $priimek = filter_input(INPUT_POST, "priimek", FILTER_SANITIZE_SPECIAL_CHARS);
+            $email = filter_input(INPUT_POST, "email", FILTER_SANITIZE_SPECIAL_CHARS);
+            $geslo = filter_input(INPUT_POST, "geslo", FILTER_SANITIZE_SPECIAL_CHARS);
 
         }
 
