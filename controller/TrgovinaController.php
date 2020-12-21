@@ -69,7 +69,7 @@ class TrgovinaController {
         } else {
             
             echo ViewHelper::render("view/anonimni_seznam_artiklov.php", [
-                "artikli" => ArtikliDB::getAll()
+                "artikli" => ArtikliDB::getAllChecked()
             ]);
 
         }
