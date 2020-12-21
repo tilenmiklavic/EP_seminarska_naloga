@@ -365,14 +365,14 @@ class UporabnikiController {
     }
     
     public static function potrdiNarocilo() {
-        $id_narocila = $_POST["id_t_narocila"];
+         $id_narocila = filter_input(INPUT_POST, "id_t_narocila", FILTER_SANITIZE_SPECIAL_CHARS);
         
         NarocilaDB::edit2($id_narocila, "potrjeno");
         echo ViewHelper::redirect(BASE_URL . "prodajalec_trenutna_narocila");
     }
 
     public static function prekliciNarocilo() {
-        $id_narocila = $_POST["id_t_narocila"];
+         $id_narocila = filter_input(INPUT_POST, "id_t_narocila", FILTER_SANITIZE_SPECIAL_CHARS);
         
         NarocilaDB::edit2($id_narocila, "preklicano");
         echo ViewHelper::redirect(BASE_URL . "prodajalec_trenutna_narocila");
@@ -419,7 +419,8 @@ class UporabnikiController {
     }
     
     public static function stornirajNarocilo() {
-        $id_narocila = $_POST["id_t_narocila"];
+        $id_narocila = filter_input(INPUT_POST, "id_t_narocila", FILTER_SANITIZE_SPECIAL_CHARS);
+        
         
         NarocilaDB::edit2($id_narocila, "stornirano");
         echo ViewHelper::redirect(BASE_URL . "prodajalec_zgodovina_narocil");
@@ -438,8 +439,8 @@ class UporabnikiController {
     public static function rezultatiIskanjaProdajalecPolno() {
         $id_uporabnika = $_SESSION["uporabnik_id"];
         //var_dump($id_uporabnika);
-        
-        $niz = $_POST["poljeIskalniNiz"];
+        $niz = filter_input(INPUT_POST, "poljeIskalniNiz", FILTER_SANITIZE_SPECIAL_CHARS);
+        //$niz = $_POST["poljeIskalniNiz"];
         //var_dump($niz);
         
         $artikli = ArtikliDB::isciPoArtiklihProdajalec($niz);

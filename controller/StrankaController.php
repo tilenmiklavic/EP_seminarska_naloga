@@ -252,7 +252,7 @@ class StrankaController {
         $id_uporabnika = $_SESSION["uporabnik_id"];
         //var_dump($id_uporabnika);
         
-        $niz = $_POST["poljeIskalniNiz"];
+        $niz = filter_input(INPUT_POST, "poljeIskalniNiz", FILTER_SANITIZE_SPECIAL_CHARS);
         //var_dump($niz);
         
         $artikli = ArtikliDB::isciPoArtiklihStranka($niz);
