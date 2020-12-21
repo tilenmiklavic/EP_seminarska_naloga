@@ -32,7 +32,7 @@
 	<div class="container-lg px-3" >
 		
 		<!-- navbar logo -->
-		<a class="navbar-brand" href="#"> 
+		<a class="navbar-brand" href="../index"> 
 			<i class="fas fa-store"></i> <b><i>Trgovina abc</i></b>
 		</a>
 		
@@ -45,9 +45,7 @@
 		
 		<!-- Search form -->
 		<div class="ml-auto">
-		<a href="stranka_rezultati_iskanja">
-		<button type="button" class="btn  btn-sm btn-outline-light ">Iskanje</button>
-		</a>
+		
 		</div>
 		
 		<!-- dropwdown meni -->
@@ -60,9 +58,9 @@
 			<div id="testMenuRazlika2" class="dropdown-menu dropdown-menu-right"  id="dropdownMeni" aria-labelledby="navbarDropdown">
 				<a class="dropdown-item disabled" href="#">Stran uporabljate kot gost</a>
 				<div class="dropdown-divider"></div>
-				<a class="dropdown-item" href="#"><i class="fas fa-box-open"></i></i> Seznam artiklov</a>
-				<a class="dropdown-item" href="#"><i class="fas fa-sign-in-alt"></i> Prijava</a>
-				<a class="dropdown-item" href="#"><i class="fas fa-user-plus"></i> Registracija</a>
+				<a class="dropdown-item" href="../index"><i class="fas fa-box-open"></i></i> Seznam artiklov</a>
+				<a class="dropdown-item" href="../prijava"><i class="fas fa-sign-in-alt"></i> Prijava</a>
+				<a class="dropdown-item" href="../registracija"><i class="fas fa-user-plus"></i> Registracija</a>
 				
 			</div>
 			</li>
@@ -96,7 +94,7 @@
 			<p>Avtor: <?= $artikel["avtor"]?></p>
 			<p>Cena: <?= $artikel["cena"]?>€</p>
 			<br>
-			<button type="button" class="btn btn-primary"><i class="fas fa-plus"></i> Dodaj v košarico</button>
+			
 
 			</div>
 			
