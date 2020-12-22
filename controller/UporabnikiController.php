@@ -59,6 +59,13 @@ class UporabnikiController {
     }
 
     public static function kreirajUporabnika() {
+
+        $prodajalec = NULL;
+        if (isset($_SESSION["uporabnik_id"])) {
+            $prodajalec = UporabnikiDB::get($_SESSION["uporabnik_id"]);
+        }
+
+
         $ime = filter_input(INPUT_POST, "ime", FILTER_SANITIZE_SPECIAL_CHARS);
         $priimek = filter_input(INPUT_POST, "priimek", FILTER_SANITIZE_SPECIAL_CHARS);
         $email = filter_input(INPUT_POST, "email", FILTER_SANITIZE_SPECIAL_CHARS);
@@ -67,30 +74,34 @@ class UporabnikiController {
         $status = "inactive";
         $ulica = filter_input(INPUT_POST, "ulica", FILTER_SANITIZE_SPECIAL_CHARS);
         $hisna_stevilka = filter_input(INPUT_POST, "hisna_stevilka", FILTER_SANITIZE_SPECIAL_CHARS);
-        $posta = filter_input(INPUT_POST, "posta", FILTER_SANITIZE_SPECIAL_CHARS) | "Testna posta";
+        $posta = filter_input(INPUT_POST, "posta", FILTER_SANITIZE_SPECIAL_CHARS);
         $postna_stevilka = filter_input(INPUT_POST, "postna_stevilka", FILTER_SANITIZE_SPECIAL_CHARS);
 
         $captcha;
         if(isset($_POST['g-recaptcha-response'])){
             $captcha=$_POST['g-recaptcha-response'];
         }
-        if(!$captcha){
+        if(!isset($captcha)){
             echo '<h2>Please check the the captcha form.</h2>';
         }
-        $secretKey = "6LdzPA0aAAAAAJmLuY8PfosAfXXlNZK0qGVevnHp";
-        $ip = $_SERVER['REMOTE_ADDR'];
-        // post request to server
-        $url = 'https://www.google.com/recaptcha/api/siteverify?secret=' . urlencode($secretKey) .  '&response=' . urlencode($captcha);
-        $response = file_get_contents($url);
-        $responseKeys = json_decode($response,true);
-        // should return JSON with success as true
-        if($responseKeys["success"]) {
-                echo '<h2>Captcha uspesno prijela, lahko nadaljujes.</h2>';
+
+        if ($prodajalec && $prodajalec["tip"] == "prodajalec") {
+            echo "Prodajalec kreira novo stranko";
         } else {
+            $secretKey = "6LdzPA0aAAAAAJmLuY8PfosAfXXlNZK0qGVevnHp";
+            $ip = $_SERVER['REMOTE_ADDR'];
+            // post request to server
+            $url = 'https://www.google.com/recaptcha/api/siteverify?secret=' . urlencode($secretKey) .  '&response=' . urlencode($captcha);
+            $response = file_get_contents($url);
+            $responseKeys = json_decode($response,true);
+            // should return JSON with success as true
+            if($responseKeys["success"]) {
+                    echo '<h2>Captcha uspesno prijela, lahko nadaljujes.</h2>';
+            } else {
                 echo '<h2>Captcha ni prijela, verjetno si spammer</h2>';
                 exit;
+            }
         }
-
 
 
         $id = UporabnikiDB::insert($ime, $priimek, $email, $geslo, $tip, $status, $ulica, $hisna_stevilka, $posta, $postna_stevilka);
@@ -104,8 +115,8 @@ class UporabnikiController {
                 UporabnikiController::sendEmail($email, $geslo, $ime, $priimek, $id);
                 
             } else {
-                UporabnikiController::sendEmail($email, $geslo, $ime, $priimek, $id);
-                //echo ViewHelper::redirect(BASE_URL . "stranke");
+                //UporabnikiController::sendEmail($email, $geslo, $ime, $priimek, $id);
+                echo ViewHelper::redirect(BASE_URL . "stranke");
             }
             
         }  else {
