@@ -62,6 +62,7 @@ class ArtikelDetailActivity : AppCompatActivity() {
         })
     }
 
+
     private class OnLoadCallbacks(val activity: ArtikelDetailActivity) : Callback<Artikel> {
         private val tag = this::class.java.canonicalName
 

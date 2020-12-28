@@ -28,6 +28,13 @@ class TrgovinaRESTController {
 
     public static function add() {
         $data = filter_input_array(INPUT_POST, TrgovinaController::getRules());
+        $_PUT = [];
+        parse_str(file_get_contents("php://input"), $_PUT);
+
+        $temp = file_get_contents("php://input");
+        $tmp = json_decode($temp);
+
+        echo($tmp[0]);
 
         if (TrgovinaController::checkValues($data)) {
             $id = ArtikliDB::insert($data);
@@ -44,6 +51,9 @@ class TrgovinaRESTController {
         parse_str(file_get_contents("php://input"), $_PUT);
         $data = filter_var_array($_PUT, TrgovinaController::getRules());
 
+        if ($_PUT.cena == 100) {
+            echo(ViewHelper::renderJSON($_PUT, 200));   
+        }
         if (TrgovinaController::checkValues($data)) {
             $data["id"] = $id;
             ArtikliDB::update($data);
@@ -59,7 +69,7 @@ class TrgovinaRESTController {
         // https://www.restapitutorial.com/httpstatuscodes.html
              
         try {
-            echo ViewHelper::renderJSON(ArtikliDB::delete(["id" => $id]), 204);
+            echo ViewHelper::renderJSON(ArtikliDB::delete($id), 204);
         } catch (InvalidArgumentException $e) {
             echo ViewHelper::renderJSON($e->getMessage(), 404);
         }

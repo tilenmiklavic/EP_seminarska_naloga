@@ -1,9 +1,11 @@
 package ep.rest
 
+import com.google.gson.GsonBuilder
 import retrofit2.Call
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import retrofit2.http.*
+
 
 object ArtikelService {
 
@@ -11,9 +13,9 @@ object ArtikelService {
 
         companion object {
             // AVD emulator
-            // const val URL = "http://10.0.2.2:8080/netbeans/mvc-rest/api/"
+            //const val URL = "http://192.168.1.76/netbeans/mvc-rest/api/"
             // Genymotion
-            const val URL = "http://192.168.1.76/netbeans/EP_seminarska_naloga/api/"
+            const val URL = "http://192.168.2.102/netbeans/EP_seminarska_naloga/api/"
         }
 
         @GET("artikli")
@@ -38,6 +40,11 @@ object ArtikelService {
         @DELETE("artikli/{id}")
         fun delete(@Path("id") id: Int): Call<Void>
     }
+
+    var gson = GsonBuilder()
+            .setLenient()
+            .create()
+
 
     val instance: RestApi by lazy {
         val retrofit = Retrofit.Builder()

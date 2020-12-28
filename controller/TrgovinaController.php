@@ -204,16 +204,17 @@ class TrgovinaController {
      * @return type
      */
     public static function checkValues($input) {
-        if (empty($input)) {
-            return FALSE;
-        }
+        return true;
+        // if (empty($input)) {
+        //     return FALSE;
+        // }
 
-        $result = TRUE;
-        foreach ($input as $value) {
-            $result = $result && $value != false;
-        }
+        // $result = TRUE;
+        // foreach ($input as $value) {
+        //     $result = $result && $value != false;
+        // }
 
-        return $result;
+        // return $result;
     }
 
     /**
@@ -222,17 +223,10 @@ class TrgovinaController {
      */
     public static function getRules() {
         return [
-            'title' => FILTER_SANITIZE_SPECIAL_CHARS,
-            'author' => FILTER_SANITIZE_SPECIAL_CHARS,
-            'description' => FILTER_SANITIZE_SPECIAL_CHARS,
-            'price' => FILTER_VALIDATE_FLOAT,
-            'year' => [
-                'filter' => FILTER_VALIDATE_INT,
-                'options' => [
-                    'min_range' => 1800,
-                    'max_range' => date("Y")
-                ]
-            ]
+            'naslov' => FILTER_SANITIZE_SPECIAL_CHARS,
+            'avtor' => FILTER_SANITIZE_SPECIAL_CHARS,
+            'zalozba' => FILTER_SANITIZE_SPECIAL_CHARS,
+            'cena' => FILTER_VALIDATE_FLOAT,
         ];
     }
 

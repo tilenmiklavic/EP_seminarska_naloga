@@ -26,7 +26,8 @@ class ArtikelAdapter(context: Context) : ArrayAdapter<`Artikel`>(context, 0, Arr
 
         tvTitle.text = artikel?.ime
         tvAuthor.text = artikel?.avtor
-        tvPrice.text = String.format(Locale.ENGLISH, "%.2f EUR", artikel?.cena)
+//        tvPrice.text = String.format(Locale.ENGLISH, "%.2f EUR", artikel?.cena)
+        tvPrice.text = artikel?.cena.toString()
 
         return view
     }
